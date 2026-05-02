@@ -3945,36 +3945,69 @@ function renderEvidenceMedia(prefix, key) {
   var firstBox = document.getElementById(prefix + "EvidenceMedia1");
   if (!firstBox || !firstBox.parentElement || !mediaInfo) return;
 
+  var cfg = evidenceAssetInfo[key];
   var column = firstBox.parentElement;
-  column.innerHTML = "";
+
+  // Limpia completamente la columna para evitar que queden imágenes de la evidencia anterior.
+  column.replaceChildren();
 
   for (var i = 1; i <= mediaInfo.images; i++) {
     var box = document.createElement("div");
     box.className = "evidence-media-box has-media";
-    var imgPath = mediaInfo.base + "/img/imagen-" + i + ".jpg";
-    var imgSrc = imgPath + "?v=" + Date.now();
 
-    box.innerHTML =
-      '<div class="evidence-note" style="padding:1rem;">Cargando imagen...</div>' +
-      '<img src="' + imgSrc + '" alt="Imagen ' + i + ' de la evidencia" ' +
-      'onload="if(this.previousElementSibling){this.previousElementSibling.remove();}" ' +
-      'onerror="this.closest(\'.evidence-media-box\').className=\'evidence-media-box missing\'; this.closest(\'.evidence-media-box\').innerHTML=\'Subí la imagen en:<br><strong>' + imgPath + '</strong>\';">';
+    var loading = document.createElement("div");
+    loading.className = "evidence-note";
+    loading.style.padding = "1rem";
+    loading.textContent = "Cargando imagen...";
+    box.appendChild(loading);
+
+    var imgPath = mediaInfo.base + "/img/imagen-" + i + ".jpg";
+    var imgSrc = imgPath + "?reload=" + key + "-" + i + "-" + Date.now();
+
+    var img = document.createElement("img");
+    img.alt = "Imagen " + i + " de la evidencia";
+    img.src = imgSrc;
+    img.setAttribute("data-path", imgPath);
+
+    img.onload = function () {
+      var note = this.parentElement.querySelector(".evidence-note");
+      if (note) note.remove();
+    };
+
+    img.onerror = function () {
+      this.parentElement.className = "evidence-media-box missing";
+      this.parentElement.innerHTML =
+        "Subí la imagen en:<br><strong>" + this.getAttribute("data-path") + "</strong>";
+    };
+
+    box.appendChild(img);
     column.appendChild(box);
   }
-
-  var cfg = evidenceAssetInfo[key];
 
   if (!cfg || cfg.video !== false) {
     var videoBox = document.createElement("div");
     videoBox.className = "evidence-video-box";
+
     var videoPath = mediaInfo.base + "/videos/demo.mp4";
-    var videoSrc = videoPath + "?v=" + Date.now();
-    videoBox.innerHTML =
-      '<video controls preload="metadata">' +
-      '<source src="' + videoSrc + '" type="video/mp4">' +
-      'Tu navegador no puede reproducir este video.' +
-      '</video>' +
-      '<p class="evidence-note">Video esperado: <strong>' + videoPath + '</strong>. Si no vas a usar video en esta evidencia, podés dejarlo sin subir.</p>';
+    var videoSrc = videoPath + "?reload=" + key + "-" + Date.now();
+
+    var video = document.createElement("video");
+    video.controls = true;
+    video.preload = "metadata";
+
+    var source = document.createElement("source");
+    source.src = videoSrc;
+    source.type = "video/mp4";
+
+    video.appendChild(source);
+    videoBox.appendChild(video);
+
+    var note = document.createElement("p");
+    note.className = "evidence-note";
+    note.innerHTML =
+      "Video esperado: <strong>" + videoPath + "</strong>. Si no vas a usar video en esta evidencia, podés dejarlo sin subir.";
+
+    videoBox.appendChild(note);
     column.appendChild(videoBox);
   }
 }
