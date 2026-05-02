@@ -3942,13 +3942,24 @@ function buildMediaPath(key) {
 
 function renderEvidenceMedia(prefix, key) {
   var mediaInfo = buildMediaPath(key);
-  var firstBox = document.getElementById(prefix + "EvidenceMedia1");
-  if (!firstBox || !firstBox.parentElement || !mediaInfo) return;
+  if (!mediaInfo) return;
 
   var cfg = evidenceAssetInfo[key];
-  var column = firstBox.parentElement;
 
-  // Limpia completamente la columna para evitar que queden imágenes de la evidencia anterior.
+  var viewMap = {
+    "op": "view-operacion-evidencia",
+    "Mant": "view-mantenimiento-evidencia",
+    "Dis": "view-diseno-evidencia",
+    "Inn": "view-innovacion-evidencia"
+  };
+
+  var view = document.getElementById(viewMap[prefix]);
+  if (!view) return;
+
+  var column = view.querySelector(".evidence-media-column");
+  if (!column) return;
+
+  // Limpia la columna completa sin depender de opEvidenceMedia1/MantEvidenceMedia1/etc.
   column.replaceChildren();
 
   for (var i = 1; i <= mediaInfo.images; i++) {
