@@ -1,0 +1,4200 @@
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+:root {
+  --dark: #303030;
+  --blue: #2f63d9;
+  --blue-main: #1e6fa8;
+  --navy: #0f1f3d;
+  --navy2: #1a3060;
+  --cyan: #4db8e8;
+  --white: #ffffff;
+  --soft: #f2f2f2;
+  --soft2: #f4f7fb;
+  --border: #d9d9d9;
+  --border2: #dce5ef;
+  --text: #1f1f1f;
+  --text2: #1e2a38;
+  --muted: #4f4f4f;
+  --muted2: #4a5a6e;
+  --font: 'Inter', Arial, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body { 
+  font-family: var(--font); 
+  color: var(--text); 
+  background: var(--white); 
+  font-size: 15px; 
+  line-height: 1.75; 
+  margin: 0;
+}
+
+#competencias-app {
+  width: 100%;
+  background: var(--white);
+}
+
+.view {
+  display: none;
+  animation: fadeIn .22s ease-in-out;
+}
+
+.view.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero { 
+  background: var(--navy); 
+  background-image: radial-gradient(ellipse at 70% 50%, rgba(30,111,168,.18) 0%, transparent 60%); 
+  padding: 4.6rem 2rem 4rem; 
+  text-align: center; 
+  border-bottom: 3px solid var(--blue); 
+}
+
+.hero h1 { 
+  color: #fff; 
+  font-size: clamp(1.6rem, 4vw, 2.45rem); 
+  font-weight: 600; 
+  letter-spacing: .05em; 
+  text-transform: uppercase; 
+  margin-bottom: .7rem; 
+}
+
+.hero-line { 
+  width: 44px; 
+  height: 2px; 
+  background: var(--cyan); 
+  margin: 0 auto .9rem; 
+}
+
+.hero p, .hero-name { 
+  color: rgba(255,255,255,.6); 
+  font-size: .95rem; 
+  font-weight: 300; 
+  letter-spacing: .04em; 
+}
+
+.section,
+.container { 
+  max-width: 1080px; 
+  margin: 0 auto; 
+  padding: 3.5rem 2rem; 
+}
+
+.section-heading { 
+  font-size: 1.1rem; 
+  font-weight: 600; 
+  text-align: center; 
+  text-transform: uppercase; 
+  letter-spacing: .1em; 
+  padding-bottom: .75rem; 
+  border-bottom: 2px solid var(--border2); 
+  margin-bottom: 2.4rem; 
+  color: var(--text2);
+}
+
+.intro-text { 
+  font-size: .96rem; 
+  color: var(--muted2); 
+  text-align: center; 
+  line-height: 1.9; 
+  max-width: 760px; 
+  margin: 0 auto 2.8rem; 
+}
+
+.competencias-grid { 
+  display: grid; 
+  grid-template-columns: repeat(2, minmax(0, 1fr)); 
+  gap: 1.4rem; 
+}
+
+.competencia-card { 
+  background: var(--white); 
+  border: 1px solid var(--border2); 
+  border-radius: 6px; 
+  padding: 1.6rem; 
+  transition: box-shadow .2s, transform .2s; 
+  min-height: 260px; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between; 
+}
+
+.competencia-card:hover { 
+  box-shadow: 0 8px 24px rgba(0,0,0,.08); 
+  transform: translateY(-2px); 
+}
+
+.card-top { margin-bottom: 1.4rem; }
+
+.card-number { 
+  font-size: .75rem; 
+  color: var(--blue-main); 
+  font-weight: 600; 
+  letter-spacing: .12em; 
+  text-transform: uppercase; 
+  margin-bottom: .45rem; 
+}
+
+.competencia-card h3 { 
+  font-size: 1.12rem; 
+  font-weight: 600; 
+  color: var(--text2); 
+  margin-bottom: .8rem; 
+  line-height: 1.4; 
+}
+
+.competencia-card p { 
+  font-size: .9rem; 
+  color: var(--muted2); 
+  line-height: 1.75; 
+}
+
+.btn { 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  width: 100%; 
+  margin-top: 1.3rem; 
+  padding: .82rem 1.2rem; 
+  background: var(--navy2); 
+  color: #fff; 
+  font-family: var(--font); 
+  font-size: .9rem; 
+  font-weight: 500; 
+  text-align: center; 
+  text-decoration: none; 
+  border-radius: 3px; 
+  border: none;
+  letter-spacing: .02em; 
+  transition: background .2s, transform .2s; 
+  cursor: pointer;
+}
+
+.btn:hover { 
+  background: #254880; 
+  transform: translateY(-1px); 
+}
+
+.closing { 
+  max-width: 820px; 
+  margin: 3rem auto 0; 
+  padding: 1.6rem; 
+  background: var(--soft2); 
+  border: 1px solid var(--border2); 
+  border-left: 4px solid var(--blue-main); 
+  border-radius: 4px; 
+}
+
+.closing p { 
+  font-size: .93rem; 
+  color: var(--muted2); 
+  line-height: 1.85; 
+  text-align: left; 
+}
+
+.area-intro { 
+  max-width: 850px; 
+  margin: 0 auto 2.8rem; 
+}
+
+.area-intro h2 { 
+  font-size: 1.35rem; 
+  color: var(--text); 
+  margin-bottom: .8rem; 
+  font-weight: 600; 
+}
+
+.area-intro p { 
+  color: var(--muted); 
+  font-size: .96rem; 
+  line-height: 1.85; 
+}
+
+.index-box { 
+  max-width: 850px; 
+  margin: 0 auto 3.2rem; 
+  background: var(--soft); 
+  border-left: 4px solid var(--blue); 
+  padding: 1.4rem 1.6rem; 
+}
+
+.index-box h3 { 
+  font-size: 1rem; 
+  color: var(--text); 
+  margin-bottom: .9rem; 
+  font-weight: 600; 
+}
+
+.index-box ol { 
+  padding-left: 1.2rem; 
+  color: var(--muted); 
+}
+
+.index-box li { margin-bottom: .55rem; }
+
+.competency-header { 
+  background: var(--dark); 
+  color: #fff; 
+  padding: 1.5rem 2rem; 
+  margin: 3.2rem -2rem 0; 
+  border-top: 3px solid var(--blue); 
+}
+
+.competency-header h2 { 
+  max-width: 1080px; 
+  margin: 0 auto; 
+  font-size: 1.08rem; 
+  font-weight: 600; 
+  line-height: 1.65; 
+}
+
+.competency-description { 
+  padding: 1.8rem 0; 
+  max-width: 950px; 
+}
+
+.competency-description p { 
+  color: var(--text); 
+  font-size: .92rem; 
+  line-height: 1.8; 
+}
+
+.evidence-bar { 
+  background: var(--soft); 
+  margin: 0 -2rem 2rem; 
+  padding: 1.1rem 2rem; 
+}
+
+.evidence-bar h3 { 
+  max-width: 1080px; 
+  margin: 0 auto; 
+  color: var(--blue); 
+  font-size: 1rem; 
+  font-weight: 600; 
+}
+
+.evidence-grid { 
+  display: grid; 
+  grid-template-columns: repeat(2, minmax(0, 1fr)); 
+  gap: 1.3rem; 
+  margin-bottom: 2.6rem; 
+}
+
+.evidence-card { 
+  background: var(--white); 
+  border: 1px solid var(--border); 
+  border-radius: 4px; 
+  padding: 1.25rem 1.3rem; 
+  border-top: 3px solid var(--blue); 
+}
+
+.evidence-card h3 { 
+  color: var(--blue); 
+  font-size: 1.05rem; 
+  line-height: 1.35; 
+  font-weight: 600; 
+  margin-bottom: .75rem; 
+}
+
+.evidence-card p { 
+  color: var(--text); 
+  font-size: .88rem; 
+  line-height: 1.85; 
+  margin-bottom: .75rem; 
+}
+
+
+.evidence-link-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-family: var(--font);
+  cursor: pointer;
+}
+
+.evidence-doc-placeholder {
+  display: inline-block;
+  color: var(--blue);
+  font-size: .88rem;
+  font-weight: 600;
+}
+
+.evidence-link { 
+  display: inline-block; 
+  color: var(--blue); 
+  font-size: .8rem; 
+  font-weight: 500; 
+  text-decoration: underline; 
+  margin-top: .2rem; 
+}
+
+.reflection { 
+  background: var(--soft); 
+  margin: 2.5rem -2rem 0; 
+  padding: 1.7rem 2rem; 
+}
+
+.reflection-inner { 
+  max-width: 1080px; 
+  margin: 0 auto; 
+}
+
+.reflection h3 { 
+  color: var(--blue); 
+  font-size: 1rem; 
+  font-weight: 600; 
+  margin-bottom: 1rem; 
+}
+
+.reflection p { 
+  color: var(--text); 
+  font-size: .9rem; 
+  line-height: 1.9; 
+  margin-bottom: .9rem; 
+}
+
+.back-wrap { 
+  text-align: center; 
+  margin-top: 3rem; 
+}
+
+.back-btn { 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  background: var(--navy); 
+  color: #fff; 
+  text-decoration: none; 
+  padding: .85rem 1.4rem; 
+  border-radius: 3px; 
+  border: none;
+  font-family: var(--font);
+  font-size: .9rem; 
+  font-weight: 500; 
+  cursor: pointer;
+}
+
+.back-btn:hover { background: #254880; }
+
+
+/* ===== PÁGINAS INTERNAS DE EVIDENCIAS - OPERACIÓN ===== */
+.evidence-detail-layout {
+  display: grid;
+  grid-template-columns: 38% 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.evidence-media-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.evidence-media-box {
+  min-height: 210px;
+  background: var(--soft2);
+  border: 1px solid var(--border2);
+  color: var(--muted2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.2rem;
+  font-size: .86rem;
+  line-height: 1.6;
+}
+
+.evidence-media-box.small {
+  min-height: 150px;
+}
+
+.evidence-detail-content {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+.evidence-detail-content h2 {
+  color: var(--text);
+  font-size: clamp(1.55rem, 3vw, 2.15rem);
+  line-height: 1.3;
+  font-weight: 650;
+  margin-bottom: 1.2rem;
+}
+
+.evidence-detail-content h3 {
+  color: var(--blue);
+  font-size: 1rem;
+  font-weight: 650;
+  margin: 1.35rem 0 .55rem;
+}
+
+.evidence-detail-content p {
+  color: var(--text);
+  font-size: .9rem;
+  line-height: 1.9;
+  margin-bottom: .8rem;
+}
+
+.evidence-detail-content ul {
+  padding-left: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.evidence-detail-content li {
+  color: var(--text);
+  font-size: .9rem;
+  line-height: 1.75;
+  margin-bottom: .45rem;
+}
+
+.evidence-detail-kicker {
+  font-size: .78rem;
+  color: var(--blue);
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: .45rem;
+}
+
+.evidence-document-box {
+  background: var(--soft);
+  border-left: 4px solid var(--blue);
+  padding: 1rem 1.2rem;
+  margin: 1rem 0;
+}
+
+.evidence-document-box a {
+  color: var(--blue);
+  font-size: .88rem;
+  font-weight: 600;
+}
+
+.evidence-note {
+  color: var(--muted) !important;
+  font-size: .82rem !important;
+  line-height: 1.7 !important;
+  margin-top: .55rem;
+}
+
+
+/* ===== MULTIMEDIA DE EVIDENCIAS DESDE GITHUB ===== */
+.evidence-media-box.has-media {
+  min-height: auto;
+  padding: 0;
+  background: #fff;
+  overflow: hidden;
+}
+
+.evidence-media-box.has-media img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+
+.evidence-media-box.missing {
+  min-height: 145px;
+  background: var(--soft2);
+  border: 1px dashed var(--border2);
+  color: var(--muted2);
+  padding: 1.2rem;
+}
+
+.evidence-video-box {
+  background: var(--soft2);
+  border: 1px solid var(--border2);
+  padding: .8rem;
+}
+
+.evidence-video-box video {
+  width: 100%;
+  display: block;
+  background: #000;
+}
+
+.pdf-viewer {
+  width: 100%;
+  height: 620px;
+  border: 1px solid var(--border2);
+  background: #fff;
+  margin: .8rem 0 1rem;
+}
+
+.evidence-doc-placeholder {
+  display: block;
+  color: var(--text);
+  font-size: .9rem;
+  font-weight: 400;
+}
+
+.evidence-doc-placeholder a {
+  color: var(--blue);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+@media(max-width: 800px) {
+  .pdf-viewer {
+    height: 480px;
+  }
+}
+
+@media(max-width: 800px) {
+  .evidence-detail-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 800px) {
+  .section,
+  .container { 
+    padding: 3rem 1.2rem; 
+  }
+
+  .hero { padding: 4rem 1.2rem 3.5rem; }
+
+  .competency-header, 
+  .evidence-bar, 
+  .reflection { 
+    margin-left: -1.2rem; 
+    margin-right: -1.2rem; 
+  }
+
+  .competencias-grid,
+  .evidence-grid { 
+    grid-template-columns: 1fr; 
+  }
+}
+</style>
+
+<div id="competencias-app">
+  <section id="view-home" class="view">
+  <header class="hero">
+    <h1>Competencias</h1>
+    <div class="hero-line"></div>
+    <p class="hero-name">Portafolio de Competencias — Lucas Elizalde</p>
+  </header>
+
+  <section class="section">
+    <h2 class="section-heading">Áreas de competencia</h2>
+
+    <p class="intro-text">
+      En esta sección se organizan las competencias desarrolladas durante la carrera a partir
+      de proyectos, laboratorios, informes técnicos y prototipos. Cada área reúne trabajos que
+      evidencian distintas formas de aplicar conocimientos de la mecatrónica en situaciones
+      prácticas, desde la operación de sistemas hasta el diseño y validación de soluciones.
+    </p>
+
+    <div class="competencias-grid">
+
+      <div class="competencia-card">
+        <div class="card-top">
+          <p class="card-number">Área 01</p>
+          <h3>Operación de sistemas mecatrónicos</h3>
+          <p>
+            Esta competencia se relaciona con la puesta en marcha, verificación y uso de sistemas
+            que integran sensores, actuadores, circuitos, instrumentos de medición y dispositivos
+            de control. En los trabajos asociados se evidencia la capacidad de operar sistemas reales,
+            realizar pruebas y comprobar su funcionamiento.
+          </p>
+        </div>
+        <button class="btn" type="button" onclick="showView('operacion')">Ver trabajos de operación</button>
+      </div>
+
+      <div class="competencia-card">
+        <div class="card-top">
+          <p class="card-number">Área 02</p>
+          <h3>Mantenimiento de sistemas mecatrónicos</h3>
+          <p>
+            Esta competencia reúne actividades vinculadas a la inspección, montaje, desmontaje,
+            reconocimiento de componentes, interpretación de esquemas y verificación de sistemas
+            mecánicos, eléctricos y neumáticos. Los trabajos muestran una aproximación práctica al
+            mantenimiento y al diagnóstico técnico.
+          </p>
+        </div>
+        <button class="btn" type="button" onclick="showView('mantenimiento')">Ver trabajos de mantenimiento</button>
+      </div>
+
+      <div class="competencia-card">
+        <div class="card-top">
+          <p class="card-number">Área 03</p>
+          <h3>Diseño de sistemas mecatrónicos</h3>
+          <p>
+            Esta competencia se evidencia en el desarrollo de prototipos y sistemas que integran
+            diseño mecánico, electrónica, programación, comunicación, control y validación. Los
+            trabajos incluidos muestran cómo una necesidad o consigna puede transformarse en una
+            solución técnica funcional.
+          </p>
+        </div>
+        <button class="btn" type="button" onclick="showView('diseno')">Ver trabajos de diseño</button>
+      </div>
+
+      <div class="competencia-card">
+        <div class="card-top">
+          <p class="card-number">Área 04</p>
+          <h3>Innovación e investigación en sistemas mecatrónicos</h3>
+          <p>
+            Esta competencia se relaciona con la búsqueda de soluciones nuevas o mejoradas,
+            la selección de tecnologías, la fabricación de prototipos y la validación de desarrollos.
+            Los trabajos asociados muestran la integración de distintas herramientas para resolver
+            problemas o mejorar experiencias.
+          </p>
+        </div>
+        <button class="btn" type="button" onclick="showView('innovacion')">Ver trabajos de innovación</button>
+      </div>
+
+    </div>
+
+    <div class="closing">
+      <p>
+        En conjunto, estas áreas permiten mostrar un recorrido de aprendizaje donde se combinan
+        conocimientos técnicos, trabajo práctico, documentación, simulación, fabricación y pruebas.
+        La organización por competencias facilita relacionar cada evidencia con el perfil profesional
+        que se busca desarrollar dentro de la carrera.
+      </p>
+    </div>
+  </section>
+</section>
+
+  <section id="view-operacion" class="view">
+    <div class="op-page">
+
+  <header class="hero">
+    <h1>Operación de Sistemas Mecatrónicos</h1>
+    <div class="hero-line"></div>
+    <p>Portafolio de Competencias — Lucas Elizalde</p>
+  </header>
+
+  <main class="container">
+
+    <section class="area-intro">
+      <h2>Área de dominio</h2>
+      <p>
+        Esta área de dominio se relaciona con la capacidad de implementar, operar,
+        monitorear y poner en servicio sistemas mecatrónicos en contextos industriales
+        y de laboratorio. A lo largo de mi formación desarrollé esta competencia a través
+        de prácticas donde fue necesario integrar hardware y software, verificar el funcionamiento
+        de los sistemas, realizar mediciones y trabajar con criterios de operación y seguridad.
+      </p>
+    </section>
+
+    <section class="index-box">
+      <h3>Índice de competencias</h3>
+      <ol>
+        <li>Implementar software y hardware específico para el correcto desempeño de procesos.</li>
+        <li>Verificar la capacidad operacional de sistemas mecatrónicos mediante sistemas de monitoreo.</li>
+        <li>Instalar y poner en servicio sistemas mecatrónicos considerando normas de calidad, seguridad y medio ambiente.</li>
+      </ol>
+    </section>
+
+    <!-- COMPETENCIA 1 -->
+    <section>
+      <div class="competency-header">
+        <h2>1. Implementar software y hardware específico para el correcto desempeño de procesos</h2>
+      </div>
+
+      <div class="competency-description">
+        <p>
+          Esta competencia implica conectar, configurar y programar componentes de hardware y software
+          para que un sistema mecatrónico cumpla una función específica. En mi caso, se evidencia en
+          prácticas donde integré microcontroladores, sensores, actuadores, comunicación digital, interfaces
+          de usuario y sistemas físicos que debían responder ante entradas o condiciones determinadas.
+        </p>
+      </div>
+
+      <div class="evidence-bar">
+        <h3>Evidencias</h3>
+      </div>
+
+      <div class="evidence-grid">
+
+        <div class="evidence-card">
+          <h3>Proyecto Integrador II: Robot humanoide Turi</h3>
+          <p>
+            Se diseñó un robot humanoide inspirado en NAO para apoyar recorridos turísticos dentro de la universidad.
+            El sistema integró ESP32, Arduino UNO, servomotores, ESP32-CAM, audio, aplicación móvil, servidor en Python
+            y comunicación WiFi.
+          </p>
+          <p>
+            Esta evidencia muestra la implementación de hardware y software en un sistema mecatrónico completo,
+            donde diferentes subsistemas debían operar de forma coordinada.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('turi')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Proyecto Integrador I: Aromatizador automático</h3>
+          <p>
+            Se diseñó e implementó un aromatizador automático utilizando Arduino, circuito electrónico, display,
+            botones, LEDs, buzzer y un sistema de accionamiento.
+          </p>
+          <p>
+            Esta actividad permitió aplicar programación embebida y control de actuadores en un prototipo funcional,
+            desarrollado para resolver una necesidad concreta.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('aromatizador')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Comunicación SPI maestro–esclavo con ATmega328P</h3>
+          <p>
+            En esta práctica se implementó una arquitectura maestro–esclavo utilizando comunicación SPI
+            entre dos microcontroladores ATmega328P. El maestro leía sensores y enviaba tramas de control
+            al esclavo, que accionaba un LED PWM, un servomotor y un buzzer.
+          </p>
+          <p>
+            Esta actividad permitió integrar lectura de sensores, comunicación entre dispositivos y control
+            de actuadores en un sistema embebido.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('spi')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Comunicación I2C maestro–esclavo con ATmega328P</h3>
+          <p>
+            Se replicó la arquitectura de control usando I2C entre dos ATmega328P, manteniendo el sensado
+            y accionamiento del sistema, pero utilizando un bus de comunicación diferente.
+          </p>
+          <p>
+            Esta práctica permitió implementar hardware y software específico, además de comprender cómo
+            cambia la conexión y operación del sistema según el protocolo utilizado.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('i2c')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Control de animaciones en matriz RGB mediante UART</h3>
+          <p>
+            Se programó una matriz LED RGB 8x8 basada en WS2812B, permitiendo seleccionar animaciones
+            mediante comandos enviados por UART. Las animaciones se organizaron en frames y fueron ejecutadas
+            desde el microcontrolador.
+          </p>
+          <p>
+            Esta práctica evidencia la integración entre comunicación serial, visualización digital y programación
+            de sistemas embebidos.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('matriz-uart')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Control de movimiento en matriz RGB con MPU6050</h3>
+          <p>
+            Se implementó un sistema donde un LED se desplazaba dentro de una matriz RGB según la inclinación
+            medida por el sensor MPU6050. También se incorporó un botón para modificar el color del LED.
+          </p>
+          <p>
+            Esta práctica permitió combinar sensado inercial, control en tiempo real y retroalimentación visual.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('mpu')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Robot de mini fútbol con Bluetooth</h3>
+          <p>
+            Se desarrolló un robot móvil de mini fútbol con tracción diferencial, sensores de línea,
+            mecanismo frontal de golpeo y comunicación Bluetooth para control remoto.
+          </p>
+          <p>
+            Esta actividad integra movilidad, accionamiento, comunicación inalámbrica y operación de un sistema
+            físico con interacción directa.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('robot-futbol')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Cerradura RFID con RC522, LCD I2C y EEPROM</h3>
+          <p>
+            Se implementó una cerradura electrónica con lector RFID RC522, pantalla LCD I2C, LEDs de estado,
+            botones de actualización/borrado y almacenamiento persistente en EEPROM.
+          </p>
+          <p>
+            El sistema permitía registrar, validar, modificar y conservar una tarjeta autorizada, integrando control
+            de acceso, memoria y comunicación con el usuario.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('rfid')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Selector de color con fotocelda, servomotor y WS2812</h3>
+          <p>
+            Se desarrolló un sistema capaz de detectar colores mediante una fotocelda, orientar un servomotor SG90
+            hacia el color identificado y representar visualmente el resultado en una tira LED WS2812.
+          </p>
+          <p>
+            Esta práctica permitió integrar lectura analógica, calibración, control de posición y salida visual.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('selector-color')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Piano electrónico con doble buzzer</h3>
+          <p>
+            Se implementó un piano electrónico con pulsadores asociados a notas musicales, doble buzzer y selección
+            de canciones mediante comunicación UART.
+          </p>
+          <p>
+            Esta práctica permitió generar señales, trabajar con temporizadores, frecuencias y control de salida sonora
+            desde el microcontrolador.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('piano')">Link a evidencia</button>
+        </div>
+
+      </div>
+
+      <div class="reflection">
+        <div class="reflection-inner">
+          <h3>¿Cómo desarrollé y cómo aplico esta competencia en mi vida académica?</h3>
+          <p>
+            Esta competencia la desarrollé al realizar prácticas donde el software y el hardware debían funcionar
+            de forma conjunta. En varias actividades fue necesario leer sensores, procesar datos, generar señales
+            de control y accionar componentes físicos.
+          </p>
+          <p>
+            Estas experiencias me ayudaron a comprender que operar un sistema mecatrónico no consiste solo en
+            programar o conectar componentes, sino en lograr que todas las partes trabajen de manera coordinada
+            para resolver una necesidad técnica concreta.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPETENCIA 2 -->
+    <section>
+      <div class="competency-header">
+        <h2>2. Verificar la capacidad operacional de sistemas mecatrónicos mediante sistemas de monitoreo</h2>
+      </div>
+
+      <div class="competency-description">
+        <p>
+          Esta competencia se relaciona con comprobar que un sistema funciona correctamente mediante mediciones,
+          observación de señales, monitoreo de variables, análisis de datos y comparación entre el comportamiento
+          esperado y el comportamiento real.
+        </p>
+      </div>
+
+      <div class="evidence-bar">
+        <h3>Evidencias</h3>
+      </div>
+
+      <div class="evidence-grid">
+
+        <div class="evidence-card">
+          <h3>Motor trifásico con tablero de comando y medición eléctrica</h3>
+          <p>
+            Se trabajó con un motor trifásico de inducción y un tablero de comando y protección. Se verificó
+            el funcionamiento del arranque estrella-triángulo y se realizaron mediciones de corriente y potencia
+            eléctrica durante la operación.
+          </p>
+          <p>
+            La actividad permitió comprobar el desempeño del motor en condiciones reales y relacionar las mediciones
+            con el comportamiento del sistema.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('motor-trifasico')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Control térmico con LM35 y monitoreo serial</h3>
+          <p>
+            Se implementó un sistema de control de temperatura con sensor LM35, calefactor y ventilador.
+            El sistema enviaba por UART la temperatura y el estado de los actuadores.
+          </p>
+          <p>
+            Los datos podían ser graficados en Python, permitiendo observar la evolución térmica y la respuesta
+            del sistema ante distintos rangos de temperatura.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('lm35')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Control de motor DC por referencia analógica</h3>
+          <p>
+            En esta práctica se comparó una referencia analógica con la posición actual de un motor DC,
+            ajustando el sentido de giro y la señal PWM según el error detectado.
+          </p>
+          <p>
+            Mediante comunicación serial se monitoreaban valores como referencia, posición, error, PWM y dirección
+            de giro, permitiendo verificar la respuesta operacional del sistema.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('motor-dc')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Medición de señales con instrumentos de laboratorio</h3>
+          <p>
+            Se utilizaron multímetro, fuente de alimentación, osciloscopio, generador de funciones y amperímetro
+            para observar señales y medir variables eléctricas.
+          </p>
+          <p>
+            Estas actividades fueron fundamentales para verificar circuitos, detectar diferencias entre valores
+            esperados y medidos, y validar el funcionamiento de sistemas electrónicos.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('instrumentos')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Pruebas de electrónica analógica con medición y simulación</h3>
+          <p>
+            En los laboratorios de electrónica analógica se trabajó con diodos, rectificadores, Zener,
+            transistores, filtros y amplificadores operacionales, realizando mediciones y comparaciones
+            con simulaciones.
+          </p>
+          <p>
+            Estas prácticas permitieron verificar la respuesta real de los circuitos y analizar señales mediante
+            instrumentos de laboratorio.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('analogica')">Link a evidencia</button>
+        </div>
+
+      </div>
+
+      <div class="reflection">
+        <div class="reflection-inner">
+          <h3>¿Cómo desarrollé y cómo aplico esta competencia en mi vida académica?</h3>
+          <p>
+            Esta competencia la desarrollé al entender que un sistema no se valida solamente porque enciende
+            o ejecuta una acción. Es necesario medir, monitorear y comparar sus variables de funcionamiento.
+          </p>
+          <p>
+            En mi vida académica esto me ayuda a trabajar con mayor criterio técnico, prestando atención a
+            los datos obtenidos y a la interpretación de resultados antes de afirmar que un sistema funciona
+            correctamente.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPETENCIA 3 -->
+    <section>
+      <div class="competency-header">
+        <h2>3. Instalar y poner en servicio sistemas mecatrónicos considerando normas de calidad, seguridad y medio ambiente</h2>
+      </div>
+
+      <div class="competency-description">
+        <p>
+          Esta competencia se vincula con la instalación, conexión, revisión y puesta en funcionamiento
+          de sistemas de forma segura y ordenada. Incluye interpretar esquemas, respetar procedimientos,
+          comprobar conexiones y verificar el sistema antes de considerarlo operativo.
+        </p>
+      </div>
+
+      <div class="evidence-bar">
+        <h3>Evidencias</h3>
+      </div>
+
+      <div class="evidence-grid">
+
+        <div class="evidence-card">
+          <h3>Arranque estrella-triángulo de motor trifásico</h3>
+          <p>
+            Se trabajó con el arranque estrella-triángulo de un motor trifásico, verificando la actuación de
+            contactores, temporizador, protecciones y elementos de mando.
+          </p>
+          <p>
+            La actividad permitió comprender la puesta en servicio de un sistema industrial real y la importancia
+            de revisar el circuito antes de energizarlo.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('estrella-triangulo')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Tablero de comando y protección industrial</h3>
+          <p>
+            Se inspeccionó y completó parcialmente el cableado de un tablero de comando y protección,
+            diferenciando el circuito de mando en baja tensión y el circuito de potencia trifásico.
+          </p>
+          <p>
+            Esta práctica permitió trabajar con criterios de seguridad eléctrica, relevamiento de conexiones
+            y puesta en marcha controlada del sistema.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('tablero')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Circuito de arranque/parada con contactor</h3>
+          <p>
+            En esta actividad se representó y trabajó con un circuito de mando para arranque y parada de motor
+            mediante contactor, pulsadores de START/STOP y contacto de retención.
+          </p>
+          <p>
+            Esta práctica permitió comprender una lógica básica pero fundamental en sistemas eléctricos industriales.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('arranque-parada')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Arranque secuencial y apagado de motores</h3>
+          <p>
+            Se desarrolló un esquema de mando y potencia para el arranque y apagado de motores, incorporando
+            contactores, temporizadores, protecciones, emergencia y señalización.
+          </p>
+          <p>
+            Esta actividad permitió relacionar la lógica de control con la puesta en servicio de sistemas eléctricos
+            de mayor complejidad.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('arranque-secuencial')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Circuitos neumáticos con cilindros</h3>
+          <p>
+            En las prácticas de neumática se montaron circuitos con cilindros de simple y doble efecto,
+            válvulas, manómetros, reguladores y fuente de aire comprimido.
+          </p>
+          <p>
+            Estas actividades permitieron interpretar simbología neumática, conectar componentes y verificar
+            el funcionamiento del sistema.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('neumatica')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Circuito para apertura de silo de pienso</h3>
+          <p>
+            Se diseñó y analizó un circuito neumático/electroneumático para abrir un silo de pienso, utilizando
+            cilindros, válvulas, accionamientos y elementos de control.
+          </p>
+          <p>
+            La práctica permitió aplicar la lógica de mando neumático a una situación funcional concreta.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('silo')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Accionamientos eléctricos con relés y contactores</h3>
+          <p>
+            Se trabajó con relés, contactores, pulsadores, temporizadores, llave de emergencia y circuitos
+            de mando con retención.
+          </p>
+          <p>
+            Estas prácticas permitieron comprender la lógica de arranque, parada, enclavamiento y seguridad
+            en sistemas eléctricos de control.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showOpEvidence('accionamientos')">Link a evidencia</button>
+        </div>
+
+      </div>
+
+      <div class="reflection">
+        <div class="reflection-inner">
+          <h3>¿Cómo desarrollé y cómo aplico esta competencia en mi vida académica?</h3>
+          <p>
+            Desarrollé esta competencia en actividades donde era necesario conectar, revisar y poner en marcha
+            sistemas eléctricos, neumáticos y embebidos. Estas prácticas me ayudaron a valorar el orden en el
+            cableado, la interpretación de esquemas, la revisión previa y la seguridad antes de energizar un sistema.
+          </p>
+          <p>
+            En mi formación académica, esta competencia me permite enfrentar los trabajos prácticos con mayor
+            responsabilidad, entendiendo que la puesta en servicio no solo implica que el sistema funcione, sino
+            que también debe hacerlo de forma segura, confiable y bien documentada.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="back-wrap">
+      <button class="back-btn" type="button" onclick="showView('home')">← Volver a Competencias</button>
+    </div>
+
+  </main>
+</div>
+  </section>
+
+
+  <section id="view-operacion-evidencia" class="view">
+    <div class="op-page">
+
+      <header class="hero">
+        <h1 id="opEvidenceHero">Evidencia</h1>
+        <div class="hero-line"></div>
+        <p>Operación de Sistemas Mecatrónicos — Lucas Elizalde</p>
+      </header>
+
+      <main class="container">
+
+        <div class="back-wrap" style="text-align:left; margin-top:0; margin-bottom:2rem;">
+          <button class="back-btn" type="button" onclick="showView('operacion')">← Volver a Operación</button>
+        </div>
+
+        <div class="evidence-detail-layout">
+
+          <div class="evidence-media-column">
+            <div class="evidence-media-box" id="opEvidenceMedia1">
+              Espacio para imagen principal
+            </div>
+            <div class="evidence-media-box small" id="opEvidenceMedia2">
+              Espacio para segunda imagen o captura
+            </div>
+            <div class="evidence-media-box small" id="opEvidenceMedia3">
+              Espacio para video, captura o enlace visual
+            </div>
+          </div>
+
+          <article class="evidence-detail-content">
+            <p class="evidence-detail-kicker" id="opEvidenceKicker">Evidencia desarrollada</p>
+            <h2 id="opEvidenceTitle">Título de la evidencia</h2>
+
+            <h3>Descripción</h3>
+            <p id="opEvidenceDescription"></p>
+
+            <h3>Qué hice en esta actividad</h3>
+            <ul id="opEvidenceTasks"></ul>
+
+            <h3>Documento que respalda la evidencia</h3>
+            <div class="evidence-document-box">
+              <div id="opEvidenceDocument" class="evidence-doc-placeholder">Agregar enlace al informe, carpeta de Drive, video o repositorio</div>
+              <p class="evidence-note">
+                Reemplazá este enlace por la evidencia real correspondiente: informe PDF, carpeta de Drive,
+                video demostrativo, repositorio GitHub o anexo.
+              </p>
+            </div>
+
+            <h3>Competencias desarrolladas</h3>
+            <ul id="opEvidenceCompetencies"></ul>
+
+            <h3>Reflexión breve</h3>
+            <p id="opEvidenceReflection"></p>
+          </article>
+
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <section id="view-mantenimiento" class="view active">
+    <div class="mant-page">
+
+  <header class="hero">
+    <h1>Mantenimiento de Sistemas Mecatrónicos</h1>
+    <div class="hero-line"></div>
+    <p>Portafolio de Competencias — Lucas Elizalde</p>
+  </header>
+
+  <main class="container">
+
+    <section class="area-intro">
+      <h2>Área de dominio</h2>
+      <p>
+        Esta área de dominio se relaciona con la ejecución de tareas de mantenimiento
+        preventivo y correctivo en sistemas mecatrónicos, siguiendo procedimientos técnicos,
+        instrucciones de trabajo y criterios de seguridad. En mi formación, esta competencia
+        se desarrolló mediante prácticas de desmontaje y montaje mecánico, inspección de
+        tableros eléctricos, accionamientos, circuitos neumáticos y verificación con instrumentos
+        de medición.
+      </p>
+    </section>
+
+    <section class="index-box">
+      <h3>Índice de competencias</h3>
+      <ol>
+        <li>Ejecutar planes de mantenimiento preventivos y correctivos diseñados por especialistas.</li>
+        <li>Aplicar procedimientos y seguir instrucciones relacionadas con metodologías de mantenimiento basado en la confiabilidad indicadas por un departamento, responsable o técnico.</li>
+      </ol>
+    </section>
+
+    <!-- COMPETENCIA 1 -->
+    <section>
+      <div class="competency-header">
+        <h2>1. Ejecutar planes de mantenimiento preventivos y correctivos diseñados por especialistas</h2>
+      </div>
+
+      <div class="competency-description">
+        <p>
+          Esta competencia implica realizar tareas prácticas de mantenimiento siguiendo una
+          planificación o consigna técnica. Incluye inspeccionar, desmontar, montar, corregir,
+          ajustar y verificar sistemas mecánicos, eléctricos o neumáticos, respetando el orden
+          de trabajo y las condiciones de seguridad necesarias.
+        </p>
+      </div>
+
+      <div class="evidence-bar">
+        <h3>Evidencias</h3>
+      </div>
+
+      <div class="evidence-grid">
+
+        <div class="evidence-card">
+          <h3>Montaje y desmontaje del eje de transferencia y caja de cambios</h3>
+          <p>
+            En esta práctica se realizó el desmontaje y posterior montaje de un sistema mecánico,
+            aplicando una secuencia de trabajo ordenada e identificando componentes como eje,
+            engranajes, rodamientos, chaveta, anillos Seeger, tapas y tuerca de fijación.
+          </p>
+          <p>
+            La actividad permitió ejecutar una intervención mecánica completa, utilizando herramientas
+            adecuadas y verificando el funcionamiento final mediante el giro suave del eje.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showMantEvidence('mant-eje-caja')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Inspección y corrección de cableado en tablero industrial</h3>
+          <p>
+            En la práctica de Aplicaciones Electroindustriales se inspeccionó un tablero de comando
+            y protección para un motor trifásico, identificando componentes, conexiones, protecciones
+            y elementos de maniobra.
+          </p>
+          <p>
+            La actividad incluyó completar parte del cableado, revisar el circuito de mando y potencia,
+            y dejar el sistema en condiciones de operación para su puesta en marcha.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showMantEvidence('mant-tablero')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Accionamientos eléctricos con relés y contactores</h3>
+          <p>
+            Se trabajó con contactores, relés, pulsadores, temporizadores, llave de emergencia
+            y circuitos de mando con retención.
+          </p>
+          <p>
+            Estas prácticas se relacionan con mantenimiento porque permiten reconocer elementos
+            de mando, verificar su funcionamiento y comprender cómo intervenir sistemas eléctricos
+            de control de forma segura.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showMantEvidence('mant-accionamientos')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Montaje y prueba de circuitos neumáticos</h3>
+          <p>
+            En las prácticas de neumática se montaron circuitos con cilindros de simple y doble
+            efecto, válvulas 3/2 y 5/2, reguladores, manómetros y fuente de aire comprimido.
+          </p>
+          <p>
+            Estas actividades permitieron ejecutar procedimientos de conexión, prueba y verificación
+            del funcionamiento de sistemas neumáticos.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showMantEvidence('mant-neumatica')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Arranque secuencial y apagado de motores</h3>
+          <p>
+            Se elaboró y analizó un circuito de mando y potencia para el arranque y apagado
+            de motores, incorporando contactores, temporizadores, protecciones, emergencia
+            y señalización.
+          </p>
+          <p>
+            Esta actividad permitió comprender cómo se organizan las maniobras eléctricas y cómo
+            se puede intervenir un sistema de control manteniendo criterios de seguridad.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showMantEvidence('mant-arranque-secuencial')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Circuito de arranque/parada con contactor</h3>
+          <p>
+            En esta actividad se trabajó con un circuito básico de mando para arranque y parada
+            de motor mediante contactor, pulsadores de START/STOP y contacto de retención.
+          </p>
+          <p>
+            La práctica permitió ejecutar y comprender una lógica fundamental utilizada en tableros
+            de control industrial y tareas de mantenimiento eléctrico.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showMantEvidence('mant-arranque-parada')">Link a evidencia</button>
+        </div>
+
+      </div>
+
+      <div class="reflection">
+        <div class="reflection-inner">
+          <h3>¿Cómo desarrollé y cómo aplico esta competencia en mi vida académica?</h3>
+          <p>
+            Desarrollé esta competencia principalmente en actividades donde fue necesario intervenir
+            sistemas reales o representativos de un entorno industrial. En el montaje y desmontaje
+            mecánico aprendí la importancia de seguir una secuencia, identificar cada pieza y verificar
+            el funcionamiento final antes de dar la tarea por terminada.
+          </p>
+          <p>
+            En los trabajos eléctricos y neumáticos comprendí que el mantenimiento requiere orden,
+            interpretación de esquemas, revisión de conexiones y cuidado en la puesta en marcha.
+            Esto me ayuda a trabajar con mayor responsabilidad en laboratorios y proyectos prácticos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPETENCIA 2 -->
+    <section>
+      <div class="competency-header">
+        <h2>2. Aplicar procedimientos y seguir instrucciones relacionadas con metodologías de mantenimiento basado en la confiabilidad</h2>
+      </div>
+
+      <div class="competency-description">
+        <p>
+          Esta competencia implica seguir procedimientos indicados por docentes, responsables
+          técnicos o consignas de trabajo, identificando componentes críticos y verificando el estado
+          del sistema. Se relaciona con la confiabilidad porque busca reducir fallas, evitar riesgos
+          y asegurar que los componentes esenciales funcionen correctamente.
+        </p>
+      </div>
+
+      <div class="evidence-bar">
+        <h3>Evidencias</h3>
+      </div>
+
+      <div class="evidence-grid">
+
+        <div class="evidence-card">
+          <h3>Procedimiento ordenado de desmontaje mecánico</h3>
+          <p>
+            Durante el desmontaje del eje y la caja de cambios se siguió un procedimiento paso a paso,
+            utilizando herramientas específicas y registrando el orden de extracción de las piezas.
+          </p>
+          <p>
+            Esta forma de trabajo permitió conservar la trazabilidad del armado y reducir el riesgo de
+            errores durante el montaje posterior.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showMantEvidence('mant-procedimiento-desmontaje')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Identificación de componentes críticos en el sistema mecánico</h3>
+          <p>
+            En la práctica mecánica se identificaron componentes críticos como rodamientos, engranajes,
+            eje, chaveta, anillos Seeger y tuerca de fijación.
+          </p>
+          <p>
+            Estos elementos son importantes porque afectan directamente la transmisión de movimiento,
+            la alineación, la fricción y la confiabilidad del conjunto mecánico.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showMantEvidence('mant-componentes-mecanicos')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Relevamiento técnico del tablero de comando y protección</h3>
+          <p>
+            En el tablero industrial se identificaron componentes como guardamotor, fusibles,
+            interruptor diferencial, contactores, temporizador, fuente de 24 V y borneras.
+          </p>
+          <p>
+            Reconocer estos elementos permite comprender qué partes del sistema son críticas para
+            la seguridad, el arranque del motor y la continuidad de operación.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showMantEvidence('mant-relevamiento-tablero')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Medición de corriente y potencia en motor trifásico</h3>
+          <p>
+            En la práctica con motor trifásico se realizaron mediciones de corriente y potencia
+            durante el funcionamiento del sistema.
+          </p>
+          <p>
+            Estas mediciones permiten verificar la condición operativa del motor y detectar posibles
+            consumos anormales, sobrecargas o diferencias respecto al comportamiento esperado.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showMantEvidence('mant-medicion-motor')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Uso de instrumentos para diagnóstico eléctrico y electrónico</h3>
+          <p>
+            En las prácticas de instrumentos se utilizó multímetro, osciloscopio, fuente de alimentación,
+            generador de funciones y amperímetro para medir señales y verificar circuitos.
+          </p>
+          <p>
+            Esta actividad aporta a la confiabilidad porque permite confirmar el estado de un sistema
+            a partir de datos medidos y no solamente por observación visual.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showMantEvidence('mant-instrumentos')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Identificación de fallas potenciales en circuitos neumáticos</h3>
+          <p>
+            En los circuitos neumáticos se trabajó con componentes cuyo funcionamiento influye en
+            la respuesta del sistema, como válvulas, cilindros, conexiones, reguladores y manómetros.
+          </p>
+          <p>
+            Reconocer estos elementos permite detectar posibles fallas como fugas, movimientos lentos,
+            pérdida de presión o accionamientos incorrectos.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showMantEvidence('mant-fallas-neumaticas')">Link a evidencia</button>
+        </div>
+
+      </div>
+
+      <div class="reflection">
+        <div class="reflection-inner">
+          <h3>¿Cómo desarrollé y cómo aplico esta competencia en mi vida académica?</h3>
+          <p>
+            Esta competencia la desarrollé al aprender que una intervención técnica no debe hacerse
+            de forma improvisada. Seguir procedimientos, registrar pasos, identificar componentes
+            importantes y verificar el estado final del sistema permite trabajar con mayor seguridad
+            y reducir la posibilidad de fallas.
+          </p>
+          <p>
+            En mi vida académica aplico esta competencia cuando reviso un circuito, interpreto un esquema,
+            realizo mediciones o desarmo un sistema mecánico. Me ayuda a pensar no solo en que el sistema
+            funcione en el momento, sino en que pueda seguir funcionando de manera confiable.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="back-wrap">
+      <button class="back-btn" type="button" onclick="showView('home')">← Volver a Competencias</button>
+    </div>
+
+  </main>
+</div>
+  </section>
+
+  <section id="view-diseno" class="view">
+    <div class="diseno-page">
+
+  <header class="hero">
+    <h1>Diseño de Sistemas Mecatrónicos</h1>
+    <div class="hero-line"></div>
+    <p>Portafolio de Competencias — Lucas Elizalde</p>
+  </header>
+
+  <main class="container">
+
+    <section class="area-intro">
+      <h2>Área de dominio</h2>
+      <p>
+        Esta área de dominio se relaciona con la capacidad de fabricar, integrar y documentar
+        sistemas mecatrónicos a partir de un diseño previo. En mi formación, esta competencia
+        se desarrolló mediante proyectos y prácticas donde fue necesario pasar de una consigna
+        o necesidad a una solución funcional, integrando mecánica, electrónica, programación,
+        sensores, actuadores, simulaciones, montaje físico y validación.
+      </p>
+    </section>
+
+    <section class="index-box">
+      <h3>Índice de competencias</h3>
+      <ol>
+        <li>Fabricar equipos, sistemas y procesos mecatrónicos de acuerdo con diseño.</li>
+        <li>Incorporar tecnologías ya evaluadas a sistemas y procesos mecatrónicos.</li>
+        <li>Generar insumos de procesos existentes para el diseño o rediseño de un sistema.</li>
+      </ol>
+    </section>
+
+    <!-- COMPETENCIA 1 -->
+    <section>
+      <div class="competency-header">
+        <h2>1. Fabricar equipos, sistemas y procesos mecatrónicos de acuerdo con diseño</h2>
+      </div>
+
+      <div class="competency-description">
+        <p>
+          Esta competencia implica construir o implementar sistemas mecatrónicos respetando
+          un diseño previo. Incluye fabricar piezas, montar circuitos, integrar actuadores,
+          programar el control y verificar que el sistema final responda a la función para la
+          cual fue diseñado.
+        </p>
+      </div>
+
+      <div class="evidence-bar">
+        <h3>Evidencias</h3>
+      </div>
+
+      <div class="evidence-grid">
+
+        <div class="evidence-card">
+          <h3>Proyecto Integrador II: Robot humanoide Turi</h3>
+          <p>
+            Se diseñó y construyó un robot humanoide inspirado en NAO para apoyar recorridos
+            turísticos dentro de la universidad. El sistema incluyó diseño CAD, fabricación de
+            piezas en impresión 3D, armado de estructura, integración electrónica, servomotores,
+            cámara, audio, aplicación móvil y servidor en Python.
+          </p>
+          <p>
+            Esta evidencia representa uno de los trabajos más completos de diseño, fabricación
+            e integración de un sistema mecatrónico funcional.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showDisEvidence('dis-turi')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Proyecto Integrador I: Aromatizador automático</h3>
+          <p>
+            Se desarrolló un aromatizador automático partiendo de una necesidad concreta.
+            El trabajo incluyó diseño del prototipo, selección de componentes, circuito electrónico,
+            programación con Arduino, estructura física, interfaz de usuario y pruebas funcionales.
+          </p>
+          <p>
+            Esta actividad permitió fabricar un equipo mecatrónico completo de acuerdo con un diseño
+            previamente planteado y validado.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showDisEvidence('dis-aromatizador')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Robot de mini fútbol con Bluetooth</h3>
+          <p>
+            Se fabricó un robot móvil con tracción diferencial, sensores de línea, mecanismo frontal
+            de golpeo y control remoto mediante Bluetooth.
+          </p>
+          <p>
+            La práctica permitió integrar estructura, movimiento, control de motores, comunicación
+            inalámbrica y operación de un sistema físico diseñado para una tarea específica.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showDisEvidence('dis-robot-futbol')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Control de plotter físico con ATmega328P</h3>
+          <p>
+            Se implementó un sistema de control para un plotter físico, utilizando el ATmega328P
+            para gestionar movimientos y ejecutar acciones de acuerdo con comandos o secuencias
+            previamente definidas.
+          </p>
+          <p>
+            Esta práctica permitió trabajar sobre un sistema mecatrónico real que combina movimiento,
+            electrónica de control y programación embebida.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showDisEvidence('dis-plotter')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Cerradura RFID con RC522, LCD I2C y EEPROM</h3>
+          <p>
+            Se diseñó e implementó una cerradura electrónica con lector RFID, pantalla LCD,
+            LEDs de estado, botones de actualización/borrado y almacenamiento en EEPROM.
+          </p>
+          <p>
+            El sistema permitió construir una solución funcional de control de acceso, integrando
+            hardware, software, interfaz de usuario y memoria persistente.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showDisEvidence('dis-rfid')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Motor paso a paso, seguidor de línea y candado digital</h3>
+          <p>
+            En electrónica digital se desarrollaron sistemas como control de motor paso a paso,
+            seguidor de línea y candado digital mediante lógica secuencial y combinacional.
+          </p>
+          <p>
+            Estas prácticas permitieron fabricar e implementar sistemas de control digital de acuerdo
+            con diseños lógicos previamente simplificados y simulados.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showDisEvidence('dis-digital')">Link a evidencia</button>
+        </div>
+
+      </div>
+
+      <div class="reflection">
+        <div class="reflection-inner">
+          <h3>¿Cómo desarrollé y cómo aplico esta competencia en mi vida académica?</h3>
+          <p>
+            Desarrollé esta competencia al realizar proyectos donde no alcanzaba con proponer una idea,
+            sino que era necesario construirla, integrarla y verificarla. En los proyectos integradores
+            pude experimentar el proceso completo de diseño: pensar una solución, seleccionar componentes,
+            construir el prototipo y probar su funcionamiento.
+          </p>
+          <p>
+            En mi vida académica, esta competencia me ayuda a transformar una consigna o problema en
+            una solución física concreta, entendiendo que el diseño debe poder materializarse y funcionar
+            en condiciones reales o de laboratorio.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPETENCIA 2 -->
+    <section>
+      <div class="competency-header">
+        <h2>2. Incorporar tecnologías ya evaluadas a sistemas y procesos mecatrónicos</h2>
+      </div>
+
+      <div class="competency-description">
+        <p>
+          Esta competencia se relaciona con integrar tecnologías previamente analizadas o seleccionadas
+          dentro de un sistema mecatrónico. No se trata solamente de usar componentes, sino de incorporarlos
+          de forma coherente dentro del diseño para que aporten una función concreta al sistema final.
+        </p>
+      </div>
+
+      <div class="evidence-bar">
+        <h3>Evidencias</h3>
+      </div>
+
+      <div class="evidence-grid">
+
+        <div class="evidence-card">
+          <h3>Integración tecnológica en el robot humanoide Turi</h3>
+          <p>
+            En el Proyecto Integrador II se incorporaron tecnologías como ESP32, Arduino UNO,
+            servomotores Dynamixel y MG996R, ESP32-CAM, pantalla, audio digital, servidor en Python,
+            aplicación móvil, WiFi y funciones de interacción.
+          </p>
+          <p>
+            Cada tecnología fue integrada con una función específica dentro del robot: movimiento,
+            comunicación, interfaz, percepción, audio o control.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showDisEvidence('dis-integracion-turi')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Integración de Arduino, interfaz y accionamiento en el aromatizador</h3>
+          <p>
+            En el Proyecto Integrador I se incorporaron tecnologías como Arduino, display, botones,
+            LEDs, buzzer, electrónica de control y sistema de accionamiento para construir un
+            dispositivo funcional.
+          </p>
+          <p>
+            La integración de estos elementos permitió que el usuario interactuara con el sistema
+            y que el prototipo ejecutara automáticamente su función principal.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showDisEvidence('dis-integracion-aromatizador')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Comunicación SPI, I2C y UART en sistemas embebidos</h3>
+          <p>
+            Se incorporaron distintos protocolos de comunicación en prácticas con ATmega328P,
+            permitiendo conectar microcontroladores, sensores, matrices LED, pantallas y otros
+            dispositivos.
+          </p>
+          <p>
+            Estas prácticas permitieron aplicar tecnologías de comunicación digital dentro de sistemas
+            mecatrónicos reales o simulados.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showDisEvidence('dis-comunicaciones')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Selector de color con fotocelda, servomotor y WS2812</h3>
+          <p>
+            Se incorporaron tecnologías de sensado, actuación y visualización para detectar colores,
+            mover un servomotor hacia una posición asociada y representar el resultado mediante LEDs
+            WS2812.
+          </p>
+          <p>
+            Esta práctica evidencia la incorporación de tecnologías evaluadas dentro de un sistema
+            interactivo de baja escala.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showDisEvidence('dis-selector-color')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Cerradura electrónica con teclado, LCD y EEPROM</h3>
+          <p>
+            Se integró un teclado matricial, una pantalla LCD y memoria EEPROM para implementar
+            una cerradura electrónica con almacenamiento persistente de clave.
+          </p>
+          <p>
+            Esta actividad permitió incorporar tecnologías de entrada, salida y memoria en un sistema
+            de control de acceso.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showDisEvidence('dis-cerradura-teclado')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Mezclador de audio digital en Python</h3>
+          <p>
+            Se desarrolló un mezclador de audio digital con Python, control de amplitud, filtros paso alto
+            y paso bajo, visualización en tiempo y frecuencia, y una interfaz gráfica.
+          </p>
+          <p>
+            Aunque es un sistema principalmente de software, evidencia la incorporación de tecnologías
+            de procesamiento de señales y visualización técnica en una solución funcional.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showDisEvidence('dis-audio')">Link a evidencia</button>
+        </div>
+
+      </div>
+
+      <div class="reflection">
+        <div class="reflection-inner">
+          <h3>¿Cómo desarrollé y cómo aplico esta competencia en mi vida académica?</h3>
+          <p>
+            Esta competencia la desarrollé al integrar componentes y tecnologías que debían cumplir
+            una función específica dentro de cada sistema. En varios proyectos fue necesario probar
+            módulos, comprender sus conexiones, revisar librerías y adaptar el código para que la
+            tecnología realmente aportara al funcionamiento del conjunto.
+          </p>
+          <p>
+            En mi vida académica, esta competencia me permite no usar componentes al azar, sino pensar
+            qué tecnología conviene incorporar, qué problema resuelve y cómo se integra con el resto
+            del sistema.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPETENCIA 3 -->
+    <section>
+      <div class="competency-header">
+        <h2>3. Generar insumos de procesos existentes para el diseño o rediseño de un sistema</h2>
+      </div>
+
+      <div class="competency-description">
+        <p>
+          Esta competencia implica generar información útil para diseñar, mejorar o rediseñar un sistema.
+          Los insumos pueden ser mediciones, diagramas, simulaciones, registros de prueba, modelos CAD,
+          análisis de funcionamiento, matrices de selección, resultados experimentales o documentación técnica.
+        </p>
+      </div>
+
+      <div class="evidence-bar">
+        <h3>Evidencias</h3>
+      </div>
+
+      <div class="evidence-grid">
+
+        <div class="evidence-card">
+          <h3>Matrices de selección y criterios de diseño del robot Turi</h3>
+          <p>
+            En el Proyecto Integrador II se utilizaron matrices de selección para comparar alternativas
+            de control, comunicación, materiales, actuación, base electrónica y sonido.
+          </p>
+          <p>
+            Estas matrices generaron insumos para justificar decisiones de diseño y orientar la construcción
+            final del robot.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showDisEvidence('dis-matrices-turi')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Diseño CAD, planos y diagramas de bloques</h3>
+          <p>
+            En los proyectos integradores se realizaron bocetos, modelos CAD, diagramas de bloques,
+            esquemas eléctricos, planificación de tareas y documentación de subsistemas.
+          </p>
+          <p>
+            Estos elementos funcionan como insumos técnicos para fabricar, modificar o rediseñar partes
+            del sistema.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showDisEvidence('dis-cad-diagramas')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Circuito original y circuito corregido del tablero industrial</h3>
+          <p>
+            En la práctica de Aplicaciones Electroindustriales se relevó el circuito original del tablero
+            y luego se documentó una versión corregida con protecciones, temporizador y señalización.
+          </p>
+          <p>
+            Este relevamiento generó información útil para comprender el sistema existente y proponer
+            mejoras en su conexión y funcionamiento.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showDisEvidence('dis-tablero-corregido')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Simulación, medición y comparación en electrónica analógica</h3>
+          <p>
+            En electrónica analógica se trabajó con simulaciones, cálculos teóricos y mediciones reales
+            en circuitos con diodos, transistores, filtros y amplificadores operacionales.
+          </p>
+          <p>
+            La comparación entre teoría, simulación y práctica permitió generar información para validar
+            o ajustar diseños electrónicos.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showDisEvidence('dis-analogica')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Mapas de Karnaugh, tablas y simulaciones en electrónica digital</h3>
+          <p>
+            En electrónica digital se elaboraron tablas de verdad, simplificaciones mediante mapas de
+            Karnaugh, simulaciones y montajes físicos de circuitos combinacionales y secuenciales.
+          </p>
+          <p>
+            Estos insumos permitieron pasar desde un problema lógico hasta una implementación física
+            o simulada del sistema.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showDisEvidence('dis-karnaugh')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Monitoreo serial y gráficas en Python para ajuste de sistemas</h3>
+          <p>
+            En prácticas de microprocesadores se utilizaron datos enviados por comunicación serial y
+            gráficas en Python para observar variables como temperatura, referencia, posición, error
+            y señal PWM.
+          </p>
+          <p>
+            Estos datos funcionaron como insumos para verificar el comportamiento del sistema y plantear
+            posibles ajustes o mejoras.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showDisEvidence('dis-python-graficas')">Link a evidencia</button>
+        </div>
+
+      </div>
+
+      <div class="reflection">
+        <div class="reflection-inner">
+          <h3>¿Cómo desarrollé y cómo aplico esta competencia en mi vida académica?</h3>
+          <p>
+            Desarrollé esta competencia al entender que diseñar no es solamente construir, sino también
+            generar información previa y posterior al montaje. Los diagramas, simulaciones, mediciones,
+            modelos CAD y registros de prueba ayudan a tomar mejores decisiones y a justificar por qué
+            se elige una solución.
+          </p>
+          <p>
+            En mi vida académica, esta competencia me permite trabajar de forma más ordenada, dejando
+            evidencia de los procesos realizados y generando material que puede servir para mejorar,
+            corregir o rediseñar un sistema en el futuro.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="back-wrap">
+      <button class="back-btn" type="button" onclick="showView('home')">← Volver a Competencias</button>
+    </div>
+
+  </main>
+</div>
+  </section>
+
+  <section id="view-innovacion" class="view">
+    <div class="innovacion-page">
+
+  <header class="hero">
+    <h1>Innovación e Investigación en Sistemas Mecatrónicos</h1>
+    <div class="hero-line"></div>
+    <p>Portafolio de Competencias — Lucas Elizalde</p>
+  </header>
+
+  <main class="container">
+
+    <section class="area-intro">
+      <h2>Área de dominio</h2>
+      <p>
+        Esta área de dominio se relaciona con la capacidad de reconocer tecnologías tradicionales
+        e innovadoras, fabricar prototipos y colaborar en la integración de nuevas tecnologías dentro
+        de sistemas mecatrónicos. En mi formación, esta competencia se desarrolló principalmente
+        mediante proyectos integradores, prácticas de sistemas embebidos, prototipos físicos,
+        procesamiento de señales y ensayos funcionales.
+      </p>
+    </section>
+
+    <section class="index-box">
+      <h3>Índice de competencias</h3>
+      <ol>
+        <li>Reconocer paradigmas tecnológicos tradicionales e innovadores presentes en una infraestructura o equipamiento industrial, con el propósito de optimizar sistemas y procesos mecatrónicos.</li>
+        <li>Fabricar prototipos para sistemas y procesos mecatrónicos.</li>
+        <li>Colaborar en la integración de nuevas tecnologías a los sistemas mecatrónicos realizando pruebas y ensayos.</li>
+      </ol>
+    </section>
+
+    <!-- COMPETENCIA 1 -->
+    <section>
+      <div class="competency-header">
+        <h2>1. Reconocer paradigmas tecnológicos tradicionales e innovadores presentes en una infraestructura o equipamiento industrial</h2>
+      </div>
+
+      <div class="competency-description">
+        <p>
+          Esta competencia implica identificar y comparar tecnologías tradicionales e innovadoras
+          dentro de sistemas mecatrónicos, entendiendo qué función cumplen y cómo pueden aportar
+          a la mejora u optimización de un proceso. En mi caso, se evidencia al trabajar tanto con
+          tecnologías industriales clásicas, como contactores y tableros, como con sistemas embebidos,
+          comunicación inalámbrica, visión, audio digital e interfaces móviles.
+        </p>
+      </div>
+
+      <div class="evidence-bar">
+        <h3>Evidencias</h3>
+      </div>
+
+      <div class="evidence-grid">
+
+        <div class="evidence-card">
+          <h3>Proyecto Integrador II: Robot humanoide Turi</h3>
+          <p>
+            En este proyecto se trabajó con tecnologías actuales aplicadas a robótica educativa e interacción
+            humano-máquina, integrando ESP32, Arduino UNO, servomotores, cámara, audio, aplicación móvil,
+            servidor en Python y comunicación WiFi.
+          </p>
+          <p>
+            Esta evidencia permite reconocer paradigmas innovadores vinculados a robótica, sistemas embebidos,
+            interfaces móviles, comunicación inalámbrica y automatización interactiva.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showInnEvidence('inn-turi')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>AEI: Tablero industrial y arranque estrella-triángulo</h3>
+          <p>
+            En esta práctica se trabajó con tecnologías industriales tradicionales como motor trifásico,
+            contactores, guardamotor, fusibles, interruptor diferencial, temporizador y tablero de comando
+            y protección.
+          </p>
+          <p>
+            Esta actividad permitió reconocer el funcionamiento de equipamiento industrial clásico,
+            utilizado en sistemas de accionamiento y control de motores.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showInnEvidence('inn-aei')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Comunicación SPI, I2C, UART y Bluetooth en sistemas embebidos</h3>
+          <p>
+            En las prácticas de microprocesadores se trabajó con distintos protocolos de comunicación
+            para conectar microcontroladores, sensores, matrices LED, actuadores y módulos inalámbricos.
+          </p>
+          <p>
+            Estas tecnologías representan paradigmas modernos de integración en sistemas mecatrónicos,
+            donde distintos dispositivos intercambian información para operar de forma coordinada.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showInnEvidence('inn-comunicaciones')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Mezclador de audio digital en Python</h3>
+          <p>
+            Se desarrolló un sistema de mezcla de señales WAV con control de amplitud, filtros paso alto
+            y paso bajo, análisis en tiempo y frecuencia, espectros, Bode e interfaz gráfica en Tkinter.
+          </p>
+          <p>
+            Esta actividad permitió reconocer el uso de herramientas de software y procesamiento digital
+            de señales como parte de soluciones técnicas aplicadas.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showInnEvidence('inn-audio')">Link a evidencia</button>
+        </div>
+
+      </div>
+
+      <div class="reflection">
+        <div class="reflection-inner">
+          <h3>¿Cómo desarrollé y cómo aplico esta competencia en mi vida académica?</h3>
+          <p>
+            Desarrollé esta competencia al trabajar con tecnologías muy distintas entre sí. Por un lado,
+            prácticas industriales tradicionales, como tableros, motores trifásicos y accionamientos; y por otro,
+            sistemas más actuales, como robots, comunicación inalámbrica, sensores inteligentes y procesamiento
+            digital de señales.
+          </p>
+          <p>
+            Esto me ayudó a entender que innovar no significa abandonar lo tradicional, sino saber reconocer
+            qué tecnología conviene usar según el problema, el contexto y el nivel de complejidad del sistema.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPETENCIA 2 -->
+    <section>
+      <div class="competency-header">
+        <h2>2. Fabricar prototipos para sistemas y procesos mecatrónicos</h2>
+      </div>
+
+      <div class="competency-description">
+        <p>
+          Esta competencia implica construir prototipos físicos o funcionales que permitan probar una idea,
+          validar una solución o representar un sistema antes de una implementación final. Incluye diseño,
+          fabricación, montaje, programación, integración y prueba de funcionamiento.
+        </p>
+      </div>
+
+      <div class="evidence-bar">
+        <h3>Evidencias</h3>
+      </div>
+
+      <div class="evidence-grid">
+
+        <div class="evidence-card">
+          <h3>Proyecto Integrador II: Prototipo del robot humanoide Turi</h3>
+          <p>
+            Se fabricó un prototipo de robot humanoide con piezas diseñadas en CAD e impresión 3D,
+            estructura física, servomotores, electrónica de control, cámara, audio, aplicación móvil y servidor.
+          </p>
+          <p>
+            El prototipo permitió validar la integración de movimiento, comunicación, interacción y estructura
+            en un sistema mecatrónico completo.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showInnEvidence('inn-prototipo-turi')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Proyecto Integrador I: Prototipo de aromatizador automático</h3>
+          <p>
+            Se fabricó un prototipo funcional de aromatizador automático con Arduino, display, botones,
+            LEDs, buzzer, circuito electrónico, estructura física y sistema de accionamiento.
+          </p>
+          <p>
+            Esta actividad permitió pasar desde una necesidad inicial hasta un prototipo construido,
+            probado y documentado.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showInnEvidence('inn-prototipo-aromatizador')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Robot de mini fútbol con Bluetooth</h3>
+          <p>
+            Se construyó un robot móvil con tracción diferencial, sensores de línea, mecanismo frontal de golpeo
+            y control remoto mediante Bluetooth.
+          </p>
+          <p>
+            Este prototipo permitió validar movilidad, control de motores, comunicación inalámbrica e interacción
+            con un sistema físico.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showInnEvidence('inn-robot-futbol')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Cerradura RFID con RC522, LCD I2C y EEPROM</h3>
+          <p>
+            Se implementó un prototipo de control de acceso con lector RFID, pantalla LCD, LEDs, botones de
+            gestión y memoria EEPROM.
+          </p>
+          <p>
+            El sistema permitió validar una solución de seguridad electrónica con registro, lectura y conservación
+            de datos de acceso.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showInnEvidence('inn-rfid')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Selector de color con fotocelda, servomotor y LEDs WS2812</h3>
+          <p>
+            Se fabricó un prototipo capaz de detectar colores, mover un servomotor a una posición asociada
+            y mostrar el resultado mediante LEDs direccionables.
+          </p>
+          <p>
+            Esta práctica permitió validar un sistema interactivo que integra sensado, actuación y visualización.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showInnEvidence('inn-selector-color')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Mezclador de audio digital</h3>
+          <p>
+            Se desarrolló un prototipo de software para mezclar tres señales de audio, aplicar filtros,
+            modificar amplitudes y visualizar resultados en tiempo y frecuencia.
+          </p>
+          <p>
+            Aunque no es un prototipo físico, representa un prototipo funcional de procesamiento digital
+            aplicado a señales.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showInnEvidence('inn-audio-prototipo')">Link a evidencia</button>
+        </div>
+
+      </div>
+
+      <div class="reflection">
+        <div class="reflection-inner">
+          <h3>¿Cómo desarrollé y cómo aplico esta competencia en mi vida académica?</h3>
+          <p>
+            Desarrollé esta competencia al fabricar prototipos que no quedaron solamente en una idea o diseño,
+            sino que fueron construidos, programados y probados. En los proyectos integradores esto fue especialmente
+            claro, porque hubo que resolver problemas de estructura, electrónica, programación y funcionamiento real.
+          </p>
+          <p>
+            En mi vida académica, esta competencia me permite entender que un prototipo no tiene que ser perfecto,
+            pero sí debe servir para probar una solución, detectar errores y orientar mejoras.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPETENCIA 3 -->
+    <section>
+      <div class="competency-header">
+        <h2>3. Colaborar en la integración de nuevas tecnologías a los sistemas mecatrónicos realizando pruebas y ensayos</h2>
+      </div>
+
+      <div class="competency-description">
+        <p>
+          Esta competencia implica participar en la integración de tecnologías dentro de un sistema,
+          realizando pruebas, ensayos y ajustes para comprobar que los componentes funcionen correctamente
+          en conjunto. Se relaciona con validar sensores, actuadores, comunicación, interfaces y software
+          antes de considerar completo el sistema.
+        </p>
+      </div>
+
+      <div class="evidence-bar">
+        <h3>Evidencias</h3>
+      </div>
+
+      <div class="evidence-grid">
+
+        <div class="evidence-card">
+          <h3>Integración de subsistemas en el robot Turi</h3>
+          <p>
+            En el Proyecto Integrador II se integraron subsistemas de movimiento, audio, cámara,
+            comunicación WiFi, aplicación móvil, servidor en Python y estructura física.
+          </p>
+          <p>
+            La integración requirió realizar pruebas parciales y ensayos para verificar que cada parte
+            funcionara correctamente dentro del conjunto.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showInnEvidence('inn-integracion-turi')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Pruebas de comunicación SPI e I2C entre microcontroladores</h3>
+          <p>
+            Se implementaron y compararon sistemas maestro–esclavo utilizando SPI e I2C entre
+            microcontroladores ATmega328P.
+          </p>
+          <p>
+            Estas pruebas permitieron comprobar la comunicación entre dispositivos y validar el accionamiento
+            de salidas a partir de datos recibidos.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showInnEvidence('inn-spi-i2c')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Ensayos con MPU6050 y matriz RGB</h3>
+          <p>
+            Se integró un sensor MPU6050 con una matriz RGB para mover un LED en función de la inclinación
+            medida por el sensor.
+          </p>
+          <p>
+            La práctica permitió ensayar la respuesta del sistema frente a cambios físicos y validar
+            la interacción entre sensado, procesamiento y salida visual.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showInnEvidence('inn-mpu')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Ensayos de control térmico con LM35</h3>
+          <p>
+            Se integró un sensor de temperatura LM35 con un sistema de calefacción, ventilación y monitoreo serial.
+          </p>
+          <p>
+            Las pruebas permitieron observar la evolución de la temperatura y validar la respuesta del sistema
+            ante distintos rangos de funcionamiento.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showInnEvidence('inn-lm35')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Pruebas del sistema RFID con memoria EEPROM</h3>
+          <p>
+            En la cerradura RFID se realizaron pruebas de lectura de tarjeta, almacenamiento en EEPROM,
+            actualización, borrado y validación de acceso.
+          </p>
+          <p>
+            Estas pruebas permitieron verificar la integración entre lector RFID, memoria, pantalla,
+            botones y lógica de control.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showInnEvidence('inn-rfid-pruebas')">Link a evidencia</button>
+        </div>
+
+        <div class="evidence-card">
+          <h3>Ensayos del mezclador de audio digital</h3>
+          <p>
+            En el mezclador de audio se realizaron pruebas con distintas señales WAV, variaciones de amplitud,
+            filtros paso alto y paso bajo, y visualización en tiempo y frecuencia.
+          </p>
+          <p>
+            Estos ensayos permitieron validar el comportamiento del procesamiento digital implementado
+            en Python.
+          </p>
+          <button class="evidence-link evidence-link-btn" type="button" onclick="showInnEvidence('inn-audio-ensayos')">Link a evidencia</button>
+        </div>
+
+      </div>
+
+      <div class="reflection">
+        <div class="reflection-inner">
+          <h3>¿Cómo desarrollé y cómo aplico esta competencia en mi vida académica?</h3>
+          <p>
+            Desarrollé esta competencia al participar en proyectos donde cada tecnología debía probarse
+            antes de integrarse al sistema final. Aprendí que una pieza puede funcionar sola, pero fallar
+            cuando se combina con otras si no se realizan pruebas progresivas.
+          </p>
+          <p>
+            En mi vida académica aplico esta competencia dividiendo los proyectos en subsistemas,
+            realizando ensayos parciales, corrigiendo errores y recién después integrando el conjunto.
+            Esto me ayuda a trabajar con más orden y a reducir problemas en la etapa final de montaje.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="back-wrap">
+      <button class="back-btn" type="button" onclick="showView('home')">← Volver a Competencias</button>
+    </div>
+
+  </main>
+</div>
+  </section>
+
+  <section id="view-mantenimiento-evidencia" class="view">
+    <div class="mantenimiento-evidencia-page">
+
+      <header class="hero">
+        <h1 id="MantEvidenceHero">Evidencia</h1>
+        <div class="hero-line"></div>
+        <p>Mantenimiento de Sistemas Mecatrónicos — Lucas Elizalde</p>
+      </header>
+
+      <main class="container">
+
+        <div class="back-wrap" style="text-align:left; margin-top:0; margin-bottom:2rem;">
+          <button class="back-btn" type="button" onclick="showView('mantenimiento')">← Volver a Mantenimiento</button>
+        </div>
+
+        <div class="evidence-detail-layout">
+
+          <div class="evidence-media-column">
+            <div class="evidence-media-box" id="MantEvidenceMedia1">
+              Espacio para imagen principal
+            </div>
+            <div class="evidence-media-box small" id="MantEvidenceMedia2">
+              Espacio para segunda imagen o captura
+            </div>
+            <div class="evidence-media-box small" id="MantEvidenceMedia3">
+              Espacio para video, captura o enlace visual
+            </div>
+          </div>
+
+          <article class="evidence-detail-content">
+            <p class="evidence-detail-kicker" id="MantEvidenceKicker">Evidencia desarrollada</p>
+            <h2 id="MantEvidenceTitle">Título de la evidencia</h2>
+
+            <h3>Descripción</h3>
+            <p id="MantEvidenceDescription"></p>
+
+            <h3>Qué hice en esta actividad</h3>
+            <ul id="MantEvidenceTasks"></ul>
+
+            <h3>Documento que respalda la evidencia</h3>
+            <div class="evidence-document-box">
+              <div id="MantEvidenceDocument" class="evidence-doc-placeholder">Agregar enlace al informe, carpeta de Drive, video o repositorio</div>
+              <p class="evidence-note">
+                Reemplazá este texto por la evidencia real correspondiente: informe PDF, carpeta de Drive,
+                video demostrativo, repositorio GitHub o anexo.
+              </p>
+            </div>
+
+            <h3>Competencias desarrolladas</h3>
+            <ul id="MantEvidenceCompetencies"></ul>
+
+            <h3>Reflexión breve</h3>
+            <p id="MantEvidenceReflection"></p>
+          </article>
+
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <section id="view-diseno-evidencia" class="view">
+    <div class="diseno-evidencia-page">
+
+      <header class="hero">
+        <h1 id="DisEvidenceHero">Evidencia</h1>
+        <div class="hero-line"></div>
+        <p>Diseño de Sistemas Mecatrónicos — Lucas Elizalde</p>
+      </header>
+
+      <main class="container">
+
+        <div class="back-wrap" style="text-align:left; margin-top:0; margin-bottom:2rem;">
+          <button class="back-btn" type="button" onclick="showView('diseno')">← Volver a Diseño</button>
+        </div>
+
+        <div class="evidence-detail-layout">
+
+          <div class="evidence-media-column">
+            <div class="evidence-media-box" id="DisEvidenceMedia1">
+              Espacio para imagen principal
+            </div>
+            <div class="evidence-media-box small" id="DisEvidenceMedia2">
+              Espacio para segunda imagen o captura
+            </div>
+            <div class="evidence-media-box small" id="DisEvidenceMedia3">
+              Espacio para video, captura o enlace visual
+            </div>
+          </div>
+
+          <article class="evidence-detail-content">
+            <p class="evidence-detail-kicker" id="DisEvidenceKicker">Evidencia desarrollada</p>
+            <h2 id="DisEvidenceTitle">Título de la evidencia</h2>
+
+            <h3>Descripción</h3>
+            <p id="DisEvidenceDescription"></p>
+
+            <h3>Qué hice en esta actividad</h3>
+            <ul id="DisEvidenceTasks"></ul>
+
+            <h3>Documento que respalda la evidencia</h3>
+            <div class="evidence-document-box">
+              <div id="DisEvidenceDocument" class="evidence-doc-placeholder">Agregar enlace al informe, carpeta de Drive, video o repositorio</div>
+              <p class="evidence-note">
+                Reemplazá este texto por la evidencia real correspondiente: informe PDF, carpeta de Drive,
+                video demostrativo, repositorio GitHub o anexo.
+              </p>
+            </div>
+
+            <h3>Competencias desarrolladas</h3>
+            <ul id="DisEvidenceCompetencies"></ul>
+
+            <h3>Reflexión breve</h3>
+            <p id="DisEvidenceReflection"></p>
+          </article>
+
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <section id="view-innovacion-evidencia" class="view">
+    <div class="innovacion-evidencia-page">
+
+      <header class="hero">
+        <h1 id="InnEvidenceHero">Evidencia</h1>
+        <div class="hero-line"></div>
+        <p>Innovación e Investigación en Sistemas Mecatrónicos — Lucas Elizalde</p>
+      </header>
+
+      <main class="container">
+
+        <div class="back-wrap" style="text-align:left; margin-top:0; margin-bottom:2rem;">
+          <button class="back-btn" type="button" onclick="showView('innovacion')">← Volver a Innovación e Investigación en Sistemas Mecatrónicos</button>
+        </div>
+
+        <div class="evidence-detail-layout">
+
+          <div class="evidence-media-column">
+            <div class="evidence-media-box" id="InnEvidenceMedia1">
+              Espacio para imagen principal
+            </div>
+            <div class="evidence-media-box small" id="InnEvidenceMedia2">
+              Espacio para segunda imagen o captura
+            </div>
+            <div class="evidence-media-box small" id="InnEvidenceMedia3">
+              Espacio para video, captura o enlace visual
+            </div>
+          </div>
+
+          <article class="evidence-detail-content">
+            <p class="evidence-detail-kicker" id="InnEvidenceKicker">Evidencia desarrollada</p>
+            <h2 id="InnEvidenceTitle">Título de la evidencia</h2>
+
+            <h3>Descripción</h3>
+            <p id="InnEvidenceDescription"></p>
+
+            <h3>Qué hice en esta actividad</h3>
+            <ul id="InnEvidenceTasks"></ul>
+
+            <h3>Documento que respalda la evidencia</h3>
+            <div class="evidence-document-box">
+              <div id="InnEvidenceDocument" class="evidence-doc-placeholder">Agregar enlace al informe, carpeta de Drive, video o repositorio</div>
+              <p class="evidence-note">
+                Reemplazá este texto por la evidencia real correspondiente: informe PDF, carpeta de Drive,
+                video demostrativo, repositorio GitHub o anexo.
+              </p>
+            </div>
+
+            <h3>Competencias desarrolladas</h3>
+            <ul id="InnEvidenceCompetencies"></ul>
+
+            <h3>Reflexión breve</h3>
+            <p id="InnEvidenceReflection"></p>
+          </article>
+
+        </div>
+      </main>
+    </div>
+  </section>
+
+</div>
+
+<script>
+function showView(id) {
+  var app = document.getElementById('competencias-app');
+  var views = app.querySelectorAll('.view');
+
+  views.forEach(function(view) {
+    view.classList.remove('active');
+  });
+
+  var next = document.getElementById('view-' + id);
+  if (next) {
+    next.classList.add('active');
+  }
+
+  setTimeout(function() {
+    app.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 30);
+}
+
+var opEvidenceData = {
+  "turi": {
+    kicker: "Proyecto Integrador II",
+    title: "Robot humanoide Turi",
+    media: ["Foto principal del robot o del equipo", "Captura de la aplicación, servidor o electrónica", "Video demostrativo del funcionamiento"],
+    description: "En este proyecto se diseñó un robot humanoide inspirado en NAO para apoyar recorridos turísticos dentro de la universidad. El sistema integró ESP32, Arduino UNO, servomotores, ESP32-CAM, audio, aplicación móvil, servidor en Python y comunicación WiFi.",
+    tasks: [
+      "Integración de subsistemas electrónicos, mecánicos y de software.",
+      "Participación en el armado y puesta en funcionamiento del sistema.",
+      "Pruebas de comunicación entre aplicación, servidor y dispositivos de control.",
+      "Validación de movimientos, audio, interacción y funcionamiento general."
+    ],
+    doc: "Link al informe del Proyecto Integrador II o carpeta de evidencias",
+    competencies: [
+      "Implementar software y hardware específico para el correcto desempeño de procesos.",
+      "Verificar el funcionamiento general del sistema mediante pruebas de operación e integración."
+    ],
+    reflection: "Esta evidencia representa una de las integraciones más completas realizadas, porque combina estructura física, control, comunicación, software e interacción en un mismo sistema."
+  },
+  "aromatizador": {
+    kicker: "Proyecto Integrador I",
+    title: "Aromatizador automático",
+    media: ["Foto principal del prototipo", "Foto del circuito electrónico", "Video de funcionamiento"],
+    description: "Se diseñó e implementó un aromatizador automático utilizando Arduino, circuito electrónico, display, botones, LEDs, buzzer y un sistema de accionamiento.",
+    tasks: [
+      "Diseño e implementación del circuito de control.",
+      "Programación del funcionamiento automático del sistema.",
+      "Integración de interfaz de usuario mediante display, botones, LEDs y buzzer.",
+      "Pruebas del prototipo físico y verificación del accionamiento."
+    ],
+    doc: "Link al informe del Proyecto Integrador I o carpeta de evidencias",
+    competencies: [
+      "Implementar hardware y software específico.",
+      "Operar y validar un prototipo mecatrónico funcional."
+    ],
+    reflection: "Este proyecto permitió pasar de una necesidad concreta a un prototipo construido y probado, integrando electrónica, programación y accionamiento físico."
+  },
+  "spi": {
+    kicker: "Tecnologías de Microprocesamiento",
+    title: "Comunicación SPI maestro–esclavo con ATmega328P",
+    media: ["Foto del montaje en protoboard", "Diagrama de conexión SPI", "Captura de código o simulación"],
+    description: "En esta práctica se implementó una arquitectura maestro–esclavo utilizando comunicación SPI entre dos microcontroladores ATmega328P. El maestro leía sensores y enviaba tramas de control al esclavo, que accionaba un LED PWM, un servomotor y un buzzer.",
+    tasks: [
+      "Configuración de comunicación SPI entre dos microcontroladores.",
+      "Lectura de entradas desde el microcontrolador maestro.",
+      "Envío de tramas de control hacia el esclavo.",
+      "Accionamiento de salidas físicas a partir de la información recibida."
+    ],
+    doc: "Link al informe o carpeta del laboratorio de microprocesadores",
+    competencies: [
+      "Implementar software y hardware específico para el correcto desempeño de procesos."
+    ],
+    reflection: "Esta práctica ayudó a comprender cómo distribuir tareas entre microcontroladores y coordinar entradas y salidas mediante comunicación digital."
+  },
+  "i2c": {
+    kicker: "Tecnologías de Microprocesamiento",
+    title: "Comunicación I2C maestro–esclavo con ATmega328P",
+    media: ["Foto del montaje I2C", "Diagrama SDA/SCL", "Captura de código"],
+    description: "Se replicó la arquitectura de control usando comunicación I2C entre dos ATmega328P, manteniendo el sensado y accionamiento del sistema mediante un bus de comunicación diferente.",
+    tasks: [
+      "Configuración de comunicación I2C maestro–esclavo.",
+      "Lectura de entradas desde el sistema maestro.",
+      "Transmisión de datos mediante SDA y SCL.",
+      "Control de actuadores desde el microcontrolador esclavo."
+    ],
+    doc: "Link al informe o carpeta del laboratorio de microprocesadores",
+    competencies: [
+      "Implementar software y hardware específico para el correcto desempeño de procesos."
+    ],
+    reflection: "Esta evidencia permitió comparar protocolos de comunicación y entender cómo elegir una alternativa según las restricciones del sistema."
+  },
+  "matriz-uart": {
+    kicker: "Tecnologías de Microprocesamiento",
+    title: "Control de animaciones en matriz RGB mediante UART",
+    media: ["Foto de la matriz RGB", "Captura de animaciones", "Video de funcionamiento"],
+    description: "Se programó una matriz LED RGB 8x8 basada en WS2812B, permitiendo seleccionar animaciones mediante comandos enviados por UART.",
+    tasks: [
+      "Programación de animaciones en matriz RGB.",
+      "Recepción de comandos por comunicación UART.",
+      "Organización de animaciones en frames.",
+      "Pruebas de respuesta ante distintos comandos."
+    ],
+    doc: "Link al informe o carpeta de evidencias",
+    competencies: [
+      "Implementar software y hardware específico para el correcto desempeño de procesos."
+    ],
+    reflection: "Esta práctica integró comunicación serial, programación embebida y visualización digital en un sistema observable y funcional."
+  },
+  "mpu": {
+    kicker: "Tecnologías de Microprocesamiento",
+    title: "Control de movimiento en matriz RGB con MPU6050",
+    media: ["Foto del sensor MPU6050", "Foto de la matriz RGB", "Video del movimiento del LED"],
+    description: "Se implementó un sistema donde un LED se desplazaba dentro de una matriz RGB según la inclinación medida por el sensor MPU6050.",
+    tasks: [
+      "Lectura de datos del sensor MPU6050.",
+      "Interpretación de la inclinación para generar movimiento visual.",
+      "Control de posición dentro de la matriz RGB.",
+      "Prueba de respuesta ante cambios físicos."
+    ],
+    doc: "Link al informe o carpeta de evidencias",
+    competencies: [
+      "Implementar hardware y software específico.",
+      "Verificar la respuesta operacional del sistema ante entradas físicas."
+    ],
+    reflection: "Esta evidencia muestra cómo una variable física puede transformarse en una acción visual dentro de un sistema embebido."
+  },
+  "robot-futbol": {
+    kicker: "Tecnologías de Microprocesamiento",
+    title: "Robot de mini fútbol con Bluetooth",
+    media: ["Foto del robot", "Foto del circuito interno", "Video de control por Bluetooth"],
+    description: "Se desarrolló un robot móvil de mini fútbol con tracción diferencial, sensores de línea, mecanismo frontal de golpeo y comunicación Bluetooth para control remoto.",
+    tasks: [
+      "Integración de motores y sistema de tracción.",
+      "Conexión de sensores de línea y módulo Bluetooth.",
+      "Programación del control remoto y accionamiento.",
+      "Pruebas de movilidad, respuesta y mecanismo frontal."
+    ],
+    doc: "Link al informe o carpeta de evidencias",
+    competencies: [
+      "Implementar hardware y software específico.",
+      "Operar un sistema físico con comunicación inalámbrica y accionamiento."
+    ],
+    reflection: "Esta práctica combinó control de motores, comunicación inalámbrica y movimiento real, acercándose a un sistema mecatrónico móvil completo."
+  },
+  "rfid": {
+    kicker: "Tecnologías de Microprocesamiento",
+    title: "Cerradura RFID con RC522, LCD I2C y EEPROM",
+    media: ["Foto del lector RFID", "Foto del LCD y botones", "Video de validación de tarjeta"],
+    description: "Se implementó una cerradura electrónica con lector RFID RC522, pantalla LCD I2C, LEDs de estado, botones de actualización/borrado y almacenamiento persistente en EEPROM.",
+    tasks: [
+      "Lectura y validación de tarjetas RFID.",
+      "Visualización de estados mediante LCD I2C y LEDs.",
+      "Uso de EEPROM para conservar datos.",
+      "Pruebas de registro, borrado, actualización y acceso."
+    ],
+    doc: "Link al informe o carpeta de evidencias",
+    competencies: [
+      "Implementar software y hardware específico.",
+      "Verificar el comportamiento del sistema mediante pruebas de acceso."
+    ],
+    reflection: "Esta evidencia integra identificación, memoria, interfaz y lógica de control en una aplicación funcional de acceso."
+  },
+  "selector-color": {
+    kicker: "Tecnologías de Microprocesamiento",
+    title: "Selector de color con fotocelda, servomotor y WS2812",
+    media: ["Foto del montaje", "Foto del servomotor y LEDs", "Video de detección de color"],
+    description: "Se desarrolló un sistema capaz de detectar colores mediante una fotocelda, orientar un servomotor SG90 hacia el color identificado y representar visualmente el resultado en una tira LED WS2812.",
+    tasks: [
+      "Lectura analógica mediante fotocelda.",
+      "Calibración de valores para diferenciar colores.",
+      "Control de posición de un servomotor SG90.",
+      "Representación visual mediante LEDs WS2812."
+    ],
+    doc: "Link al informe o carpeta de evidencias",
+    competencies: [
+      "Implementar software y hardware específico para el correcto desempeño de procesos."
+    ],
+    reflection: "Esta práctica permitió integrar sensado, actuación y visualización, trabajando con la calibración necesaria para lograr una respuesta correcta."
+  },
+  "piano": {
+    kicker: "Tecnologías de Microprocesamiento",
+    title: "Piano electrónico con doble buzzer",
+    media: ["Foto del piano electrónico", "Foto de botones y buzzers", "Video de reproducción"],
+    description: "Se implementó un piano electrónico con pulsadores asociados a notas musicales, doble buzzer y selección de canciones mediante comunicación UART.",
+    tasks: [
+      "Generación de tonos mediante salidas digitales.",
+      "Asociación de pulsadores a notas musicales.",
+      "Integración de doble buzzer.",
+      "Selección de canciones o modos mediante comunicación."
+    ],
+    doc: "Link al informe o carpeta de evidencias",
+    competencies: [
+      "Implementar software y hardware específico.",
+      "Operar un sistema interactivo de generación sonora."
+    ],
+    reflection: "Esta evidencia relaciona temporización, frecuencia y salida física, aplicando programación embebida a una experiencia interactiva."
+  },
+  "motor-trifasico": {
+    kicker: "Aplicaciones Electroindustriales",
+    title: "Motor trifásico con tablero de comando y medición eléctrica",
+    media: ["Foto del tablero", "Foto del motor", "Registro de mediciones"],
+    description: "Se trabajó con un motor trifásico de inducción y un tablero de comando y protección. Se verificó el funcionamiento del arranque estrella-triángulo y se realizaron mediciones de corriente y potencia durante la operación.",
+    tasks: [
+      "Revisión del tablero de mando y potencia.",
+      "Puesta en marcha controlada del motor.",
+      "Medición de corriente y potencia.",
+      "Análisis del comportamiento del sistema."
+    ],
+    doc: "Link al informe de Aplicaciones Electroindustriales",
+    competencies: [
+      "Verificar la capacidad operacional de sistemas mecatrónicos mediante sistemas de monitoreo.",
+      "Instalar y poner en servicio sistemas mecatrónicos considerando normas de seguridad."
+    ],
+    reflection: "Esta evidencia es una de las más directas de operación industrial, porque permitió medir y verificar un sistema real durante su funcionamiento."
+  },
+  "lm35": {
+    kicker: "Tecnologías de Microprocesamiento",
+    title: "Control térmico con LM35 y monitoreo serial",
+    media: ["Foto del montaje", "Gráfica de temperatura en Python", "Video de calefactor/ventilador"],
+    description: "Se implementó un sistema de control de temperatura con sensor LM35, calefactor y ventilador. El sistema enviaba por UART la temperatura y el estado de los actuadores.",
+    tasks: [
+      "Lectura de temperatura mediante LM35.",
+      "Activación de calefactor y ventilador según rangos.",
+      "Envío de datos por comunicación serial.",
+      "Graficación en Python para observar la evolución del sistema."
+    ],
+    doc: "Link al informe o carpeta del laboratorio",
+    competencies: [
+      "Verificar la capacidad operacional mediante monitoreo.",
+      "Implementar software y hardware específico."
+    ],
+    reflection: "Esta evidencia muestra cómo el monitoreo de variables permite validar el comportamiento del sistema con datos y no solo por observación."
+  },
+  "motor-dc": {
+    kicker: "Tecnologías de Microprocesamiento",
+    title: "Control de motor DC por referencia analógica",
+    media: ["Foto del motor DC", "Captura de monitoreo serial", "Gráfica de referencia y posición"],
+    description: "Se comparó una referencia analógica con la posición actual de un motor DC, ajustando el sentido de giro y la señal PWM según el error detectado.",
+    tasks: [
+      "Lectura de referencia mediante potenciómetro.",
+      "Comparación entre referencia y posición actual.",
+      "Control de sentido de giro y PWM.",
+      "Monitoreo de referencia, posición, error y dirección."
+    ],
+    doc: "Link al informe o carpeta de evidencias",
+    competencies: [
+      "Verificar la capacidad operacional de sistemas mecatrónicos mediante monitoreo."
+    ],
+    reflection: "Esta actividad ayudó a entender la importancia de observar variables internas del control para verificar la respuesta real del sistema."
+  },
+  "instrumentos": {
+    kicker: "Instrumentación y Medidas Eléctricas",
+    title: "Medición de señales con instrumentos de laboratorio",
+    media: ["Foto del multímetro", "Foto del osciloscopio", "Foto del generador de funciones"],
+    description: "Se utilizaron multímetro, fuente de alimentación, osciloscopio, generador de funciones y amperímetro para observar señales y medir variables eléctricas.",
+    tasks: [
+      "Medición de tensiones y corrientes.",
+      "Generación de señales sinusoidales, cuadradas y triangulares.",
+      "Observación de amplitud, frecuencia y forma de onda.",
+      "Comparación entre valores configurados y medidos."
+    ],
+    doc: "Link al informe de instrumentos de medición",
+    competencies: [
+      "Verificar la capacidad operacional de sistemas mecatrónicos mediante sistemas de monitoreo."
+    ],
+    reflection: "Esta evidencia es base para cualquier trabajo técnico, porque permite verificar sistemas mediante mediciones reales."
+  },
+  "analogica": {
+    kicker: "Electrónica Analógica",
+    title: "Pruebas de electrónica analógica con medición y simulación",
+    media: ["Foto del circuito en protoboard", "Captura de simulación", "Captura de medición"],
+    description: "En electrónica analógica se trabajó con diodos, rectificadores, Zener, transistores, filtros y amplificadores operacionales, realizando mediciones y comparaciones con simulaciones.",
+    tasks: [
+      "Montaje de circuitos analógicos en protoboard.",
+      "Simulación para prever comportamiento.",
+      "Medición de señales con instrumentos.",
+      "Comparación entre teoría, simulación y práctica."
+    ],
+    doc: "Link al informe de electrónica analógica",
+    competencies: [
+      "Verificar la capacidad operacional mediante mediciones y análisis de señales."
+    ],
+    reflection: "Esta práctica reforzó la importancia de comparar resultados teóricos, simulados y medidos para validar circuitos."
+  },
+  "estrella-triangulo": {
+    kicker: "Aplicaciones Electroindustriales",
+    title: "Arranque estrella-triángulo de motor trifásico",
+    media: ["Foto del tablero", "Esquema estrella-triángulo", "Video de puesta en marcha"],
+    description: "Se trabajó con el arranque estrella-triángulo de un motor trifásico, verificando la actuación de contactores, temporizador, protecciones y elementos de mando.",
+    tasks: [
+      "Identificación de componentes del arranque.",
+      "Revisión de contactores, temporizador y protecciones.",
+      "Verificación previa antes de energizar.",
+      "Puesta en marcha controlada del motor."
+    ],
+    doc: "Link al informe de Aplicaciones Electroindustriales",
+    competencies: [
+      "Instalar y poner en servicio sistemas mecatrónicos considerando normas de seguridad."
+    ],
+    reflection: "Esta evidencia permitió trabajar con un sistema industrial real y comprender la importancia de revisar conexiones antes de operar un equipo eléctrico."
+  },
+  "tablero": {
+    kicker: "Aplicaciones Electroindustriales",
+    title: "Tablero de comando y protección industrial",
+    media: ["Foto del tablero", "Detalle de protecciones", "Diagrama de mando/potencia"],
+    description: "Se inspeccionó y completó parcialmente el cableado de un tablero de comando y protección, diferenciando el circuito de mando en baja tensión y el circuito de potencia trifásico.",
+    tasks: [
+      "Relevamiento de componentes del tablero.",
+      "Diferenciación entre mando y potencia.",
+      "Corrección o completado parcial del cableado.",
+      "Prueba funcional y puesta en servicio controlada."
+    ],
+    doc: "Link al informe o carpeta de evidencias",
+    competencies: [
+      "Instalar y poner en servicio sistemas mecatrónicos.",
+      "Verificar capacidad operacional mediante revisión y pruebas."
+    ],
+    reflection: "Esta actividad ayudó a comprender cómo se organiza un tablero industrial y cómo se relacionan seguridad, protección y funcionamiento."
+  },
+  "arranque-parada": {
+    kicker: "Accionamientos eléctricos",
+    title: "Circuito de arranque/parada con contactor",
+    media: ["Esquema del circuito", "Foto del montaje", "Video de prueba"],
+    description: "Se trabajó con un circuito de mando para arranque y parada de motor mediante contactor, pulsadores de START/STOP y contacto de retención.",
+    tasks: [
+      "Interpretación del circuito de mando.",
+      "Identificación de pulsadores, contactor y retención.",
+      "Prueba de arranque y parada.",
+      "Verificación de la lógica de funcionamiento."
+    ],
+    doc: "Link al informe o carpeta de accionamientos",
+    competencies: [
+      "Instalar y poner en servicio sistemas mecatrónicos considerando normas de seguridad."
+    ],
+    reflection: "Aunque es una lógica básica, esta práctica es fundamental para entender sistemas industriales de mando y operación segura."
+  },
+  "arranque-secuencial": {
+    kicker: "Accionamientos eléctricos",
+    title: "Arranque secuencial y apagado de motores",
+    media: ["Diagrama de mando", "Diagrama de potencia", "Foto o simulación del sistema"],
+    description: "Se desarrolló un esquema de mando y potencia para el arranque y apagado de motores, incorporando contactores, temporizadores, protecciones, emergencia y señalización.",
+    tasks: [
+      "Diseño o interpretación del circuito de mando.",
+      "Incorporación de temporizadores y señalización.",
+      "Análisis de secuencia de arranque y apagado.",
+      "Verificación de condiciones de seguridad."
+    ],
+    doc: "Link al informe o carpeta de accionamientos",
+    competencies: [
+      "Instalar y poner en servicio sistemas mecatrónicos.",
+      "Implementar hardware de mando para un proceso secuencial."
+    ],
+    reflection: "Esta evidencia permitió comprender cómo se construye una lógica de operación industrial con condiciones de seguridad y secuencia."
+  },
+  "neumatica": {
+    kicker: "Neumática y electroneumática",
+    title: "Circuitos neumáticos con cilindros",
+    media: ["Foto del circuito neumático", "Esquema neumático", "Video de accionamiento"],
+    description: "En neumática se montaron circuitos con cilindros de simple y doble efecto, válvulas, manómetros, reguladores y fuente de aire comprimido.",
+    tasks: [
+      "Interpretación de simbología neumática.",
+      "Conexión de válvulas, cilindros y reguladores.",
+      "Prueba de movimiento de actuadores.",
+      "Verificación de funcionamiento y posibles fallas."
+    ],
+    doc: "Link al informe o carpeta de neumática",
+    competencies: [
+      "Instalar y poner en servicio sistemas mecatrónicos.",
+      "Verificar el funcionamiento de sistemas neumáticos."
+    ],
+    reflection: "Esta práctica permitió relacionar el esquema técnico con el comportamiento físico de cilindros y válvulas."
+  },
+  "silo": {
+    kicker: "Neumática y electroneumática",
+    title: "Circuito para apertura de silo de pienso",
+    media: ["Esquema del circuito", "Simulación o montaje", "Video de secuencia"],
+    description: "Se diseñó y analizó un circuito neumático/electroneumático para abrir un silo de pienso, utilizando cilindros, válvulas, accionamientos y elementos de control.",
+    tasks: [
+      "Análisis de una necesidad funcional concreta.",
+      "Diseño o interpretación del circuito neumático/electroneumático.",
+      "Verificación de la secuencia de accionamiento.",
+      "Relación entre componentes y función del sistema."
+    ],
+    doc: "Link al informe o carpeta de neumática",
+    competencies: [
+      "Instalar y poner en servicio sistemas mecatrónicos.",
+      "Implementar sistemas de accionamiento para una tarea específica."
+    ],
+    reflection: "Esta evidencia muestra cómo una necesidad de proceso puede resolverse mediante una lógica de accionamiento neumático."
+  },
+  "accionamientos": {
+    kicker: "Accionamientos eléctricos",
+    title: "Accionamientos eléctricos con relés y contactores",
+    media: ["Foto del montaje", "Esquema eléctrico", "Video de funcionamiento"],
+    description: "Se trabajó con relés, contactores, pulsadores, temporizadores, llave de emergencia y circuitos de mando con retención.",
+    tasks: [
+      "Reconocimiento de componentes de mando eléctrico.",
+      "Interpretación de esquemas de accionamiento.",
+      "Prueba de enclavamiento, retención y emergencia.",
+      "Verificación del comportamiento del circuito."
+    ],
+    doc: "Link al informe o carpeta de accionamientos eléctricos",
+    competencies: [
+      "Instalar y poner en servicio sistemas mecatrónicos considerando normas de seguridad.",
+      "Verificar el funcionamiento de circuitos eléctricos de mando."
+    ],
+    reflection: "Esta práctica refuerza la operación segura de sistemas eléctricos, especialmente en circuitos donde la lógica de mando debe ser clara y confiable."
+  }
+};
+
+function showOpEvidence(key) {
+  var data = opEvidenceData[key];
+  if (!data) return;
+
+  document.getElementById('opEvidenceHero').textContent = data.title;
+  document.getElementById('opEvidenceKicker').textContent = data.kicker;
+  document.getElementById('opEvidenceTitle').textContent = data.title;
+  document.getElementById('opEvidenceDescription').textContent = data.description;
+
+  document.getElementById('opEvidenceMedia1').innerHTML = data.media[0] + '<br><br><span class="evidence-note">Reemplazar por imagen real</span>';
+  document.getElementById('opEvidenceMedia2').innerHTML = data.media[1] + '<br><br><span class="evidence-note">Reemplazar por imagen real</span>';
+  document.getElementById('opEvidenceMedia3').innerHTML = data.media[2] + '<br><br><span class="evidence-note">Reemplazar por video/captura/enlace visual</span>';
+
+  var tasks = document.getElementById('opEvidenceTasks');
+  tasks.innerHTML = '';
+  data.tasks.forEach(function(item) {
+    var li = document.createElement('li');
+    li.textContent = item;
+    tasks.appendChild(li);
+  });
+
+  var comps = document.getElementById('opEvidenceCompetencies');
+  comps.innerHTML = '';
+  data.competencies.forEach(function(item) {
+    var li = document.createElement('li');
+    li.textContent = item;
+    comps.appendChild(li);
+  });
+
+  var doc = document.getElementById('opEvidenceDocument');
+  doc.textContent = data.doc;
+  // En Google Sites evitamos href='javascript:void(0)' porque puede abrir about:blank.
+
+  document.getElementById('opEvidenceReflection').textContent = data.reflection;
+
+  showView('operacion-evidencia');
+}
+
+
+var mantEvidenceData = {
+  "mant-eje-caja": {
+    kicker: "Mantenimiento mecánico",
+    title: "Montaje y desmontaje del eje de transferencia y caja de cambios",
+    media: ["Foto del conjunto mecánico", "Foto de piezas desmontadas", "Registro del montaje final"],
+    description: "En esta práctica se realizó el desmontaje y posterior montaje de un sistema mecánico, aplicando una secuencia de trabajo ordenada e identificando componentes como eje, engranajes, rodamientos, chaveta, anillos Seeger, tapas y tuerca de fijación.",
+    tasks: [
+      "Desmontaje ordenado del conjunto mecánico.",
+      "Identificación de componentes y función de cada pieza.",
+      "Uso de herramientas adecuadas para la intervención.",
+      "Montaje final y verificación del giro del eje."
+    ],
+    doc: "Link al informe o carpeta de la práctica mecánica",
+    competencies: [
+      "Ejecutar planes de mantenimiento preventivos y correctivos diseñados por especialistas."
+    ],
+    reflection: "Esta evidencia es una de las más claras del área de mantenimiento, porque implicó intervenir físicamente un sistema, reconocer sus componentes y volver a dejarlo en condiciones de funcionamiento."
+  },
+  "mant-tablero": {
+    kicker: "Mantenimiento eléctrico",
+    title: "Inspección y corrección de cableado en tablero industrial",
+    media: ["Foto del tablero industrial", "Detalle del cableado", "Registro de prueba de funcionamiento"],
+    description: "En Aplicaciones Electroindustriales se inspeccionó un tablero de comando y protección para un motor trifásico, identificando componentes, conexiones, protecciones y elementos de maniobra.",
+    tasks: [
+      "Relevamiento de componentes del tablero.",
+      "Revisión de conexiones de mando y potencia.",
+      "Corrección o completado parcial del cableado.",
+      "Prueba del sistema en condiciones controladas."
+    ],
+    doc: "Link al informe de Aplicaciones Electroindustriales",
+    competencies: [
+      "Ejecutar planes de mantenimiento preventivos y correctivos diseñados por especialistas.",
+      "Aplicar procedimientos e instrucciones vinculadas a confiabilidad."
+    ],
+    reflection: "Esta práctica permitió relacionar mantenimiento eléctrico con seguridad, diagnóstico y verificación previa a la puesta en marcha."
+  },
+  "mant-accionamientos": {
+    kicker: "Accionamientos eléctricos",
+    title: "Accionamientos eléctricos con relés y contactores",
+    media: ["Foto del montaje", "Esquema eléctrico", "Video de prueba"],
+    description: "Se trabajó con contactores, relés, pulsadores, temporizadores, llave de emergencia y circuitos de mando con retención.",
+    tasks: [
+      "Reconocimiento de componentes de mando.",
+      "Interpretación de esquemas eléctricos.",
+      "Prueba de retención, enclavamiento y emergencia.",
+      "Verificación del comportamiento del circuito."
+    ],
+    doc: "Link al informe o carpeta de accionamientos eléctricos",
+    competencies: [
+      "Ejecutar procedimientos de mantenimiento en sistemas eléctricos de control."
+    ],
+    reflection: "Esta evidencia aporta al mantenimiento porque permite entender cómo intervenir y verificar circuitos industriales básicos de mando."
+  },
+  "mant-neumatica": {
+    kicker: "Neumática",
+    title: "Montaje y prueba de circuitos neumáticos",
+    media: ["Foto del circuito neumático", "Esquema del circuito", "Video de accionamiento"],
+    description: "En las prácticas de neumática se montaron circuitos con cilindros de simple y doble efecto, válvulas 3/2 y 5/2, reguladores, manómetros y fuente de aire comprimido.",
+    tasks: [
+      "Interpretación de simbología neumática.",
+      "Conexión de cilindros, válvulas y reguladores.",
+      "Prueba de funcionamiento del circuito.",
+      "Identificación de posibles fallas de conexión o presión."
+    ],
+    doc: "Link al informe o carpeta de neumática",
+    competencies: [
+      "Ejecutar procedimientos de mantenimiento y verificación en sistemas neumáticos."
+    ],
+    reflection: "Esta práctica ayuda a comprender el mantenimiento de sistemas neumáticos desde la conexión, prueba y observación del comportamiento de los actuadores."
+  },
+  "mant-arranque-secuencial": {
+    kicker: "Accionamientos eléctricos",
+    title: "Arranque secuencial y apagado de motores",
+    media: ["Diagrama de mando", "Diagrama de potencia", "Foto o simulación"],
+    description: "Se elaboró y analizó un circuito de mando y potencia para el arranque y apagado de motores, incorporando contactores, temporizadores, protecciones, emergencia y señalización.",
+    tasks: [
+      "Análisis del circuito de mando y potencia.",
+      "Identificación de temporizadores, protecciones y señalización.",
+      "Verificación de la secuencia de operación.",
+      "Revisión de condiciones de seguridad del sistema."
+    ],
+    doc: "Link al informe o carpeta de accionamientos",
+    competencies: [
+      "Ejecutar procedimientos técnicos sobre sistemas eléctricos de control."
+    ],
+    reflection: "Esta evidencia permite vincular mantenimiento con la comprensión de secuencias eléctricas y la detección de posibles errores de funcionamiento."
+  },
+  "mant-arranque-parada": {
+    kicker: "Accionamientos eléctricos",
+    title: "Circuito de arranque/parada con contactor",
+    media: ["Esquema del circuito", "Foto del montaje", "Video de prueba"],
+    description: "En esta actividad se trabajó con un circuito básico de mando para arranque y parada de motor mediante contactor, pulsadores de START/STOP y contacto de retención.",
+    tasks: [
+      "Identificación de pulsadores, contactor y retención.",
+      "Interpretación del circuito de mando.",
+      "Prueba de arranque y parada.",
+      "Verificación de la lógica de funcionamiento."
+    ],
+    doc: "Link al informe o carpeta de accionamientos",
+    competencies: [
+      "Ejecutar procedimientos de revisión y prueba en sistemas eléctricos de mando."
+    ],
+    reflection: "Es una práctica básica pero muy importante para el mantenimiento de sistemas industriales, porque esta lógica aparece en muchos tableros eléctricos."
+  },
+  "mant-procedimiento-desmontaje": {
+    kicker: "Procedimiento técnico",
+    title: "Procedimiento ordenado de desmontaje mecánico",
+    media: ["Registro del desmontaje", "Foto de piezas ordenadas", "Foto del montaje final"],
+    description: "Durante el desmontaje del eje y la caja de cambios se siguió un procedimiento paso a paso, utilizando herramientas específicas y registrando el orden de extracción de las piezas.",
+    tasks: [
+      "Aplicación de una secuencia de desmontaje.",
+      "Registro del orden de extracción de piezas.",
+      "Uso de herramientas específicas.",
+      "Montaje posterior respetando la secuencia inversa."
+    ],
+    doc: "Link al informe o carpeta de la práctica mecánica",
+    competencies: [
+      "Aplicar procedimientos y seguir instrucciones relacionadas con mantenimiento basado en confiabilidad."
+    ],
+    reflection: "Seguir una secuencia clara reduce errores y permite conservar trazabilidad durante una intervención mecánica."
+  },
+  "mant-componentes-mecanicos": {
+    kicker: "Confiabilidad mecánica",
+    title: "Identificación de componentes críticos en el sistema mecánico",
+    media: ["Foto de engranajes y eje", "Foto de rodamientos", "Foto de anillos y chaveta"],
+    description: "En la práctica mecánica se identificaron componentes críticos como rodamientos, engranajes, eje, chaveta, anillos Seeger y tuerca de fijación.",
+    tasks: [
+      "Identificación de componentes críticos.",
+      "Análisis básico de la función de cada pieza.",
+      "Relación entre desgaste y confiabilidad.",
+      "Verificación del armado final."
+    ],
+    doc: "Link al informe o carpeta de la práctica mecánica",
+    competencies: [
+      "Aplicar procedimientos vinculados a confiabilidad e identificación de componentes críticos."
+    ],
+    reflection: "Esta evidencia muestra que no todos los componentes tienen el mismo impacto ante una falla, por eso es importante reconocer cuáles sostienen la operación del sistema."
+  },
+  "mant-relevamiento-tablero": {
+    kicker: "Diagnóstico eléctrico",
+    title: "Relevamiento técnico del tablero de comando y protección",
+    media: ["Foto del tablero", "Detalle de protecciones", "Registro de componentes"],
+    description: "En el tablero industrial se identificaron componentes como guardamotor, fusibles, interruptor diferencial, contactores, temporizador, fuente de 24 V y borneras.",
+    tasks: [
+      "Relevamiento de componentes eléctricos.",
+      "Identificación de elementos de protección y maniobra.",
+      "Análisis de su función dentro del tablero.",
+      "Relación entre componentes críticos y continuidad operativa."
+    ],
+    doc: "Link al informe de Aplicaciones Electroindustriales",
+    competencies: [
+      "Aplicar procedimientos e instrucciones relacionadas con confiabilidad."
+    ],
+    reflection: "Reconocer los componentes del tablero permite intervenir con más criterio y entender qué elementos pueden afectar la seguridad o el funcionamiento."
+  },
+  "mant-medicion-motor": {
+    kicker: "Diagnóstico operacional",
+    title: "Medición de corriente y potencia en motor trifásico",
+    media: ["Foto de medición", "Registro de valores", "Foto del motor"],
+    description: "En la práctica con motor trifásico se realizaron mediciones de corriente y potencia durante el funcionamiento del sistema.",
+    tasks: [
+      "Medición de corriente durante la operación.",
+      "Medición o registro de potencia eléctrica.",
+      "Comparación con el comportamiento esperado.",
+      "Análisis de posibles consumos anormales."
+    ],
+    doc: "Link al informe de Aplicaciones Electroindustriales",
+    competencies: [
+      "Aplicar procedimientos de verificación del estado de componentes y sistemas."
+    ],
+    reflection: "Las mediciones permiten diagnosticar el estado de un sistema con datos reales y no solamente por observación visual."
+  },
+  "mant-instrumentos": {
+    kicker: "Diagnóstico eléctrico y electrónico",
+    title: "Uso de instrumentos para diagnóstico eléctrico y electrónico",
+    media: ["Foto del osciloscopio", "Foto del multímetro", "Captura de señal medida"],
+    description: "En las prácticas de instrumentos se utilizó multímetro, osciloscopio, fuente de alimentación, generador de funciones y amperímetro para medir señales y verificar circuitos.",
+    tasks: [
+      "Medición de tensión y corriente.",
+      "Observación de señales en osciloscopio.",
+      "Comparación de valores configurados y medidos.",
+      "Verificación del estado de circuitos."
+    ],
+    doc: "Link al informe de instrumentos de medición",
+    competencies: [
+      "Aplicar procedimientos de diagnóstico y verificación técnica."
+    ],
+    reflection: "El uso de instrumentos es una herramienta fundamental para mantenimiento, porque permite confirmar el estado real de un sistema."
+  },
+  "mant-fallas-neumaticas": {
+    kicker: "Diagnóstico neumático",
+    title: "Identificación de fallas potenciales en circuitos neumáticos",
+    media: ["Foto del circuito", "Detalle de válvulas", "Video de movimiento del cilindro"],
+    description: "En los circuitos neumáticos se trabajó con componentes cuyo funcionamiento influye en la respuesta del sistema, como válvulas, cilindros, conexiones, reguladores y manómetros.",
+    tasks: [
+      "Reconocimiento de componentes neumáticos críticos.",
+      "Observación del movimiento de cilindros.",
+      "Identificación de posibles fugas o pérdidas de presión.",
+      "Verificación de la respuesta del sistema."
+    ],
+    doc: "Link al informe o carpeta de neumática",
+    competencies: [
+      "Aplicar procedimientos de mantenimiento y diagnóstico en sistemas neumáticos."
+    ],
+    reflection: "Esta evidencia muestra cómo pequeñas fallas en conexiones, presión o válvulas pueden afectar el comportamiento completo del sistema."
+  }
+};
+
+var disEvidenceData = {
+  "dis-turi": {
+    kicker: "Proyecto Integrador II",
+    title: "Robot humanoide Turi",
+    media: ["Foto del robot", "Modelo CAD o piezas impresas", "Video demostrativo"],
+    description: "Se diseñó y construyó un robot humanoide inspirado en NAO para apoyar recorridos turísticos dentro de la universidad. El sistema incluyó diseño CAD, fabricación de piezas en impresión 3D, armado de estructura, integración electrónica, servomotores, cámara, audio, aplicación móvil y servidor en Python.",
+    tasks: [
+      "Diseño e integración de estructura y subsistemas.",
+      "Fabricación de piezas y armado físico.",
+      "Integración de electrónica, comunicación y control.",
+      "Pruebas funcionales del prototipo."
+    ],
+    doc: "Link al informe del Proyecto Integrador II",
+    competencies: [
+      "Fabricar equipos, sistemas y procesos mecatrónicos de acuerdo con diseño."
+    ],
+    reflection: "Esta evidencia representa un proceso completo de diseño, porque la solución pasó de una idea a un prototipo físico integrado y probado."
+  },
+  "dis-aromatizador": {
+    kicker: "Proyecto Integrador I",
+    title: "Aromatizador automático",
+    media: ["Foto del prototipo", "Foto del circuito", "Video de funcionamiento"],
+    description: "Se desarrolló un aromatizador automático partiendo de una necesidad concreta. El trabajo incluyó diseño del prototipo, selección de componentes, circuito electrónico, programación con Arduino, estructura física, interfaz de usuario y pruebas funcionales.",
+    tasks: [
+      "Diseño del prototipo y selección de componentes.",
+      "Montaje del circuito electrónico.",
+      "Programación del sistema de control.",
+      "Prueba funcional del equipo."
+    ],
+    doc: "Link al informe del Proyecto Integrador I",
+    competencies: [
+      "Fabricar equipos, sistemas y procesos mecatrónicos de acuerdo con diseño."
+    ],
+    reflection: "Este proyecto permitió materializar una solución técnica concreta, integrando electrónica, programación e interfaz de usuario."
+  },
+  "dis-robot-futbol": {
+    kicker: "Prototipo móvil",
+    title: "Robot de mini fútbol con Bluetooth",
+    media: ["Foto del robot", "Detalle de tracción", "Video de control Bluetooth"],
+    description: "Se fabricó un robot móvil con tracción diferencial, sensores de línea, mecanismo frontal de golpeo y control remoto mediante Bluetooth.",
+    tasks: [
+      "Diseño y armado del sistema móvil.",
+      "Integración de motores, sensores y Bluetooth.",
+      "Programación del control remoto.",
+      "Pruebas de movilidad y mecanismo frontal."
+    ],
+    doc: "Link al informe o carpeta del robot",
+    competencies: [
+      "Fabricar equipos, sistemas y procesos mecatrónicos de acuerdo con diseño."
+    ],
+    reflection: "Esta evidencia muestra cómo un diseño de movilidad puede transformarse en un sistema físico funcional."
+  },
+  "dis-plotter": {
+    kicker: "Sistema de movimiento",
+    title: "Control de plotter físico con ATmega328P",
+    media: ["Foto del plotter", "Esquema de control", "Video de movimiento"],
+    description: "Se implementó un sistema de control para un plotter físico, utilizando el ATmega328P para gestionar movimientos y ejecutar acciones de acuerdo con comandos o secuencias previamente definidas.",
+    tasks: [
+      "Integración del sistema de movimiento.",
+      "Programación del control en ATmega328P.",
+      "Pruebas de desplazamiento y respuesta.",
+      "Validación del funcionamiento del sistema físico."
+    ],
+    doc: "Link al informe o carpeta del plotter",
+    competencies: [
+      "Fabricar equipos, sistemas y procesos mecatrónicos de acuerdo con diseño."
+    ],
+    reflection: "El plotter permitió trabajar con movimiento, electrónica de control y programación embebida en un sistema físico."
+  },
+  "dis-rfid": {
+    kicker: "Sistema de acceso",
+    title: "Cerradura RFID con RC522, LCD I2C y EEPROM",
+    media: ["Foto del lector RFID", "Foto del LCD", "Video de validación"],
+    description: "Se diseñó e implementó una cerradura electrónica con lector RFID, pantalla LCD, LEDs de estado, botones de actualización/borrado y almacenamiento en EEPROM.",
+    tasks: [
+      "Integración del lector RFID y pantalla LCD.",
+      "Uso de memoria EEPROM.",
+      "Programación de lógica de acceso.",
+      "Pruebas de registro, validación y borrado."
+    ],
+    doc: "Link al informe o carpeta de la cerradura RFID",
+    competencies: [
+      "Fabricar equipos, sistemas y procesos mecatrónicos de acuerdo con diseño."
+    ],
+    reflection: "Esta práctica permitió diseñar una solución funcional de control de acceso con interfaz, memoria y validación."
+  },
+  "dis-digital": {
+    kicker: "Electrónica digital",
+    title: "Motor paso a paso, seguidor de línea y candado digital",
+    media: ["Esquema lógico", "Simulación", "Foto del montaje"],
+    description: "En electrónica digital se desarrollaron sistemas como control de motor paso a paso, seguidor de línea y candado digital mediante lógica secuencial y combinacional.",
+    tasks: [
+      "Diseño lógico mediante tablas y simplificaciones.",
+      "Simulación de circuitos digitales.",
+      "Implementación o validación física.",
+      "Análisis del comportamiento del sistema."
+    ],
+    doc: "Link al informe de electrónica digital",
+    competencies: [
+      "Fabricar sistemas de control digital de acuerdo con un diseño."
+    ],
+    reflection: "Estas prácticas muestran cómo un diseño lógico puede convertirse en una solución de control digital."
+  },
+  "dis-integracion-turi": {
+    kicker: "Integración tecnológica",
+    title: "Integración tecnológica en el robot humanoide Turi",
+    media: ["Foto del sistema integrado", "Captura de la app", "Captura del servidor"],
+    description: "En el Proyecto Integrador II se incorporaron tecnologías como ESP32, Arduino UNO, servomotores Dynamixel y MG996R, ESP32-CAM, pantalla, audio digital, servidor en Python, aplicación móvil, WiFi y funciones de interacción.",
+    tasks: [
+      "Selección e integración de tecnologías.",
+      "Asignación de funciones a cada subsistema.",
+      "Pruebas de comunicación y control.",
+      "Validación del funcionamiento conjunto."
+    ],
+    doc: "Link al informe del Proyecto Integrador II",
+    competencies: [
+      "Incorporar tecnologías ya evaluadas a sistemas y procesos mecatrónicos."
+    ],
+    reflection: "Esta evidencia muestra la importancia de integrar tecnologías con una función clara dentro del sistema final."
+  },
+  "dis-integracion-aromatizador": {
+    kicker: "Integración tecnológica",
+    title: "Integración de Arduino, interfaz y accionamiento en el aromatizador",
+    media: ["Foto del prototipo", "Foto de interfaz", "Video de accionamiento"],
+    description: "En el Proyecto Integrador I se incorporaron tecnologías como Arduino, display, botones, LEDs, buzzer, electrónica de control y sistema de accionamiento para construir un dispositivo funcional.",
+    tasks: [
+      "Integración de interfaz de usuario.",
+      "Programación de lógica de funcionamiento.",
+      "Conexión de actuadores y señalización.",
+      "Pruebas del dispositivo completo."
+    ],
+    doc: "Link al informe del Proyecto Integrador I",
+    competencies: [
+      "Incorporar tecnologías ya evaluadas a sistemas y procesos mecatrónicos."
+    ],
+    reflection: "El aromatizador permitió integrar tecnologías simples, pero organizadas para cumplir una función concreta."
+  },
+  "dis-comunicaciones": {
+    kicker: "Sistemas embebidos",
+    title: "Comunicación SPI, I2C y UART en sistemas embebidos",
+    media: ["Foto de montaje", "Diagrama de comunicación", "Captura de código"],
+    description: "Se incorporaron distintos protocolos de comunicación en prácticas con ATmega328P, permitiendo conectar microcontroladores, sensores, matrices LED, pantallas y otros dispositivos.",
+    tasks: [
+      "Implementación de comunicación SPI.",
+      "Implementación de comunicación I2C.",
+      "Uso de UART para comandos o monitoreo.",
+      "Comparación del uso de cada protocolo."
+    ],
+    doc: "Link al informe o carpeta de microprocesadores",
+    competencies: [
+      "Incorporar tecnologías ya evaluadas a sistemas y procesos mecatrónicos."
+    ],
+    reflection: "Estas prácticas ayudaron a entender cómo la comunicación digital permite integrar dispositivos dentro de un sistema mecatrónico."
+  },
+  "dis-selector-color": {
+    kicker: "Sensado y actuación",
+    title: "Selector de color con fotocelda, servomotor y WS2812",
+    media: ["Foto del montaje", "Foto del servomotor", "Video de detección"],
+    description: "Se incorporaron tecnologías de sensado, actuación y visualización para detectar colores, mover un servomotor hacia una posición asociada y representar el resultado mediante LEDs WS2812.",
+    tasks: [
+      "Lectura analógica con fotocelda.",
+      "Calibración de valores de color.",
+      "Control de posición con servomotor.",
+      "Visualización mediante LEDs direccionables."
+    ],
+    doc: "Link al informe o carpeta del selector de color",
+    competencies: [
+      "Incorporar tecnologías ya evaluadas a sistemas y procesos mecatrónicos."
+    ],
+    reflection: "Esta evidencia muestra cómo sensores y actuadores pueden integrarse para resolver una tarea interactiva."
+  },
+  "dis-cerradura-teclado": {
+    kicker: "Interfaz y memoria",
+    title: "Cerradura electrónica con teclado, LCD y EEPROM",
+    media: ["Foto del teclado", "Foto del LCD", "Video de prueba"],
+    description: "Se integró un teclado matricial, una pantalla LCD y memoria EEPROM para implementar una cerradura electrónica con almacenamiento persistente de clave.",
+    tasks: [
+      "Integración de teclado matricial.",
+      "Visualización de información mediante LCD.",
+      "Almacenamiento de clave en EEPROM.",
+      "Pruebas de acceso y modificación de clave."
+    ],
+    doc: "Link al informe o carpeta de la cerradura electrónica",
+    competencies: [
+      "Incorporar tecnologías ya evaluadas a sistemas y procesos mecatrónicos."
+    ],
+    reflection: "Esta práctica integró entrada, salida y memoria en una aplicación funcional de control de acceso."
+  },
+  "dis-audio": {
+    kicker: "Procesamiento digital",
+    title: "Mezclador de audio digital en Python",
+    media: ["Captura de la interfaz", "Gráfica en tiempo", "Espectro de frecuencia"],
+    description: "Se desarrolló un mezclador de audio digital con Python, control de amplitud, filtros paso alto y paso bajo, visualización en tiempo y frecuencia, y una interfaz gráfica.",
+    tasks: [
+      "Lectura y mezcla de señales WAV.",
+      "Aplicación de filtros digitales.",
+      "Visualización en tiempo y frecuencia.",
+      "Desarrollo de interfaz gráfica."
+    ],
+    doc: "Link al código, informe o carpeta del mezclador",
+    competencies: [
+      "Incorporar tecnologías de procesamiento de señales y visualización técnica."
+    ],
+    reflection: "Aunque es principalmente software, esta evidencia muestra el diseño de una herramienta funcional para análisis y procesamiento de señales."
+  },
+  "dis-matrices-turi": {
+    kicker: "Criterios de diseño",
+    title: "Matrices de selección y criterios de diseño del robot Turi",
+    media: ["Captura de matriz de selección", "Tabla comparativa", "Diagrama de decisión"],
+    description: "En el Proyecto Integrador II se utilizaron matrices de selección para comparar alternativas de control, comunicación, materiales, actuación, base electrónica y sonido.",
+    tasks: [
+      "Comparación de alternativas técnicas.",
+      "Definición de criterios de selección.",
+      "Justificación de componentes elegidos.",
+      "Generación de insumos para el diseño final."
+    ],
+    doc: "Link al informe del Proyecto Integrador II",
+    competencies: [
+      "Generar insumos de procesos existentes para el diseño o rediseño de un sistema."
+    ],
+    reflection: "Las matrices de selección ayudaron a justificar decisiones de diseño y evitar elecciones arbitrarias."
+  },
+  "dis-cad-diagramas": {
+    kicker: "Documentación técnica",
+    title: "Diseño CAD, planos y diagramas de bloques",
+    media: ["Captura CAD", "Diagrama de bloques", "Plano o boceto"],
+    description: "En los proyectos integradores se realizaron bocetos, modelos CAD, diagramas de bloques, esquemas eléctricos, planificación de tareas y documentación de subsistemas.",
+    tasks: [
+      "Elaboración de modelos o bocetos.",
+      "Representación de subsistemas mediante diagramas.",
+      "Documentación de conexiones y componentes.",
+      "Uso de insumos técnicos para fabricar o ajustar el sistema."
+    ],
+    doc: "Link a carpeta de CAD, planos o informe",
+    competencies: [
+      "Generar insumos técnicos para diseño o rediseño."
+    ],
+    reflection: "La documentación técnica permite que el diseño sea comprensible, modificable y reutilizable."
+  },
+  "dis-tablero-corregido": {
+    kicker: "Rediseño eléctrico",
+    title: "Circuito original y circuito corregido del tablero industrial",
+    media: ["Circuito original", "Circuito corregido", "Foto del tablero"],
+    description: "En Aplicaciones Electroindustriales se relevó el circuito original del tablero y luego se documentó una versión corregida con protecciones, temporizador y señalización.",
+    tasks: [
+      "Relevamiento del circuito existente.",
+      "Identificación de mejoras necesarias.",
+      "Documentación de versión corregida.",
+      "Comparación entre estado inicial y propuesta corregida."
+    ],
+    doc: "Link al informe de Aplicaciones Electroindustriales",
+    competencies: [
+      "Generar insumos de procesos existentes para el diseño o rediseño de un sistema."
+    ],
+    reflection: "Esta evidencia muestra cómo el análisis de un sistema existente puede generar información útil para corregir o mejorar su funcionamiento."
+  },
+  "dis-analogica": {
+    kicker: "Validación electrónica",
+    title: "Simulación, medición y comparación en electrónica analógica",
+    media: ["Captura de simulación", "Foto del montaje", "Captura de medición"],
+    description: "En electrónica analógica se trabajó con simulaciones, cálculos teóricos y mediciones reales en circuitos con diodos, transistores, filtros y amplificadores operacionales.",
+    tasks: [
+      "Cálculo teórico de circuitos.",
+      "Simulación previa.",
+      "Montaje y medición real.",
+      "Comparación de resultados."
+    ],
+    doc: "Link al informe de electrónica analógica",
+    competencies: [
+      "Generar insumos técnicos para validar o ajustar diseños electrónicos."
+    ],
+    reflection: "La comparación entre teoría, simulación y práctica permite tomar mejores decisiones al diseñar o ajustar un circuito."
+  },
+  "dis-karnaugh": {
+    kicker: "Diseño lógico",
+    title: "Mapas de Karnaugh, tablas y simulaciones en electrónica digital",
+    media: ["Tabla de verdad", "Mapa de Karnaugh", "Simulación del circuito"],
+    description: "En electrónica digital se elaboraron tablas de verdad, simplificaciones mediante mapas de Karnaugh, simulaciones y montajes físicos de circuitos combinacionales y secuenciales.",
+    tasks: [
+      "Construcción de tablas de verdad.",
+      "Simplificación mediante mapas de Karnaugh.",
+      "Simulación del circuito lógico.",
+      "Implementación o validación del diseño."
+    ],
+    doc: "Link al informe de electrónica digital",
+    competencies: [
+      "Generar insumos de diseño para sistemas digitales."
+    ],
+    reflection: "Estos insumos permiten pasar de una condición lógica a una implementación concreta y verificable."
+  },
+  "dis-python-graficas": {
+    kicker: "Análisis de datos",
+    title: "Monitoreo serial y gráficas en Python para ajuste de sistemas",
+    media: ["Captura de datos seriales", "Gráfica en Python", "Foto del montaje"],
+    description: "En prácticas de microprocesadores se utilizaron datos enviados por comunicación serial y gráficas en Python para observar variables como temperatura, referencia, posición, error y señal PWM.",
+    tasks: [
+      "Recepción de datos por puerto serial.",
+      "Graficación de variables del sistema.",
+      "Análisis de respuesta temporal.",
+      "Uso de datos para validar o ajustar el sistema."
+    ],
+    doc: "Link al informe, código o carpeta de evidencias",
+    competencies: [
+      "Generar insumos de procesos existentes para el diseño o rediseño de un sistema."
+    ],
+    reflection: "Los datos obtenidos por monitoreo permiten validar el comportamiento y orientar mejoras con mayor criterio."
+  }
+};
+
+var innEvidenceData = {
+  "inn-turi": {
+    kicker: "Robótica e interacción",
+    title: "Proyecto Integrador II: Robot humanoide Turi",
+    media: ["Foto del robot", "Captura de la aplicación", "Video demostrativo"],
+    description: "En este proyecto se trabajó con tecnologías actuales aplicadas a robótica educativa e interacción humano-máquina, integrando ESP32, Arduino UNO, servomotores, cámara, audio, aplicación móvil, servidor en Python y comunicación WiFi.",
+    tasks: [
+      "Reconocimiento e integración de tecnologías actuales.",
+      "Aplicación de robótica educativa e interacción.",
+      "Pruebas de comunicación y control.",
+      "Validación del sistema integrado."
+    ],
+    doc: "Link al informe del Proyecto Integrador II",
+    competencies: [
+      "Reconocer paradigmas tecnológicos tradicionales e innovadores presentes en sistemas mecatrónicos."
+    ],
+    reflection: "Esta evidencia muestra una aproximación a tecnologías innovadoras aplicadas a interacción y robótica educativa."
+  },
+  "inn-aei": {
+    kicker: "Tecnología industrial tradicional",
+    title: "AEI: Tablero industrial y arranque estrella-triángulo",
+    media: ["Foto del tablero", "Foto del motor", "Esquema de arranque"],
+    description: "En esta práctica se trabajó con tecnologías industriales tradicionales como motor trifásico, contactores, guardamotor, fusibles, interruptor diferencial, temporizador y tablero de comando y protección.",
+    tasks: [
+      "Reconocimiento de tecnología industrial clásica.",
+      "Identificación de componentes de mando y protección.",
+      "Verificación del arranque estrella-triángulo.",
+      "Comparación con tecnologías embebidas usadas en otros proyectos."
+    ],
+    doc: "Link al informe de Aplicaciones Electroindustriales",
+    competencies: [
+      "Reconocer paradigmas tecnológicos tradicionales e innovadores."
+    ],
+    reflection: "Innovar también implica saber reconocer cuándo una tecnología tradicional sigue siendo adecuada y confiable para un proceso."
+  },
+  "inn-comunicaciones": {
+    kicker: "Sistemas embebidos",
+    title: "Comunicación SPI, I2C, UART y Bluetooth en sistemas embebidos",
+    media: ["Foto de montaje", "Diagrama de comunicación", "Video de prueba"],
+    description: "En las prácticas de microprocesadores se trabajó con distintos protocolos de comunicación para conectar microcontroladores, sensores, matrices LED, actuadores y módulos inalámbricos.",
+    tasks: [
+      "Uso de distintos protocolos de comunicación.",
+      "Comparación entre comunicación cableada e inalámbrica.",
+      "Pruebas de intercambio de datos.",
+      "Integración de dispositivos en un sistema coordinado."
+    ],
+    doc: "Link al informe o carpeta de microprocesadores",
+    competencies: [
+      "Reconocer e incorporar paradigmas tecnológicos modernos en sistemas mecatrónicos."
+    ],
+    reflection: "Estas tecnologías muestran cómo los sistemas actuales dependen cada vez más de la comunicación entre dispositivos."
+  },
+  "inn-audio": {
+    kicker: "Procesamiento digital de señales",
+    title: "Mezclador de audio digital en Python",
+    media: ["Captura de interfaz", "Gráfica de señal", "Espectro de frecuencia"],
+    description: "Se desarrolló un sistema de mezcla de señales WAV con control de amplitud, filtros paso alto y paso bajo, análisis en tiempo y frecuencia, espectros, Bode e interfaz gráfica en Tkinter.",
+    tasks: [
+      "Implementación de procesamiento digital de señales.",
+      "Aplicación de filtros y análisis frecuencial.",
+      "Visualización de resultados.",
+      "Desarrollo de interfaz gráfica."
+    ],
+    doc: "Link al código, informe o carpeta del mezclador",
+    competencies: [
+      "Reconocer tecnologías de software y procesamiento digital como parte de soluciones técnicas."
+    ],
+    reflection: "Esta evidencia amplía la idea de sistema mecatrónico, incorporando procesamiento digital y visualización como herramientas de análisis."
+  },
+  "inn-prototipo-turi": {
+    kicker: "Prototipado robótico",
+    title: "Proyecto Integrador II: Prototipo del robot humanoide Turi",
+    media: ["Foto del prototipo", "Piezas impresas", "Video de funcionamiento"],
+    description: "Se fabricó un prototipo de robot humanoide con piezas diseñadas en CAD e impresión 3D, estructura física, servomotores, electrónica de control, cámara, audio, aplicación móvil y servidor.",
+    tasks: [
+      "Fabricación de piezas y armado estructural.",
+      "Integración de electrónica y software.",
+      "Pruebas parciales de subsistemas.",
+      "Validación del prototipo completo."
+    ],
+    doc: "Link al informe del Proyecto Integrador II",
+    competencies: [
+      "Fabricar prototipos para sistemas y procesos mecatrónicos."
+    ],
+    reflection: "El prototipo permitió probar una idea de robótica interactiva antes de pensar en una versión más avanzada."
+  },
+  "inn-prototipo-aromatizador": {
+    kicker: "Prototipado funcional",
+    title: "Proyecto Integrador I: Prototipo de aromatizador automático",
+    media: ["Foto del prototipo", "Foto del circuito", "Video de funcionamiento"],
+    description: "Se fabricó un prototipo funcional de aromatizador automático con Arduino, display, botones, LEDs, buzzer, circuito electrónico, estructura física y sistema de accionamiento.",
+    tasks: [
+      "Construcción de prototipo físico.",
+      "Integración de control e interfaz.",
+      "Pruebas de funcionamiento.",
+      "Documentación del desarrollo."
+    ],
+    doc: "Link al informe del Proyecto Integrador I",
+    competencies: [
+      "Fabricar prototipos para sistemas y procesos mecatrónicos."
+    ],
+    reflection: "Este proyecto muestra cómo una idea sencilla puede convertirse en un prototipo funcional al integrar hardware y software."
+  },
+  "inn-robot-futbol": {
+    kicker: "Prototipo móvil",
+    title: "Robot de mini fútbol con Bluetooth",
+    media: ["Foto del robot", "Foto de tracción", "Video de control Bluetooth"],
+    description: "Se construyó un robot móvil con tracción diferencial, sensores de línea, mecanismo frontal de golpeo y control remoto mediante Bluetooth.",
+    tasks: [
+      "Construcción del chasis y tracción.",
+      "Integración de control remoto.",
+      "Pruebas de movilidad.",
+      "Validación del mecanismo frontal."
+    ],
+    doc: "Link al informe o carpeta del robot",
+    competencies: [
+      "Fabricar prototipos para sistemas y procesos mecatrónicos."
+    ],
+    reflection: "Esta evidencia muestra un prototipo móvil donde se ensayan control, movimiento y comunicación inalámbrica."
+  },
+  "inn-rfid": {
+    kicker: "Prototipo de control de acceso",
+    title: "Cerradura RFID con RC522, LCD I2C y EEPROM",
+    media: ["Foto del lector RFID", "Foto del LCD", "Video de validación"],
+    description: "Se implementó un prototipo de control de acceso con lector RFID, pantalla LCD, LEDs, botones de gestión y memoria EEPROM.",
+    tasks: [
+      "Integración de lector RFID.",
+      "Uso de EEPROM para almacenar datos.",
+      "Visualización de estados.",
+      "Pruebas de acceso y gestión."
+    ],
+    doc: "Link al informe o carpeta de la cerradura RFID",
+    competencies: [
+      "Fabricar prototipos para sistemas y procesos mecatrónicos."
+    ],
+    reflection: "El sistema RFID permitió validar una solución de seguridad electrónica con identificación y memoria."
+  },
+  "inn-selector-color": {
+    kicker: "Prototipo interactivo",
+    title: "Selector de color con fotocelda, servomotor y LEDs WS2812",
+    media: ["Foto del montaje", "Foto del servomotor", "Video de detección"],
+    description: "Se fabricó un prototipo capaz de detectar colores, mover un servomotor a una posición asociada y mostrar el resultado mediante LEDs direccionables.",
+    tasks: [
+      "Integración de sensado analógico.",
+      "Control de posición con servomotor.",
+      "Visualización mediante LEDs direccionables.",
+      "Pruebas de calibración y respuesta."
+    ],
+    doc: "Link al informe o carpeta del selector",
+    competencies: [
+      "Fabricar prototipos para sistemas y procesos mecatrónicos."
+    ],
+    reflection: "Este prototipo permitió probar una interacción simple entre percepción, decisión y actuación."
+  },
+  "inn-audio-prototipo": {
+    kicker: "Prototipo de software",
+    title: "Mezclador de audio digital",
+    media: ["Captura de interfaz", "Gráfica de señal", "Resultado de filtrado"],
+    description: "Se desarrolló un prototipo de software para mezclar tres señales de audio, aplicar filtros, modificar amplitudes y visualizar resultados en tiempo y frecuencia.",
+    tasks: [
+      "Desarrollo de prototipo funcional en Python.",
+      "Implementación de filtros y mezcla.",
+      "Visualización de señales.",
+      "Pruebas con diferentes archivos WAV."
+    ],
+    doc: "Link al código, informe o carpeta del mezclador",
+    competencies: [
+      "Fabricar prototipos para sistemas y procesos mecatrónicos."
+    ],
+    reflection: "Aunque es un prototipo de software, permite validar una solución técnica antes de integrarla a un sistema físico o interfaz final."
+  },
+  "inn-integracion-turi": {
+    kicker: "Integración de nuevas tecnologías",
+    title: "Integración de subsistemas en el robot Turi",
+    media: ["Foto del robot integrado", "Captura del servidor", "Video de prueba"],
+    description: "En el Proyecto Integrador II se integraron subsistemas de movimiento, audio, cámara, comunicación WiFi, aplicación móvil, servidor en Python y estructura física.",
+    tasks: [
+      "Pruebas parciales de cada subsistema.",
+      "Integración progresiva del conjunto.",
+      "Corrección de errores de comunicación y funcionamiento.",
+      "Validación del sistema completo."
+    ],
+    doc: "Link al informe del Proyecto Integrador II",
+    competencies: [
+      "Colaborar en la integración de nuevas tecnologías realizando pruebas y ensayos."
+    ],
+    reflection: "Esta evidencia muestra que integrar tecnologías requiere probar por partes antes de unir todo el sistema."
+  },
+  "inn-spi-i2c": {
+    kicker: "Pruebas de comunicación",
+    title: "Pruebas de comunicación SPI e I2C entre microcontroladores",
+    media: ["Foto del montaje", "Diagrama de comunicación", "Captura de código"],
+    description: "Se implementaron y compararon sistemas maestro–esclavo utilizando SPI e I2C entre microcontroladores ATmega328P.",
+    tasks: [
+      "Configuración de comunicación SPI.",
+      "Configuración de comunicación I2C.",
+      "Pruebas de transmisión de datos.",
+      "Validación de salidas a partir de datos recibidos."
+    ],
+    doc: "Link al informe o carpeta de microprocesadores",
+    competencies: [
+      "Colaborar en la integración de nuevas tecnologías mediante pruebas y ensayos."
+    ],
+    reflection: "Comparar SPI e I2C permitió entender ventajas y limitaciones de cada protocolo en sistemas embebidos."
+  },
+  "inn-mpu": {
+    kicker: "Ensayos con sensores",
+    title: "Ensayos con MPU6050 y matriz RGB",
+    media: ["Foto del MPU6050", "Foto de matriz RGB", "Video de movimiento"],
+    description: "Se integró un sensor MPU6050 con una matriz RGB para mover un LED en función de la inclinación medida por el sensor.",
+    tasks: [
+      "Lectura del sensor inercial.",
+      "Procesamiento de inclinación.",
+      "Representación visual en matriz RGB.",
+      "Pruebas de respuesta ante movimiento."
+    ],
+    doc: "Link al informe o carpeta de evidencias",
+    competencies: [
+      "Colaborar en la integración de nuevas tecnologías realizando pruebas y ensayos."
+    ],
+    reflection: "Esta evidencia muestra cómo validar la interacción entre sensor, procesamiento y salida visual."
+  },
+  "inn-lm35": {
+    kicker: "Ensayos de control",
+    title: "Ensayos de control térmico con LM35",
+    media: ["Foto del montaje", "Gráfica de temperatura", "Video de actuadores"],
+    description: "Se integró un sensor de temperatura LM35 con un sistema de calefacción, ventilación y monitoreo serial.",
+    tasks: [
+      "Lectura de temperatura.",
+      "Activación de calefactor y ventilador.",
+      "Monitoreo serial.",
+      "Validación de la respuesta ante rangos térmicos."
+    ],
+    doc: "Link al informe o carpeta del control térmico",
+    competencies: [
+      "Colaborar en la integración de nuevas tecnologías realizando pruebas y ensayos."
+    ],
+    reflection: "Los ensayos permitieron verificar que el sistema respondiera correctamente a cambios de temperatura."
+  },
+  "inn-rfid-pruebas": {
+    kicker: "Ensayos de sistema RFID",
+    title: "Pruebas del sistema RFID con memoria EEPROM",
+    media: ["Foto del lector RFID", "Captura de LCD", "Video de validación"],
+    description: "En la cerradura RFID se realizaron pruebas de lectura de tarjeta, almacenamiento en EEPROM, actualización, borrado y validación de acceso.",
+    tasks: [
+      "Pruebas de lectura de tarjeta.",
+      "Pruebas de almacenamiento y borrado.",
+      "Validación de acceso autorizado.",
+      "Verificación de interfaz mediante LCD y LEDs."
+    ],
+    doc: "Link al informe o carpeta de la cerradura RFID",
+    competencies: [
+      "Colaborar en la integración de nuevas tecnologías realizando pruebas y ensayos."
+    ],
+    reflection: "Esta práctica mostró que una tecnología no queda integrada hasta que se prueba su funcionamiento real en diferentes situaciones."
+  },
+  "inn-audio-ensayos": {
+    kicker: "Ensayos de procesamiento digital",
+    title: "Ensayos del mezclador de audio digital",
+    media: ["Captura de señal original", "Captura de señal filtrada", "Espectro de frecuencia"],
+    description: "En el mezclador de audio se realizaron pruebas con distintas señales WAV, variaciones de amplitud, filtros paso alto y paso bajo, y visualización en tiempo y frecuencia.",
+    tasks: [
+      "Pruebas con diferentes señales de entrada.",
+      "Aplicación de filtros digitales.",
+      "Comparación de resultados en tiempo y frecuencia.",
+      "Validación del comportamiento del software."
+    ],
+    doc: "Link al código, informe o carpeta del mezclador",
+    competencies: [
+      "Colaborar en la integración de nuevas tecnologías realizando pruebas y ensayos."
+    ],
+    reflection: "Los ensayos permitieron comprobar que el procesamiento implementado respondiera según lo esperado."
+  }
+};
+
+function fillAreaEvidence(data, prefix, detailView) {
+  document.getElementById(prefix + 'EvidenceHero').textContent = data.title;
+  document.getElementById(prefix + 'EvidenceKicker').textContent = data.kicker;
+  document.getElementById(prefix + 'EvidenceTitle').textContent = data.title;
+  document.getElementById(prefix + 'EvidenceDescription').textContent = data.description;
+
+  document.getElementById(prefix + 'EvidenceMedia1').innerHTML = data.media[0] + '<br><br><span class="evidence-note">Reemplazar por imagen real</span>';
+  document.getElementById(prefix + 'EvidenceMedia2').innerHTML = data.media[1] + '<br><br><span class="evidence-note">Reemplazar por imagen real</span>';
+  document.getElementById(prefix + 'EvidenceMedia3').innerHTML = data.media[2] + '<br><br><span class="evidence-note">Reemplazar por video/captura/enlace visual</span>';
+
+  var tasks = document.getElementById(prefix + 'EvidenceTasks');
+  tasks.innerHTML = '';
+  data.tasks.forEach(function(item) {
+    var li = document.createElement('li');
+    li.textContent = item;
+    tasks.appendChild(li);
+  });
+
+  var comps = document.getElementById(prefix + 'EvidenceCompetencies');
+  comps.innerHTML = '';
+  data.competencies.forEach(function(item) {
+    var li = document.createElement('li');
+    li.textContent = item;
+    comps.appendChild(li);
+  });
+
+  document.getElementById(prefix + 'EvidenceDocument').textContent = data.doc;
+  document.getElementById(prefix + 'EvidenceReflection').textContent = data.reflection;
+
+  showView(detailView);
+}
+
+function showMantEvidence(key) {
+  var data = mantEvidenceData[key];
+  if (!data) return;
+  fillAreaEvidence(data, 'Mant', 'mantenimiento-evidencia');
+}
+
+function showDisEvidence(key) {
+  var data = disEvidenceData[key];
+  if (!data) return;
+  fillAreaEvidence(data, 'Dis', 'diseno-evidencia');
+}
+
+function showInnEvidence(key) {
+  var data = innEvidenceData[key];
+  if (!data) return;
+  fillAreaEvidence(data, 'Inn', 'innovacion-evidencia');
+}
+
+
+/* ===== MULTIMEDIA DE EVIDENCIAS DESDE GITHUB ===== */
+var evidenceAssetInfo = {
+  "turi": {
+    "folder": "01-robot-turi",
+    "images": 3,
+    "title": "Proyecto Integrador II: Robot humanoide Turi"
+  },
+  "aromatizador": {
+    "folder": "02-aromatizador-automatico",
+    "images": 3,
+    "title": "Proyecto Integrador I: Aromatizador automático"
+  },
+  "spi": {
+    "folder": "03-comunicacion-spi",
+    "images": 1,
+    "title": "Comunicación SPI maestro–esclavo con ATmega328P"
+  },
+  "i2c": {
+    "folder": "04-comunicacion-i2c",
+    "images": 1,
+    "title": "Comunicación I2C maestro–esclavo con ATmega328P"
+  },
+  "matriz-uart": {
+    "folder": "05-matriz-rgb-uart",
+    "images": 1,
+    "title": "Control de animaciones en matriz RGB mediante UART"
+  },
+  "mpu": {
+    "folder": "06-mpu6050-matriz-rgb",
+    "images": 1,
+    "title": "Control de movimiento en matriz RGB con MPU6050"
+  },
+  "robot-futbol": {
+    "folder": "07-robot-mini-futbol",
+    "images": 2,
+    "title": "Robot de mini fútbol con Bluetooth"
+  },
+  "rfid": {
+    "folder": "08-cerradura-rfid",
+    "images": 1,
+    "title": "Cerradura RFID con RC522, LCD I2C y EEPROM"
+  },
+  "selector-color": {
+    "folder": "09-selector-color",
+    "images": 1,
+    "title": "Selector de color con fotocelda, servomotor y WS2812"
+  },
+  "piano": {
+    "folder": "10-piano-electronico",
+    "images": 1,
+    "title": "Piano electrónico con doble buzzer"
+  },
+  "lm35": {
+    "folder": "11-control-termico-lm35",
+    "images": 1,
+    "title": "Control térmico con LM35 y monitoreo serial"
+  },
+  "motor-dc": {
+    "folder": "12-control-motor-dc",
+    "images": 1,
+    "title": "Control de motor DC por referencia analógica"
+  },
+  "motor-trifasico": {
+    "folder": "15-motor-trifasico-tablero-estrella-triangulo",
+    "images": 2,
+    "title": "Motor trifásico, tablero industrial y arranque estrella-triángulo"
+  },
+  "instrumentos": {
+    "folder": "22-medicion-instrumentos",
+    "images": 3,
+    "title": "Medición de señales con instrumentos de laboratorio"
+  },
+  "analogica": {
+    "folder": "23-electronica-analogica",
+    "images": 2,
+    "title": "Electrónica analógica: simulación, medición y comparación"
+  },
+  "estrella-triangulo": {
+    "folder": "15-motor-trifasico-tablero-estrella-triangulo",
+    "images": 2,
+    "title": "Motor trifásico, tablero industrial y arranque estrella-triángulo"
+  },
+  "tablero": {
+    "folder": "15-motor-trifasico-tablero-estrella-triangulo",
+    "images": 2,
+    "title": "Motor trifásico, tablero industrial y arranque estrella-triángulo"
+  },
+  "arranque-parada": {
+    "folder": "16-arranque-parada-contactor",
+    "images": 2,
+    "title": "Circuito de arranque/parada con contactor"
+  },
+  "arranque-secuencial": {
+    "folder": "17-arranque-secuencial-motores",
+    "images": 2,
+    "title": "Arranque secuencial y apagado de motores"
+  },
+  "neumatica": {
+    "folder": "19-circuitos-neumaticos-cilindros",
+    "images": 2,
+    "title": "Circuitos neumáticos con cilindros"
+  },
+  "silo": {
+    "folder": "20-silo-pienso",
+    "images": 1,
+    "title": "Circuito para apertura de silo de pienso"
+  },
+  "accionamientos": {
+    "folder": "18-accionamientos-reles-contactores",
+    "images": 2,
+    "title": "Accionamientos eléctricos con relés y contactores"
+  },
+  "mant-eje-caja": {
+    "folder": "21-eje-transferencia-caja-cambios",
+    "images": 2,
+    "title": "Montaje y desmontaje del eje de transferencia y caja de cambios"
+  },
+  "mant-tablero": {
+    "folder": "15-motor-trifasico-tablero-estrella-triangulo",
+    "images": 2,
+    "title": "Motor trifásico, tablero industrial y arranque estrella-triángulo"
+  },
+  "mant-accionamientos": {
+    "folder": "18-accionamientos-reles-contactores",
+    "images": 2,
+    "title": "Accionamientos eléctricos con relés y contactores"
+  },
+  "mant-neumatica": {
+    "folder": "19-circuitos-neumaticos-cilindros",
+    "images": 2,
+    "title": "Circuitos neumáticos con cilindros"
+  },
+  "mant-arranque-secuencial": {
+    "folder": "17-arranque-secuencial-motores",
+    "images": 2,
+    "title": "Arranque secuencial y apagado de motores"
+  },
+  "mant-arranque-parada": {
+    "folder": "16-arranque-parada-contactor",
+    "images": 2,
+    "title": "Circuito de arranque/parada con contactor"
+  },
+  "mant-procedimiento-desmontaje": {
+    "folder": "21-eje-transferencia-caja-cambios",
+    "images": 2,
+    "title": "Montaje y desmontaje del eje de transferencia y caja de cambios"
+  },
+  "mant-componentes-mecanicos": {
+    "folder": "21-eje-transferencia-caja-cambios",
+    "images": 2,
+    "title": "Montaje y desmontaje del eje de transferencia y caja de cambios"
+  },
+  "mant-relevamiento-tablero": {
+    "folder": "15-motor-trifasico-tablero-estrella-triangulo",
+    "images": 2,
+    "title": "Motor trifásico, tablero industrial y arranque estrella-triángulo"
+  },
+  "mant-medicion-motor": {
+    "folder": "15-motor-trifasico-tablero-estrella-triangulo",
+    "images": 2,
+    "title": "Motor trifásico, tablero industrial y arranque estrella-triángulo"
+  },
+  "mant-instrumentos": {
+    "folder": "22-medicion-instrumentos",
+    "images": 3,
+    "title": "Medición de señales con instrumentos de laboratorio"
+  },
+  "mant-fallas-neumaticas": {
+    "folder": "19-circuitos-neumaticos-cilindros",
+    "images": 2,
+    "title": "Circuitos neumáticos con cilindros"
+  },
+  "dis-turi": {
+    "folder": "01-robot-turi",
+    "images": 3,
+    "title": "Proyecto Integrador II: Robot humanoide Turi"
+  },
+  "dis-aromatizador": {
+    "folder": "02-aromatizador-automatico",
+    "images": 3,
+    "title": "Proyecto Integrador I: Aromatizador automático"
+  },
+  "dis-robot-futbol": {
+    "folder": "07-robot-mini-futbol",
+    "images": 2,
+    "title": "Robot de mini fútbol con Bluetooth"
+  },
+  "dis-plotter": {
+    "folder": "13-plotter-atmega328p",
+    "images": 1,
+    "title": "Control de plotter físico con ATmega328P"
+  },
+  "dis-rfid": {
+    "folder": "08-cerradura-rfid",
+    "images": 1,
+    "title": "Cerradura RFID con RC522, LCD I2C y EEPROM"
+  },
+  "dis-digital": {
+    "folder": "24-electronica-digital",
+    "images": 3,
+    "title": "Electrónica digital: Karnaugh, motor paso a paso y candado digital"
+  },
+  "dis-integracion-turi": {
+    "folder": "01-robot-turi",
+    "images": 3,
+    "title": "Proyecto Integrador II: Robot humanoide Turi"
+  },
+  "dis-integracion-aromatizador": {
+    "folder": "02-aromatizador-automatico",
+    "images": 3,
+    "title": "Proyecto Integrador I: Aromatizador automático"
+  },
+  "dis-comunicaciones": {
+    "folder": "03-comunicacion-spi",
+    "images": 1,
+    "title": "Comunicación SPI maestro–esclavo con ATmega328P"
+  },
+  "dis-selector-color": {
+    "folder": "09-selector-color",
+    "images": 1,
+    "title": "Selector de color con fotocelda, servomotor y WS2812"
+  },
+  "dis-cerradura-teclado": {
+    "folder": "14-cerradura-teclado-lcd-eeprom",
+    "images": 1,
+    "title": "Cerradura electrónica con teclado, LCD y EEPROM"
+  },
+  "dis-audio": {
+    "folder": "26-mezclador-audio-digital",
+    "images": 2,
+    "title": "Mini Proyecto: Mezclador de Audio Digital"
+  },
+  "dis-matrices-turi": {
+    "folder": "28-diseno-cad-matrices-turi",
+    "images": 2,
+    "title": "Diseño CAD, planos, matrices de selección y criterios de diseño del Robot Turi"
+  },
+  "dis-cad-diagramas": {
+    "folder": "28-diseno-cad-matrices-turi",
+    "images": 2,
+    "title": "Diseño CAD, planos, matrices de selección y criterios de diseño del Robot Turi"
+  },
+  "dis-tablero-corregido": {
+    "folder": "15-motor-trifasico-tablero-estrella-triangulo",
+    "images": 2,
+    "title": "Motor trifásico, tablero industrial y arranque estrella-triángulo"
+  },
+  "dis-analogica": {
+    "folder": "23-electronica-analogica",
+    "images": 2,
+    "title": "Electrónica analógica: simulación, medición y comparación"
+  },
+  "dis-karnaugh": {
+    "folder": "24-electronica-digital",
+    "images": 3,
+    "title": "Electrónica digital: Karnaugh, motor paso a paso y candado digital"
+  },
+  "dis-python-graficas": {
+    "folder": "27-monitoreo-python-graficas",
+    "images": 1,
+    "title": "Monitoreo serial y gráficas en Python para ajuste de sistemas"
+  },
+  "inn-turi": {
+    "folder": "01-robot-turi",
+    "images": 3,
+    "title": "Proyecto Integrador II: Robot humanoide Turi"
+  },
+  "inn-aei": {
+    "folder": "15-motor-trifasico-tablero-estrella-triangulo",
+    "images": 2,
+    "title": "Motor trifásico, tablero industrial y arranque estrella-triángulo"
+  },
+  "inn-comunicaciones": {
+    "folder": "03-comunicacion-spi",
+    "images": 1,
+    "title": "Comunicación SPI maestro–esclavo con ATmega328P"
+  },
+  "inn-audio": {
+    "folder": "26-mezclador-audio-digital",
+    "images": 2,
+    "title": "Mini Proyecto: Mezclador de Audio Digital"
+  },
+  "inn-prototipo-turi": {
+    "folder": "01-robot-turi",
+    "images": 3,
+    "title": "Proyecto Integrador II: Robot humanoide Turi"
+  },
+  "inn-prototipo-aromatizador": {
+    "folder": "02-aromatizador-automatico",
+    "images": 3,
+    "title": "Proyecto Integrador I: Aromatizador automático"
+  },
+  "inn-robot-futbol": {
+    "folder": "07-robot-mini-futbol",
+    "images": 2,
+    "title": "Robot de mini fútbol con Bluetooth"
+  },
+  "inn-rfid": {
+    "folder": "08-cerradura-rfid",
+    "images": 1,
+    "title": "Cerradura RFID con RC522, LCD I2C y EEPROM"
+  },
+  "inn-selector-color": {
+    "folder": "09-selector-color",
+    "images": 1,
+    "title": "Selector de color con fotocelda, servomotor y WS2812"
+  },
+  "inn-audio-prototipo": {
+    "folder": "26-mezclador-audio-digital",
+    "images": 2,
+    "title": "Mini Proyecto: Mezclador de Audio Digital"
+  },
+  "inn-integracion-turi": {
+    "folder": "01-robot-turi",
+    "images": 3,
+    "title": "Proyecto Integrador II: Robot humanoide Turi"
+  },
+  "inn-spi-i2c": {
+    "folder": "03-comunicacion-spi",
+    "images": 1,
+    "title": "Comunicación SPI maestro–esclavo con ATmega328P"
+  },
+  "inn-mpu": {
+    "folder": "06-mpu6050-matriz-rgb",
+    "images": 1,
+    "title": "Control de movimiento en matriz RGB con MPU6050"
+  },
+  "inn-lm35": {
+    "folder": "11-control-termico-lm35",
+    "images": 1,
+    "title": "Control térmico con LM35 y monitoreo serial"
+  },
+  "inn-rfid-pruebas": {
+    "folder": "08-cerradura-rfid",
+    "images": 1,
+    "title": "Cerradura RFID con RC522, LCD I2C y EEPROM"
+  },
+  "inn-audio-ensayos": {
+    "folder": "26-mezclador-audio-digital",
+    "images": 2,
+    "title": "Mini Proyecto: Mezclador de Audio Digital"
+  }
+};
+
+function extractDriveId(text) {
+  if (!text) return "";
+  var value = text.trim();
+  if (!value) return "";
+
+  var patterns = [
+    /\/file\/d\/([^\/]+)/,
+    /id=([^&]+)/,
+    /^([a-zA-Z0-9_-]{20,})$/
+  ];
+
+  for (var i = 0; i < patterns.length; i++) {
+    var match = value.match(patterns[i]);
+    if (match && match[1]) return match[1];
+  }
+
+  return "";
+}
+
+function buildMediaPath(key) {
+  var cfg = evidenceAssetInfo[key];
+  if (!cfg) return null;
+  return {
+    folder: cfg.folder,
+    images: cfg.images,
+    base: "../evidencias-media/" + cfg.folder
+  };
+}
+
+function renderEvidenceMedia(prefix, key) {
+  var mediaInfo = buildMediaPath(key);
+  var firstBox = document.getElementById(prefix + "EvidenceMedia1");
+  if (!firstBox || !firstBox.parentElement || !mediaInfo) return;
+
+  var column = firstBox.parentElement;
+  column.innerHTML = "";
+
+  for (var i = 1; i <= mediaInfo.images; i++) {
+    var box = document.createElement("div");
+    box.className = "evidence-media-box has-media";
+    var imgPath = mediaInfo.base + "/img/imagen-" + i + ".jpg";
+    box.innerHTML =
+      '<img src="' + imgPath + '" alt="Imagen ' + i + ' de la evidencia" ' +
+      'onerror="this.closest(\'.evidence-media-box\').className=\'evidence-media-box missing\'; this.closest(\'.evidence-media-box\').innerHTML=\'Subí la imagen en:<br><strong>' + imgPath + '</strong>\';">';
+    column.appendChild(box);
+  }
+
+  var videoBox = document.createElement("div");
+  videoBox.className = "evidence-video-box";
+  var videoPath = mediaInfo.base + "/videos/demo.mp4";
+  videoBox.innerHTML =
+    '<video controls preload="metadata">' +
+    '<source src="' + videoPath + '" type="video/mp4">' +
+    'Tu navegador no puede reproducir este video.' +
+    '</video>' +
+    '<p class="evidence-note">Video esperado: <strong>' + videoPath + '</strong>. Si no vas a usar video en esta evidencia, podés dejarlo sin subir.</p>';
+  column.appendChild(videoBox);
+}
+
+function renderEvidenceDocument(prefix, key) {
+  var mediaInfo = buildMediaPath(key);
+  var target = document.getElementById(prefix + "EvidenceDocument");
+  if (!target || !mediaInfo) return;
+
+  var driveTxt = mediaInfo.base + "/drive-link.txt";
+  var localPdf = mediaInfo.base + "/docs/informe.pdf";
+
+  target.innerHTML =
+    '<p class="evidence-note">Cargando configuración del documento...</p>';
+
+  fetch(driveTxt, { cache: "no-store" })
+    .then(function(response) {
+      if (!response.ok) return "";
+      return response.text();
+    })
+    .then(function(text) {
+      var driveId = extractDriveId(text);
+
+      if (driveId) {
+        var previewUrl = "https://drive.google.com/file/d/" + driveId + "/preview";
+        var viewUrl = "https://drive.google.com/file/d/" + driveId + "/view";
+        target.innerHTML =
+          '<iframe class="pdf-viewer" src="' + previewUrl + '"></iframe>' +
+          '<p class="evidence-note">Si el visor no carga correctamente, abrí el documento directamente en Google Drive.</p>' +
+          '<a href="' + viewUrl + '" target="_blank" rel="noopener noreferrer">Abrir informe en Google Drive</a>';
+      } else {
+        target.innerHTML =
+          '<p class="evidence-note">Para mostrar un informe de Google Drive dentro de la página, pegá el enlace del archivo en:</p>' +
+          '<p><strong>' + driveTxt + '</strong></p>' +
+          '<p class="evidence-note">Como alternativa, podés subir un PDF local con este nombre:</p>' +
+          '<p><strong>' + localPdf + '</strong></p>' +
+          '<a href="' + localPdf + '" target="_blank" rel="noopener noreferrer">Abrir PDF local, si fue subido</a>';
+      }
+    })
+    .catch(function() {
+      target.innerHTML =
+        '<p class="evidence-note">No se pudo leer el archivo drive-link.txt. Revisá que exista en la carpeta de la evidencia.</p>' +
+        '<a href="' + localPdf + '" target="_blank" rel="noopener noreferrer">Abrir PDF local, si fue subido</a>';
+    });
+}
+
+function fillEnhancedEvidence(data, key, prefix, detailView) {
+  document.getElementById(prefix + "EvidenceHero").textContent = data.title;
+  document.getElementById(prefix + "EvidenceKicker").textContent = data.kicker;
+  document.getElementById(prefix + "EvidenceTitle").textContent = data.title;
+  document.getElementById(prefix + "EvidenceDescription").textContent = data.description;
+
+  var tasks = document.getElementById(prefix + "EvidenceTasks");
+  tasks.innerHTML = "";
+  data.tasks.forEach(function(item) {
+    var li = document.createElement("li");
+    li.textContent = item;
+    tasks.appendChild(li);
+  });
+
+  var comps = document.getElementById(prefix + "EvidenceCompetencies");
+  comps.innerHTML = "";
+  data.competencies.forEach(function(item) {
+    var li = document.createElement("li");
+    li.textContent = item;
+    comps.appendChild(li);
+  });
+
+  document.getElementById(prefix + "EvidenceReflection").textContent = data.reflection;
+
+  renderEvidenceMedia(prefix, key);
+  renderEvidenceDocument(prefix, key);
+
+  showView(detailView);
+}
+
+function showOpEvidence(key) {
+  var data = opEvidenceData[key];
+  if (!data) return;
+  fillEnhancedEvidence(data, key, "op", "operacion-evidencia");
+}
+
+function showMantEvidence(key) {
+  var data = mantEvidenceData[key];
+  if (!data) return;
+  fillEnhancedEvidence(data, key, "Mant", "mantenimiento-evidencia");
+}
+
+function showDisEvidence(key) {
+  var data = disEvidenceData[key];
+  if (!data) return;
+  fillEnhancedEvidence(data, key, "Dis", "diseno-evidencia");
+}
+
+function showInnEvidence(key) {
+  var data = innEvidenceData[key];
+  if (!data) return;
+  fillEnhancedEvidence(data, key, "Inn", "innovacion-evidencia");
+}
+
+</script>
