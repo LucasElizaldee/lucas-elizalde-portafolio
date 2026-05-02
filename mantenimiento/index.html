@@ -502,9 +502,10 @@ body {
 
 .evidence-media-box.has-media img {
   width: 100%;
+  height: auto;
   display: block;
-  object-fit: cover;
-  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: #fff;
 }
 
 .evidence-media-box.missing {
@@ -3951,8 +3952,12 @@ function renderEvidenceMedia(prefix, key) {
     var box = document.createElement("div");
     box.className = "evidence-media-box has-media";
     var imgPath = mediaInfo.base + "/img/imagen-" + i + ".jpg";
+    var imgSrc = imgPath + "?v=" + Date.now();
+
     box.innerHTML =
-      '<img src="' + imgPath + '" alt="Imagen ' + i + ' de la evidencia" ' +
+      '<div class="evidence-note" style="padding:1rem;">Cargando imagen...</div>' +
+      '<img src="' + imgSrc + '" alt="Imagen ' + i + ' de la evidencia" ' +
+      'onload="if(this.previousElementSibling){this.previousElementSibling.remove();}" ' +
       'onerror="this.closest(\'.evidence-media-box\').className=\'evidence-media-box missing\'; this.closest(\'.evidence-media-box\').innerHTML=\'Subí la imagen en:<br><strong>' + imgPath + '</strong>\';">';
     column.appendChild(box);
   }
@@ -3963,9 +3968,10 @@ function renderEvidenceMedia(prefix, key) {
     var videoBox = document.createElement("div");
     videoBox.className = "evidence-video-box";
     var videoPath = mediaInfo.base + "/videos/demo.mp4";
+    var videoSrc = videoPath + "?v=" + Date.now();
     videoBox.innerHTML =
       '<video controls preload="metadata">' +
-      '<source src="' + videoPath + '" type="video/mp4">' +
+      '<source src="' + videoSrc + '" type="video/mp4">' +
       'Tu navegador no puede reproducir este video.' +
       '</video>' +
       '<p class="evidence-note">Video esperado: <strong>' + videoPath + '</strong>. Si no vas a usar video en esta evidencia, podés dejarlo sin subir.</p>';
