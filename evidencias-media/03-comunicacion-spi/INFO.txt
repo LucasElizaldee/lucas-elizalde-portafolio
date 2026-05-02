@@ -1,5 +1,5 @@
 Actividad 3: Comunicación SPI maestro–esclavo con ATmega328P
-Fotos esperadas: 1
+Fotos esperadas: 2
 
 Para mostrar un informe desde Google Drive:
 1. Compartí el archivo de Drive con permiso de visualización.
