@@ -1,10 +1,11 @@
-Evidencia 10: Mezclador de Audio Digital
-Carpeta: 26-mezclador-audio-digital
+Evidencia 8: Electrónica Digital - Laboratorio 4
+Carpeta: ed-lab-4
 
 Imágenes esperadas:
-2 imagen(es), con estos nombres exactos:
+3 imagen(es), con estos nombres exactos:
 - img/imagen-1.jpg
 - img/imagen-2.jpg
+- img/imagen-3.jpg
 
 Video:
 - Esta evidencia no tiene video configurado por ahora.

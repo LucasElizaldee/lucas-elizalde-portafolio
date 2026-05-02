@@ -1,4 +1,4 @@
-Mezclador de Audio Digital
+Microprocesamiento - Laboratorio 2
 
 Si querés subir un PDF local, usá este nombre:
 - informe.pdf

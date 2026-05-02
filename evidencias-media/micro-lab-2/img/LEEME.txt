@@ -1,4 +1,4 @@
-Mezclador de Audio Digital
+Microprocesamiento - Laboratorio 2
 
 Subí 2 imagen(es) con estos nombres exactos:
 - imagen-1.jpg

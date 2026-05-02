@@ -1,5 +1,5 @@
-Evidencia 10: Mezclador de Audio Digital
-Carpeta: 26-mezclador-audio-digital
+Evidencia 13: Montaje y desmontaje mecánico
+Carpeta: montaje-desmontaje-mecanico
 
 Imágenes esperadas:
 2 imagen(es), con estos nombres exactos:

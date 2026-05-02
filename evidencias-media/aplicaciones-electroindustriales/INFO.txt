@@ -1,13 +1,13 @@
-Evidencia 10: Mezclador de Audio Digital
-Carpeta: 26-mezclador-audio-digital
+Evidencia 11: Aplicaciones Electroindustriales
+Carpeta: aplicaciones-electroindustriales
 
 Imágenes esperadas:
 2 imagen(es), con estos nombres exactos:
 - img/imagen-1.jpg
 - img/imagen-2.jpg
 
-Video:
-- Esta evidencia no tiene video configurado por ahora.
+Video esperado:
+- videos/demo.mp4
 
 Documento:
 - Recomendado: pegá el enlace del informe/documento de Google Drive en drive-link.txt

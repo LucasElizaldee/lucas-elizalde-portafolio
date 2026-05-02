@@ -1,4 +1,4 @@
-Mezclador de Audio Digital
+Microprocesamiento - Laboratorio 1
 
 Esta evidencia no tiene video configurado por ahora.
 Podés dejar esta carpeta vacía.

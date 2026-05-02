@@ -1,4 +1,4 @@
-Mezclador de Audio Digital
+Montaje y desmontaje mecánico
 
 Si querés subir un PDF local, usá este nombre:
 - informe.pdf

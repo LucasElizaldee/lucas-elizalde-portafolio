@@ -1,5 +1,5 @@
-Evidencia 10: Mezclador de Audio Digital
-Carpeta: 26-mezclador-audio-digital
+Evidencia 5: Microprocesamiento - Laboratorio 3
+Carpeta: micro-lab-3
 
 Imágenes esperadas:
 2 imagen(es), con estos nombres exactos:

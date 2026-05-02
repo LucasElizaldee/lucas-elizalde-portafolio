@@ -1,7 +1,8 @@
-Mezclador de Audio Digital
+Electrónica Digital - Laboratorio 4
 
-Subí 2 imagen(es) con estos nombres exactos:
+Subí 3 imagen(es) con estos nombres exactos:
 - imagen-1.jpg
 - imagen-2.jpg
+- imagen-3.jpg
 
 Importante: usá extensión .jpg para que el HTML las encuentre sin modificar código.

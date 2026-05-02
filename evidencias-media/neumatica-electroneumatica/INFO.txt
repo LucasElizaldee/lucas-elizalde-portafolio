@@ -1,5 +1,5 @@
-Evidencia 10: Mezclador de Audio Digital
-Carpeta: 26-mezclador-audio-digital
+Evidencia 12: Neumática y Electroneumática
+Carpeta: neumatica-electroneumatica
 
 Imágenes esperadas:
 2 imagen(es), con estos nombres exactos:

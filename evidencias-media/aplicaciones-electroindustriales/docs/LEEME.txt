@@ -1,4 +1,4 @@
-Mezclador de Audio Digital
+Aplicaciones Electroindustriales
 
 Si querés subir un PDF local, usá este nombre:
 - informe.pdf
