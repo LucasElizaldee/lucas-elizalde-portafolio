@@ -1,0 +1,6 @@
+Montaje y desmontaje mecánico
+
+Si querés subir un PDF local, usá este nombre:
+- informe.pdf
+
+De todos modos, para el portafolio se recomienda usar drive-link.txt con enlace de Google Drive.

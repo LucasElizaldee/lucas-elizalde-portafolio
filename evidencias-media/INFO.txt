@@ -1,0 +1,14 @@
+Evidencia 13: Montaje y desmontaje mecánico
+Carpeta: montaje-desmontaje-mecanico
+
+Imágenes esperadas:
+2 imagen(es), con estos nombres exactos:
+- img/imagen-1.jpg
+- img/imagen-2.jpg
+
+Video:
+- Esta evidencia no tiene video configurado por ahora.
+
+Documento:
+- Recomendado: pegá el enlace del informe/documento de Google Drive en drive-link.txt
+- Alternativa: podés subir un PDF local como docs/informe.pdf si después se adapta el HTML.

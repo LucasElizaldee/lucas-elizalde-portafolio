@@ -1,0 +1,7 @@
+Montaje y desmontaje mecánico
+
+Subí 2 imagen(es) con estos nombres exactos:
+- imagen-1.jpg
+- imagen-2.jpg
+
+Importante: usá extensión .jpg para que el HTML las encuentre sin modificar código.
