@@ -1,0 +1,7 @@
+Actividad 10: Piano electrónico con doble buzzer
+Fotos esperadas: 1
+
+Para mostrar un informe desde Google Drive:
+1. Compartí el archivo de Drive con permiso de visualización.
+2. Pegá el enlace completo del archivo en drive-link.txt.
+3. El HTML lo mostrará con un visor embebido usando /preview.

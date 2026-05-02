@@ -1,0 +1,6 @@
+Actividad 17: Arranque secuencial y apagado de motores
+
+Si querés mostrar video local, subilo con este nombre exacto:
+- demo.mp4
+
+Si preferís usar Drive o YouTube, podés dejar esta carpeta vacía y enlazar el video desde el texto de la evidencia más adelante.

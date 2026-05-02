@@ -1,0 +1,6 @@
+Actividad 10: Piano electrónico con doble buzzer
+
+Subí 1 imagen(es) con estos nombres exactos:
+- imagen-1.jpg
+
+Si tus imágenes son .png o .webp, cambiá la extensión en el HTML o renombrá a .jpg.

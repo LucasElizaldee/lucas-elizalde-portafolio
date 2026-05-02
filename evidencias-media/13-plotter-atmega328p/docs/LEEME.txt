@@ -1,0 +1,6 @@
+Actividad 13: Control de plotter físico con ATmega328P
+
+Si querés subir un PDF local, usá este nombre exacto:
+- informe.pdf
+
+Recomendado: usar Google Drive para el informe y pegar el enlace en drive-link.txt.

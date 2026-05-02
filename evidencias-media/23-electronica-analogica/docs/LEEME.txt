@@ -1,0 +1,6 @@
+Actividad 23: Electrónica analógica: simulación, medición y comparación
+
+Si querés subir un PDF local, usá este nombre exacto:
+- informe.pdf
+
+Recomendado: usar Google Drive para el informe y pegar el enlace en drive-link.txt.

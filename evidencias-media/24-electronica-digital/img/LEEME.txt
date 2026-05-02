@@ -1,0 +1,8 @@
+Actividad 24: Electrónica digital: Karnaugh, motor paso a paso y candado digital
+
+Subí 3 imagen(es) con estos nombres exactos:
+- imagen-1.jpg
+- imagen-2.jpg
+- imagen-3.jpg
+
+Si tus imágenes son .png o .webp, cambiá la extensión en el HTML o renombrá a .jpg.

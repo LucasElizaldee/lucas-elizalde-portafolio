@@ -1,0 +1,7 @@
+Actividad 25: Seguidor de línea
+
+Subí 2 imagen(es) con estos nombres exactos:
+- imagen-1.jpg
+- imagen-2.jpg
+
+Si tus imágenes son .png o .webp, cambiá la extensión en el HTML o renombrá a .jpg.
