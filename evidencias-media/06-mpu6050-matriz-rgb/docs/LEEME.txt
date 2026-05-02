@@ -1,0 +1,6 @@
+Actividad 6: Control de movimiento en matriz RGB con MPU6050
+
+Si querés subir un PDF local, usá este nombre exacto:
+- informe.pdf
+
+Recomendado: usar Google Drive para el informe y pegar el enlace en drive-link.txt.
