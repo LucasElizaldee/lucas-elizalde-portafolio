@@ -1,545 +1,61 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio - Operación de Sistemas Mecatrónicos</title>
-  <style>
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Portafolio - Operación de Sistemas Mecatrónicos</title><style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root { --navy:#0f1f3d; --navy2:#1a3060; --blue:#1e6fa8; --cyan:#4db8e8; --white:#ffffff; --soft:#f4f7fb; --soft2:#eef3f8; --border:#dce5ef; --border2:#cfdbe8; --text:#1e2a38; --muted:#4a5a6e; --font:'Inter',Arial,sans-serif; }
-body { font-family:var(--font); background:var(--white); color:var(--text); font-size:15px; line-height:1.75; margin:0; }
-.view { display:none; } .view.active { display:block; }
-.hero { background:var(--navy); background-image:radial-gradient(ellipse at 70% 50%,rgba(30,111,168,.18) 0%,transparent 60%); padding:4.5rem 2rem 4rem; text-align:center; border-bottom:3px solid var(--blue); }
-.hero h1 { font-size:clamp(1.8rem,4vw,2.7rem); font-weight:600; color:#fff; letter-spacing:.06em; text-transform:uppercase; margin-bottom:.7rem; }
-.hero-line { width:44px; height:2px; background:var(--cyan); margin:0 auto .9rem; }
-.hero p { color:rgba(255,255,255,.62); font-size:.95rem; letter-spacing:.04em; font-weight:300; }
-.container { max-width:1100px; margin:0 auto; padding:3.7rem 2rem; }
-.area-intro { max-width:860px; margin:0 auto 2.5rem; text-align:center; }
-.area-intro h2, .section-heading { font-size:1.05rem; font-weight:650; text-transform:uppercase; letter-spacing:.1em; padding-bottom:.75rem; border-bottom:2px solid var(--border); margin-bottom:1.4rem; }
-.area-intro p { color:var(--muted); line-height:1.9; }
-.subcompetence-list { display:grid; gap:.9rem; margin:2rem 0 2.6rem; }
-.subcompetence-item { border:1px solid var(--border); background:#fff; padding:1rem 1.1rem; border-radius:8px; }
-.subcompetence-code { display:inline-block; background:var(--navy2); color:#fff; font-size:.78rem; font-weight:650; padding:.18rem .52rem; border-radius:999px; margin-bottom:.45rem; }
-.matrix-wrap { overflow-x:auto; margin:1.8rem 0 2.8rem; border:1px solid var(--border); border-radius:10px; background:#fff; }
-.matrix-table { width:100%; border-collapse:collapse; min-width:680px; }
-.matrix-table th, .matrix-table td { border-bottom:1px solid var(--border); padding:.85rem .8rem; vertical-align:middle; text-align:center; }
-.matrix-table th:first-child, .matrix-table td:first-child { text-align:left; width:42%; }
-.matrix-table th { background:var(--soft); color:var(--text); font-size:.82rem; font-weight:650; text-transform:uppercase; letter-spacing:.045em; }
-.matrix-table tr:last-child td { border-bottom:none; }
-.check { display:inline-flex; width:24px; height:24px; align-items:center; justify-content:center; background:rgba(30,111,168,.1); color:var(--blue); border:1px solid rgba(30,111,168,.25); border-radius:999px; font-weight:700; }
-.evidence-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-top:1.5rem; }
-.evidence-card { border:1px solid var(--border); border-radius:10px; padding:1.15rem; background:#fff; box-shadow:0 6px 20px rgba(15,31,61,.045); }
-.evidence-kicker { color:var(--blue); text-transform:uppercase; letter-spacing:.08em; font-size:.74rem; font-weight:700; margin-bottom:.4rem; }
-.evidence-card h3 { font-size:1rem; margin-bottom:.5rem; color:var(--text); }
-.evidence-card p { color:var(--muted); font-size:.9rem; margin-bottom:.9rem; }
-.tag-row { display:flex; gap:.35rem; flex-wrap:wrap; margin:.7rem 0 1rem; }
-.tag { display:inline-flex; align-items:center; border:1px solid var(--border2); background:var(--soft); border-radius:999px; padding:.18rem .5rem; font-size:.75rem; color:var(--muted); font-weight:600; }
-.btn, .back-btn { display:inline-flex; align-items:center; justify-content:center; padding:.72rem 1.05rem; background:var(--navy2); color:#fff; border:none; font-family:var(--font); font-size:.88rem; font-weight:600; text-decoration:none; border-radius:5px; letter-spacing:.015em; cursor:pointer; transition:background .2s,transform .2s; }
-.btn:hover, .back-btn:hover { background:#254880; transform:translateY(-1px); }
-.back-wrap { text-align:center; margin-top:2.7rem; }
-.final-reflection { margin-top:2.6rem; padding:1.4rem; background:var(--soft); border-left:4px solid var(--blue); color:var(--muted); border-radius:0 8px 8px 0; }
-.detail-layout { display:grid; grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr); gap:1.3rem; align-items:start; }
-.detail-card { border:1px solid var(--border); border-radius:10px; background:#fff; padding:1.25rem; box-shadow:0 6px 20px rgba(15,31,61,.045); }
-.detail-card h2 { font-size:1.25rem; margin-bottom:.7rem; }
-.detail-card h3 { font-size:.95rem; text-transform:uppercase; letter-spacing:.08em; margin:1.35rem 0 .65rem; color:var(--text); }
-.detail-card p, .detail-card li { color:var(--muted); font-size:.94rem; }
-.detail-card ul { padding-left:1.2rem; }
-.media-column { display:grid; gap:.9rem; }
-.media-box { border:1px solid var(--border); background:#fff; border-radius:10px; overflow:hidden; }
-.media-box img { width:100%; height:auto; display:block; object-fit:contain; background:#fff; }
-.media-missing { min-height:135px; padding:1rem; background:var(--soft); color:var(--muted); border:1px dashed var(--border2); border-radius:10px; }
-.video-box { border:1px solid var(--border); border-radius:10px; padding:.8rem; background:#fff; }
-.video-box video { width:100%; display:block; background:#000; }
-.pdf-viewer { width:100%; height:620px; border:1px solid var(--border2); background:#fff; margin-top:.8rem; border-radius:8px; }
-.doc-box { margin-top:.8rem; } .doc-box a { margin-top:.8rem; } .note { font-size:.82rem; color:var(--muted); }
-@media(max-width:860px){ .container{padding:3.1rem 1.1rem;} .evidence-grid,.detail-layout{grid-template-columns:1fr;} .hero{padding:3.8rem 1.2rem 3.3rem;} .pdf-viewer{height:480px;} }
-</style>
-</head>
-<body>
-
-<section id="view-operacion" class="view">
-  <header class="hero">
-    <h1>Operación de Sistemas Mecatrónicos</h1>
-    <div class="hero-line"></div>
-    <p>Portafolio de Competencias — Lucas Elizalde</p>
-  </header>
-  <main class="container">
-    <section class="area-intro">
-      <h2>Área de dominio</h2>
-      <p>Esta competencia se relaciona con la implementación, operación, monitoreo y puesta en servicio de sistemas mecatrónicos. En esta página se presentan las evidencias seleccionadas sin repetir bloques: primero se muestra qué subcompetencias se abordan y luego las evidencias que las respaldan.</p>
-    </section>
-    <section>
-      <h2 class="section-heading">Subcompetencias abordadas</h2>
-      <div class="subcompetence-list"><div class="subcompetence-item"><span class="subcompetence-code">1.1</span><p>Implementar software y hardware específico para el correcto desempeño de procesos.</p></div>
-<div class="subcompetence-item"><span class="subcompetence-code">1.2</span><p>Verificar la capacidad operacional de sistemas mecatrónicos mediante monitoreo.</p></div>
-<div class="subcompetence-item"><span class="subcompetence-code">1.3</span><p>Instalar y poner en servicio sistemas mecatrónicos considerando calidad, seguridad y medio ambiente.</p></div></div>
-    </section>
-    <section>
-      <h2 class="section-heading">Mapa de evidencias por subcompetencia</h2>
-      <div class="matrix-wrap"><table class="matrix-table"><thead><tr><th>Evidencia</th><th>1.1</th><th>1.2</th><th>1.3</th></tr></thead><tbody><tr><td><strong>Proyecto Integrador II: Robot humanoide Turi</strong></td><td><span class="check">✓</span></td><td>—</td><td>—</td></tr><tr><td><strong>Proyecto Integrador I: Aromatizador automático</strong></td><td><span class="check">✓</span></td><td>—</td><td><span class="check">✓</span></td></tr><tr><td><strong>Microprocesamiento - Laboratorio 3</strong></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td>—</td></tr><tr><td><strong>Microprocesamiento - Laboratorio 4</strong></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td>—</td></tr><tr><td><strong>Aplicaciones Electroindustriales</strong></td><td>—</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr><tr><td><strong>Neumática y Electroneumática</strong></td><td>—</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr></tbody></table></div>
-    </section>
-    <section>
-      <h2 class="section-heading">Evidencias seleccionadas</h2>
-      <div class="evidence-grid">
-        <article class="evidence-card">
-          <div class="evidence-kicker">Proyecto integrador</div>
-          <h3>Proyecto Integrador II: Robot humanoide Turi</h3>
-          <p>Proyecto de integración mecatrónica orientado al desarrollo, puesta en marcha y validación de un robot humanoide, combinando estructura física, electrónica de control, programación, actuadores y pruebas funcionales.</p>
-          <div class="tag-row"><span class="tag">1.1</span></div>
-          <button class="btn" type="button" onclick="showEvidence('turi', 'operacion')">Ver evidencia</button>
-        </article>
-
-        <article class="evidence-card">
-          <div class="evidence-kicker">Proyecto integrador</div>
-          <h3>Proyecto Integrador I: Aromatizador automático</h3>
-          <p>Desarrollo de un prototipo automatizado para dosificación de aroma, integrando lógica de control, montaje físico, selección de componentes y validación del funcionamiento.</p>
-          <div class="tag-row"><span class="tag">1.1</span><span class="tag">1.3</span></div>
-          <button class="btn" type="button" onclick="showEvidence('aromatizador', 'operacion')">Ver evidencia</button>
-        </article>
-
-        <article class="evidence-card">
-          <div class="evidence-kicker">Tecnologías de Microprocesamiento</div>
-          <h3>Microprocesamiento - Laboratorio 3</h3>
-          <p>Laboratorio con ATmega328P que integró control de plotter, control térmico con LM35, control de motor DC por referencia analógica, matriz RGB con joystick y cerradura RFID.</p>
-          <div class="tag-row"><span class="tag">1.1</span><span class="tag">1.2</span></div>
-          <button class="btn" type="button" onclick="showEvidence('micro-lab-3', 'operacion')">Ver evidencia</button>
-        </article>
-
-        <article class="evidence-card">
-          <div class="evidence-kicker">Tecnologías de Microprocesamiento</div>
-          <h3>Microprocesamiento - Laboratorio 4</h3>
-          <p>Laboratorio orientado a la integración de sistemas embebidos con comunicación SPI, I2C y UART, matriz RGB, MPU6050 y robot de mini fútbol con Bluetooth.</p>
-          <div class="tag-row"><span class="tag">1.1</span><span class="tag">1.2</span></div>
-          <button class="btn" type="button" onclick="showEvidence('micro-lab-4', 'operacion')">Ver evidencia</button>
-        </article>
-
-        <article class="evidence-card">
-          <div class="evidence-kicker">Sistemas eléctricos industriales</div>
-          <h3>Aplicaciones Electroindustriales</h3>
-          <p>Evidencia vinculada al trabajo con tablero industrial, motor trifásico, contactores, relés y secuencias de arranque y parada.</p>
-          <div class="tag-row"><span class="tag">1.2</span><span class="tag">1.3</span></div>
-          <button class="btn" type="button" onclick="showEvidence('electroindustrial', 'operacion')">Ver evidencia</button>
-        </article>
-
-        <article class="evidence-card">
-          <div class="evidence-kicker">Sistemas de accionamiento</div>
-          <h3>Neumática y Electroneumática</h3>
-          <p>Evidencia asociada al diseño, montaje y verificación de circuitos neumáticos y electroneumáticos con cilindros, válvulas y secuencias de accionamiento.</p>
-          <div class="tag-row"><span class="tag">1.2</span><span class="tag">1.3</span></div>
-          <button class="btn" type="button" onclick="showEvidence('neumatica', 'operacion')">Ver evidencia</button>
-        </article></div>
-    </section>
-    <section class="final-reflection"><p>En esta competencia prioricé evidencias donde se observa puesta en marcha, operación real, lectura de variables, accionamiento de dispositivos y verificación del comportamiento del sistema.</p></section>
-  </main>
-</section>
-
-<section id="view-mantenimiento" class="view">
-  <header class="hero">
-    <h1>Mantenimiento de Sistemas Mecatrónicos</h1>
-    <div class="hero-line"></div>
-    <p>Portafolio de Competencias — Lucas Elizalde</p>
-  </header>
-  <main class="container">
-    <section class="area-intro">
-      <h2>Área de dominio</h2>
-      <p>Esta competencia se enfoca en tareas de inspección, intervención, revisión, montaje, desmontaje, verificación y aplicación de procedimientos técnicos. Por eso se seleccionan evidencias directamente vinculadas al mantenimiento mecánico, eléctrico y neumático.</p>
-    </section>
-    <section>
-      <h2 class="section-heading">Subcompetencias abordadas</h2>
-      <div class="subcompetence-list"><div class="subcompetence-item"><span class="subcompetence-code">2.1</span><p>Ejecutar planes de mantenimiento preventivos y correctivos diseñados por especialistas.</p></div>
-<div class="subcompetence-item"><span class="subcompetence-code">2.2</span><p>Aplicar procedimientos e instrucciones relacionadas con mantenimiento basado en confiabilidad.</p></div></div>
-    </section>
-    <section>
-      <h2 class="section-heading">Mapa de evidencias por subcompetencia</h2>
-      <div class="matrix-wrap"><table class="matrix-table"><thead><tr><th>Evidencia</th><th>2.1</th><th>2.2</th></tr></thead><tbody><tr><td><strong>Montaje y desmontaje mecánico</strong></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr><tr><td><strong>Aplicaciones Electroindustriales</strong></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr><tr><td><strong>Neumática y Electroneumática</strong></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr></tbody></table></div>
-    </section>
-    <section>
-      <h2 class="section-heading">Evidencias seleccionadas</h2>
-      <div class="evidence-grid">
-        <article class="evidence-card">
-          <div class="evidence-kicker">Mantenimiento mecánico</div>
-          <h3>Montaje y desmontaje mecánico</h3>
-          <p>Evidencia centrada en el montaje y desmontaje del eje de transferencia y caja de cambios, siguiendo procedimientos de trabajo mecánico.</p>
-          <div class="tag-row"><span class="tag">2.1</span><span class="tag">2.2</span></div>
-          <button class="btn" type="button" onclick="showEvidence('montaje-mecanico', 'mantenimiento')">Ver evidencia</button>
-        </article>
-
-        <article class="evidence-card">
-          <div class="evidence-kicker">Sistemas eléctricos industriales</div>
-          <h3>Aplicaciones Electroindustriales</h3>
-          <p>Evidencia vinculada al trabajo con tablero industrial, motor trifásico, contactores, relés y secuencias de arranque y parada.</p>
-          <div class="tag-row"><span class="tag">2.1</span><span class="tag">2.2</span></div>
-          <button class="btn" type="button" onclick="showEvidence('electroindustrial', 'mantenimiento')">Ver evidencia</button>
-        </article>
-
-        <article class="evidence-card">
-          <div class="evidence-kicker">Sistemas de accionamiento</div>
-          <h3>Neumática y Electroneumática</h3>
-          <p>Evidencia asociada al diseño, montaje y verificación de circuitos neumáticos y electroneumáticos con cilindros, válvulas y secuencias de accionamiento.</p>
-          <div class="tag-row"><span class="tag">2.1</span><span class="tag">2.2</span></div>
-          <button class="btn" type="button" onclick="showEvidence('neumatica', 'mantenimiento')">Ver evidencia</button>
-        </article></div>
-    </section>
-    <section class="final-reflection"><p>Para mantenimiento se evitó incluir evidencias forzadas. La selección se concentra en actividades donde existe intervención, revisión, conexión, diagnóstico o verificación de sistemas físicos.</p></section>
-  </main>
-</section>
-
-<section id="view-diseno" class="view">
-  <header class="hero">
-    <h1>Diseño de Sistemas Mecatrónicos</h1>
-    <div class="hero-line"></div>
-    <p>Portafolio de Competencias — Lucas Elizalde</p>
-  </header>
-  <main class="container">
-    <section class="area-intro">
-      <h2>Área de dominio</h2>
-      <p>Esta competencia reúne evidencias donde se diseñaron, fabricaron, integraron o documentaron sistemas mecatrónicos. También se incluyen laboratorios que generaron insumos técnicos para el diseño o rediseño de soluciones.</p>
-    </section>
-    <section>
-      <h2 class="section-heading">Subcompetencias abordadas</h2>
-      <div class="subcompetence-list"><div class="subcompetence-item"><span class="subcompetence-code">3.1</span><p>Fabricar equipos, sistemas y procesos mecatrónicos de acuerdo con diseño.</p></div>
-<div class="subcompetence-item"><span class="subcompetence-code">3.2</span><p>Incorporar tecnologías ya evaluadas a sistemas y procesos mecatrónicos.</p></div>
-<div class="subcompetence-item"><span class="subcompetence-code">3.3</span><p>Generar insumos de procesos existentes para el diseño o rediseño de un sistema.</p></div></div>
-    </section>
-    <section>
-      <h2 class="section-heading">Mapa de evidencias por subcompetencia</h2>
-      <div class="matrix-wrap"><table class="matrix-table"><thead><tr><th>Evidencia</th><th>3.1</th><th>3.2</th><th>3.3</th></tr></thead><tbody><tr><td><strong>Proyecto Integrador II: Robot humanoide Turi</strong></td><td><span class="check">✓</span></td><td>—</td><td><span class="check">✓</span></td></tr><tr><td><strong>Proyecto Integrador I: Aromatizador automático</strong></td><td><span class="check">✓</span></td><td>—</td><td>—</td></tr><tr><td><strong>Microprocesamiento - Laboratorio 1</strong></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td>—</td></tr><tr><td><strong>Microprocesamiento - Laboratorio 2</strong></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td>—</td></tr><tr><td><strong>Microprocesamiento - Laboratorio 3</strong></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td>—</td></tr><tr><td><strong>Microprocesamiento - Laboratorio 4</strong></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td>—</td></tr><tr><td><strong>Electrónica Digital - Laboratorio 4</strong></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr><tr><td><strong>Electrónica Digital - Laboratorio 3</strong></td><td>—</td><td>—</td><td><span class="check">✓</span></td></tr><tr><td><strong>Electrónica Analógica - Laboratorio 5</strong></td><td>—</td><td>—</td><td><span class="check">✓</span></td></tr><tr><td><strong>Mezclador de Audio Digital</strong></td><td>—</td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr></tbody></table></div>
-    </section>
-    <section>
-      <h2 class="section-heading">Evidencias seleccionadas</h2>
-      <div class="evidence-grid">
-        <article class="evidence-card">
-          <div class="evidence-kicker">Proyecto integrador</div>
-          <h3>Proyecto Integrador II: Robot humanoide Turi</h3>
-          <p>Proyecto de integración mecatrónica orientado al desarrollo, puesta en marcha y validación de un robot humanoide, combinando estructura física, electrónica de control, programación, actuadores y pruebas funcionales.</p>
-          <div class="tag-row"><span class="tag">3.1</span><span class="tag">3.3</span></div>
-          <button class="btn" type="button" onclick="showEvidence('turi', 'diseno')">Ver evidencia</button>
-        </article>
-
-        <article class="evidence-card">
-          <div class="evidence-kicker">Proyecto integrador</div>
-          <h3>Proyecto Integrador I: Aromatizador automático</h3>
-          <p>Desarrollo de un prototipo automatizado para dosificación de aroma, integrando lógica de control, montaje físico, selección de componentes y validación del funcionamiento.</p>
-          <div class="tag-row"><span class="tag">3.1</span></div>
-          <button class="btn" type="button" onclick="showEvidence('aromatizador', 'diseno')">Ver evidencia</button>
-        </article>
-
-        <article class="evidence-card">
-          <div class="evidence-kicker">Tecnologías de Microprocesamiento</div>
-          <h3>Microprocesamiento - Laboratorio 1</h3>
-          <p>Laboratorio basado en ATmega328P que integró cinta transportadora con punzonadora, matriz LED 8×8 con UART, DAC R-2R y control de plotter vinculado a PLC.</p>
-          <div class="tag-row"><span class="tag">3.1</span><span class="tag">3.2</span></div>
-          <button class="btn" type="button" onclick="showEvidence('micro-lab-1', 'diseno')">Ver evidencia</button>
-        </article>
-
-        <article class="evidence-card">
-          <div class="evidence-kicker">Tecnologías de Microprocesamiento</div>
-          <h3>Microprocesamiento - Laboratorio 2</h3>
-          <p>Laboratorio con ATmega328P centrado en control de plotter, selector de color con LDR, servomotor y WS2812, piano electrónico y cerradura con teclado, LCD y EEPROM.</p>
-          <div class="tag-row"><span class="tag">3.1</span><span class="tag">3.2</span></div>
-          <button class="btn" type="button" onclick="showEvidence('micro-lab-2', 'diseno')">Ver evidencia</button>
-        </article>
-
-        <article class="evidence-card">
-          <div class="evidence-kicker">Tecnologías de Microprocesamiento</div>
-          <h3>Microprocesamiento - Laboratorio 3</h3>
-          <p>Laboratorio con ATmega328P que integró control de plotter, control térmico con LM35, control de motor DC por referencia analógica, matriz RGB con joystick y cerradura RFID.</p>
-          <div class="tag-row"><span class="tag">3.1</span><span class="tag">3.2</span></div>
-          <button class="btn" type="button" onclick="showEvidence('micro-lab-3', 'diseno')">Ver evidencia</button>
-        </article>
-
-        <article class="evidence-card">
-          <div class="evidence-kicker">Tecnologías de Microprocesamiento</div>
-          <h3>Microprocesamiento - Laboratorio 4</h3>
-          <p>Laboratorio orientado a la integración de sistemas embebidos con comunicación SPI, I2C y UART, matriz RGB, MPU6050 y robot de mini fútbol con Bluetooth.</p>
-          <div class="tag-row"><span class="tag">3.1</span><span class="tag">3.2</span></div>
-          <button class="btn" type="button" onclick="showEvidence('micro-lab-4', 'diseno')">Ver evidencia</button>
-        </article>
-
-        <article class="evidence-card">
-          <div class="evidence-kicker">Electrónica Digital</div>
-          <h3>Electrónica Digital - Laboratorio 4</h3>
-          <p>Laboratorio enfocado en automatismos digitales sin microcontroladores: motor paso a paso, seguidor de línea, secuencia KITT y candado digital.</p>
-          <div class="tag-row"><span class="tag">3.1</span><span class="tag">3.2</span><span class="tag">3.3</span></div>
-          <button class="btn" type="button" onclick="showEvidence('ed-lab-4', 'diseno')">Ver evidencia</button>
-        </article>
-
-        <article class="evidence-card">
-          <div class="evidence-kicker">Electrónica Digital</div>
-          <h3>Electrónica Digital - Laboratorio 3</h3>
-          <p>Laboratorio de sistemas digitales que incluyó contadores, control de peaje, sumador-restador de 8 bits y registros de desplazamiento.</p>
-          <div class="tag-row"><span class="tag">3.3</span></div>
-          <button class="btn" type="button" onclick="showEvidence('ed-lab-3', 'diseno')">Ver evidencia</button>
-        </article>
-
-        <article class="evidence-card">
-          <div class="evidence-kicker">Electrónica Analógica</div>
-          <h3>Electrónica Analógica - Laboratorio 5</h3>
-          <p>Laboratorio dedicado al análisis de filtros pasivos y amplificadores operacionales con LM324, combinando cálculo, simulación, montaje y medición.</p>
-          <div class="tag-row"><span class="tag">3.3</span></div>
-          <button class="btn" type="button" onclick="showEvidence('ea-lab-5', 'diseno')">Ver evidencia</button>
-        </article>
-
-        <article class="evidence-card">
-          <div class="evidence-kicker">Proyecto interdisciplinario</div>
-          <h3>Mezclador de Audio Digital</h3>
-          <p>Proyecto de procesamiento digital de audio que integra programación, modelado matemático, filtrado, mezcla de señales y visualización de resultados.</p>
-          <div class="tag-row"><span class="tag">3.2</span><span class="tag">3.3</span></div>
-          <button class="btn" type="button" onclick="showEvidence('mezclador-audio', 'diseno')">Ver evidencia</button>
-        </article></div>
-    </section>
-    <section class="final-reflection"><p>Diseño es la competencia con más evidencias porque muchos trabajos integran análisis, simulación, montaje, programación, selección de componentes y validación.</p></section>
-  </main>
-</section>
-
-<section id="view-innovacion" class="view">
-  <header class="hero">
-    <h1>Innovación e Investigación en Sistemas Mecatrónicos</h1>
-    <div class="hero-line"></div>
-    <p>Portafolio de Competencias — Lucas Elizalde</p>
-  </header>
-  <main class="container">
-    <section class="area-intro">
-      <h2>Área de dominio</h2>
-      <p>Esta competencia se vincula con el reconocimiento de tecnologías, la fabricación de prototipos y la integración de nuevas soluciones mediante pruebas y ensayos. Se seleccionan evidencias con mayor carga de prototipado e integración tecnológica.</p>
-    </section>
-    <section>
-      <h2 class="section-heading">Subcompetencias abordadas</h2>
-      <div class="subcompetence-list"><div class="subcompetence-item"><span class="subcompetence-code">4.1</span><p>Reconocer paradigmas tecnológicos tradicionales e innovadores.</p></div>
-<div class="subcompetence-item"><span class="subcompetence-code">4.2</span><p>Fabricar prototipos para sistemas y procesos mecatrónicos.</p></div>
-<div class="subcompetence-item"><span class="subcompetence-code">4.3</span><p>Colaborar en la integración de nuevas tecnologías realizando pruebas y ensayos.</p></div></div>
-    </section>
-    <section>
-      <h2 class="section-heading">Mapa de evidencias por subcompetencia</h2>
-      <div class="matrix-wrap"><table class="matrix-table"><thead><tr><th>Evidencia</th><th>4.1</th><th>4.2</th><th>4.3</th></tr></thead><tbody><tr><td><strong>Proyecto Integrador II: Robot humanoide Turi</strong></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr><tr><td><strong>Proyecto Integrador I: Aromatizador automático</strong></td><td>—</td><td><span class="check">✓</span></td><td>—</td></tr><tr><td><strong>Microprocesamiento - Laboratorio 1</strong></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td>—</td></tr><tr><td><strong>Microprocesamiento - Laboratorio 4</strong></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr><tr><td><strong>Electrónica Digital - Laboratorio 4</strong></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr><tr><td><strong>Mezclador de Audio Digital</strong></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr></tbody></table></div>
-    </section>
-    <section>
-      <h2 class="section-heading">Evidencias seleccionadas</h2>
-      <div class="evidence-grid">
-        <article class="evidence-card">
-          <div class="evidence-kicker">Proyecto integrador</div>
-          <h3>Proyecto Integrador II: Robot humanoide Turi</h3>
-          <p>Proyecto de integración mecatrónica orientado al desarrollo, puesta en marcha y validación de un robot humanoide, combinando estructura física, electrónica de control, programación, actuadores y pruebas funcionales.</p>
-          <div class="tag-row"><span class="tag">4.1</span><span class="tag">4.2</span><span class="tag">4.3</span></div>
-          <button class="btn" type="button" onclick="showEvidence('turi', 'innovacion')">Ver evidencia</button>
-        </article>
-
-        <article class="evidence-card">
-          <div class="evidence-kicker">Proyecto integrador</div>
-          <h3>Proyecto Integrador I: Aromatizador automático</h3>
-          <p>Desarrollo de un prototipo automatizado para dosificación de aroma, integrando lógica de control, montaje físico, selección de componentes y validación del funcionamiento.</p>
-          <div class="tag-row"><span class="tag">4.2</span></div>
-          <button class="btn" type="button" onclick="showEvidence('aromatizador', 'innovacion')">Ver evidencia</button>
-        </article>
-
-        <article class="evidence-card">
-          <div class="evidence-kicker">Tecnologías de Microprocesamiento</div>
-          <h3>Microprocesamiento - Laboratorio 1</h3>
-          <p>Laboratorio basado en ATmega328P que integró cinta transportadora con punzonadora, matriz LED 8×8 con UART, DAC R-2R y control de plotter vinculado a PLC.</p>
-          <div class="tag-row"><span class="tag">4.1</span><span class="tag">4.2</span></div>
-          <button class="btn" type="button" onclick="showEvidence('micro-lab-1', 'innovacion')">Ver evidencia</button>
-        </article>
-
-        <article class="evidence-card">
-          <div class="evidence-kicker">Tecnologías de Microprocesamiento</div>
-          <h3>Microprocesamiento - Laboratorio 4</h3>
-          <p>Laboratorio orientado a la integración de sistemas embebidos con comunicación SPI, I2C y UART, matriz RGB, MPU6050 y robot de mini fútbol con Bluetooth.</p>
-          <div class="tag-row"><span class="tag">4.1</span><span class="tag">4.2</span><span class="tag">4.3</span></div>
-          <button class="btn" type="button" onclick="showEvidence('micro-lab-4', 'innovacion')">Ver evidencia</button>
-        </article>
-
-        <article class="evidence-card">
-          <div class="evidence-kicker">Electrónica Digital</div>
-          <h3>Electrónica Digital - Laboratorio 4</h3>
-          <p>Laboratorio enfocado en automatismos digitales sin microcontroladores: motor paso a paso, seguidor de línea, secuencia KITT y candado digital.</p>
-          <div class="tag-row"><span class="tag">4.1</span><span class="tag">4.2</span><span class="tag">4.3</span></div>
-          <button class="btn" type="button" onclick="showEvidence('ed-lab-4', 'innovacion')">Ver evidencia</button>
-        </article>
-
-        <article class="evidence-card">
-          <div class="evidence-kicker">Proyecto interdisciplinario</div>
-          <h3>Mezclador de Audio Digital</h3>
-          <p>Proyecto de procesamiento digital de audio que integra programación, modelado matemático, filtrado, mezcla de señales y visualización de resultados.</p>
-          <div class="tag-row"><span class="tag">4.1</span><span class="tag">4.2</span><span class="tag">4.3</span></div>
-          <button class="btn" type="button" onclick="showEvidence('mezclador-audio', 'innovacion')">Ver evidencia</button>
-        </article></div>
-    </section>
-    <section class="final-reflection"><p>En innovación se priorizan evidencias con prototipos, integración de tecnologías, pruebas experimentales y soluciones que combinan distintas áreas técnicas.</p></section>
-  </main>
-</section>
-
-<section id="view-evidencia" class="view">
-  <header class="hero">
-    <h1 id="detailHero">Evidencia</h1>
-    <div class="hero-line"></div>
-    <p id="detailKicker">Portafolio de Competencias — Lucas Elizalde</p>
-  </header>
-  <main class="container">
-    <div class="detail-layout">
-      <article class="detail-card">
-        <div class="evidence-kicker" id="detailKickerSmall"></div>
-        <h2 id="detailTitle"></h2>
-        <p id="detailDescription"></p>
-        <h3>Actividades incluidas</h3>
-        <ul id="detailIncluded"></ul>
-        <h3>Subcompetencias asociadas en esta página</h3>
-        <ul id="detailSubcompetences"></ul>
-        <h3>Reflexión breve</h3>
-        <p id="detailReflection"></p>
-        <h3>Documento respaldatorio</h3>
-        <div id="detailDocument" class="doc-box"></div>
-      </article>
-      <aside class="media-column" id="detailMedia"></aside>
-    </div>
-    <div class="back-wrap">
-      <button class="back-btn" type="button" onclick="goBack()">← Volver a la competencia</button>
-    </div>
-  </main>
-</section>
-<script>
-var evidenceData = {"turi": {"title": "Proyecto Integrador II: Robot humanoide Turi", "kicker": "Proyecto integrador", "folder": "01-robot-turi", "images": 3, "video": true, "description": "Proyecto de integración mecatrónica orientado al desarrollo, puesta en marcha y validación de un robot humanoide, combinando estructura física, electrónica de control, programación, actuadores y pruebas funcionales.", "included": ["Integración de subsistemas mecánicos, electrónicos y de control.", "Pruebas de funcionamiento, ajuste y validación del prototipo.", "Documentación del proceso de diseño, montaje y resultados obtenidos."], "reflection": "Esta evidencia permite mostrar una integración amplia de conocimientos, ya que el sistema no depende de un único componente, sino de la coordinación entre hardware, software, control y pruebas."}, "aromatizador": {"title": "Proyecto Integrador I: Aromatizador automático", "kicker": "Proyecto integrador", "folder": "02-aromatizador-automatico", "images": 3, "video": false, "description": "Desarrollo de un prototipo automatizado para dosificación de aroma, integrando lógica de control, montaje físico, selección de componentes y validación del funcionamiento.", "included": ["Diseño e implementación del sistema automatizado.", "Integración de actuadores y lógica de accionamiento.", "Puesta en funcionamiento y verificación del comportamiento del prototipo."], "reflection": "El proyecto evidencia la capacidad de transformar una necesidad práctica en un sistema funcional, considerando diseño, montaje, control y validación."}, "micro-lab-1": {"title": "Microprocesamiento - Laboratorio 1", "kicker": "Tecnologías de Microprocesamiento", "folder": "micro-lab-1", "images": 2, "video": false, "description": "Laboratorio basado en ATmega328P que integró cinta transportadora con punzonadora, matriz LED 8×8 con UART, DAC R-2R y control de plotter vinculado a PLC.", "included": ["Automatización de una cinta transportadora con punzonadora.", "Visualización mediante matriz LED 8×8 y comunicación UART.", "Generación de señales analógicas mediante DAC R-2R.", "Control de plotter integrado a PLC."], "reflection": "Este laboratorio es una evidencia fuerte de diseño e integración porque combina programación de bajo nivel, comunicación, control de actuadores y generación de señales en varios sistemas."}, "micro-lab-2": {"title": "Microprocesamiento - Laboratorio 2", "kicker": "Tecnologías de Microprocesamiento", "folder": "micro-lab-2", "images": 2, "video": false, "description": "Laboratorio con ATmega328P centrado en control de plotter, selector de color con LDR, servomotor y WS2812, piano electrónico y cerradura con teclado, LCD y EEPROM.", "included": ["Control de plotter con selección de figuras.", "Selector de color mediante fotocelda, servomotor y matriz WS2812.", "Piano electrónico con pulsadores y buzzers.", "Cerradura electrónica con teclado matricial, LCD y EEPROM."], "reflection": "Esta evidencia muestra diseño de soluciones embebidas variadas, con interfaces de usuario, sensores, actuadores y almacenamiento persistente."}, "micro-lab-3": {"title": "Microprocesamiento - Laboratorio 3", "kicker": "Tecnologías de Microprocesamiento", "folder": "micro-lab-3", "images": 2, "video": false, "description": "Laboratorio con ATmega328P que integró control de plotter, control térmico con LM35, control de motor DC por referencia analógica, matriz RGB con joystick y cerradura RFID.", "included": ["Control térmico con sensor LM35, PWM y monitoreo serial.", "Control de motor DC mediante lectura analógica y señal PWM.", "Matriz RGB gobernada por joystick analógico.", "Cerradura RFID con LCD I2C y EEPROM."], "reflection": "El laboratorio resulta especialmente útil para evidenciar operación, monitoreo y diseño, porque involucra lectura de variables, control de actuadores y validación física."}, "micro-lab-4": {"title": "Microprocesamiento - Laboratorio 4", "kicker": "Tecnologías de Microprocesamiento", "folder": "micro-lab-4", "images": 2, "video": false, "description": "Laboratorio orientado a la integración de sistemas embebidos con comunicación SPI, I2C y UART, matriz RGB, MPU6050 y robot de mini fútbol con Bluetooth.", "included": ["Comunicación maestro–esclavo mediante SPI.", "Comunicación maestro–esclavo mediante I2C.", "Animaciones en matriz RGB mediante UART.", "Control de matriz con MPU6050.", "Robot de mini fútbol con Bluetooth."], "reflection": "Esta evidencia es fuerte para operación, diseño e innovación porque reúne comunicación digital, sensores, actuadores, visualización y control de un robot móvil."}, "ed-lab-3": {"title": "Electrónica Digital - Laboratorio 3", "kicker": "Electrónica Digital", "folder": "ed-lab-3", "images": 2, "video": false, "description": "Laboratorio de sistemas digitales que incluyó contadores, control de peaje, sumador-restador de 8 bits y registros de desplazamiento.", "included": ["Contadores secuenciales y visualización en displays.", "Sistema de peaje con lógica combinacional y flip-flops.", "Sumador-restador de 8 bits.", "Registros SIPO, SISO, PISO y PIPO."], "reflection": "La evidencia aporta principalmente al diseño, porque muestra análisis de estados, tablas, mapas de Karnaugh, simulación y validación de sistemas digitales."}, "ed-lab-4": {"title": "Electrónica Digital - Laboratorio 4", "kicker": "Electrónica Digital", "folder": "ed-lab-4", "images": 3, "video": false, "description": "Laboratorio enfocado en automatismos digitales sin microcontroladores: motor paso a paso, seguidor de línea, secuencia KITT y candado digital.", "included": ["Control de motor paso a paso con lógica secuencial.", "Robot seguidor de línea con sensores infrarrojos y lógica combinacional.", "Secuencia de LEDs tipo KITT.", "Candado digital mediante lógica secuencial y simulación."], "reflection": "Este laboratorio demuestra diseño digital aplicado a sistemas de control, automatización y validación experimental, por eso encaja bien en diseño e innovación."}, "ea-lab-5": {"title": "Electrónica Analógica - Laboratorio 5", "kicker": "Electrónica Analógica", "folder": "ea-lab-5", "images": 2, "video": false, "description": "Laboratorio dedicado al análisis de filtros pasivos y amplificadores operacionales con LM324, combinando cálculo, simulación, montaje y medición.", "included": ["Filtros pasivos pasa alta, pasa baja y pasa banda.", "Amplificadores operacionales en configuraciones inversora, sumadora, derivadora e integradora.", "Comparación entre resultados teóricos, simulados y prácticos."], "reflection": "La evidencia es útil para diseño porque genera insumos técnicos a partir de mediciones, curvas, cálculos y comparación entre modelo y circuito real."}, "mezclador-audio": {"title": "Mezclador de Audio Digital", "kicker": "Proyecto interdisciplinario", "folder": "26-mezclador-audio-digital", "images": 2, "video": false, "description": "Proyecto de procesamiento digital de audio que integra programación, modelado matemático, filtrado, mezcla de señales y visualización de resultados.", "included": ["Mezcla de señales de audio.", "Aplicación de filtros paso alto y paso bajo.", "Análisis y visualización de señales en tiempo y frecuencia.", "Implementación en Python."], "reflection": "Esta evidencia muestra una integración entre matemática, programación y procesamiento de señales, con un enfoque experimental y de validación."}, "electroindustrial": {"title": "Aplicaciones Electroindustriales", "kicker": "Sistemas eléctricos industriales", "folder": "aplicaciones-electroindustriales", "images": 2, "video": false, "description": "Evidencia vinculada al trabajo con tablero industrial, motor trifásico, contactores, relés y secuencias de arranque y parada.", "included": ["Motor trifásico y tablero industrial.", "Arranque estrella-triángulo.", "Circuito de arranque/parada con contactor.", "Arranque secuencial y accionamientos eléctricos."], "reflection": "Esta evidencia es especialmente fuerte para operación y mantenimiento porque involucra conexión, puesta en servicio, verificación y análisis de sistemas eléctricos industriales."}, "neumatica": {"title": "Neumática y Electroneumática", "kicker": "Sistemas de accionamiento", "folder": "neumatica-electroneumatica", "images": 2, "video": false, "description": "Evidencia asociada al diseño, montaje y verificación de circuitos neumáticos y electroneumáticos con cilindros, válvulas y secuencias de accionamiento.", "included": ["Circuitos neumáticos con cilindros.", "Accionamiento mediante válvulas.", "Secuencias de funcionamiento y verificación.", "Aplicación a mecanismos como apertura de silo."], "reflection": "La evidencia permite demostrar operación y mantenimiento desde el montaje, la revisión del funcionamiento y la comprensión de fallas o condiciones de accionamiento."}, "montaje-mecanico": {"title": "Montaje y desmontaje mecánico", "kicker": "Mantenimiento mecánico", "folder": "montaje-desmontaje-mecanico", "images": 2, "video": false, "description": "Evidencia centrada en el montaje y desmontaje del eje de transferencia y caja de cambios, siguiendo procedimientos de trabajo mecánico.", "included": ["Identificación de componentes mecánicos.", "Desmontaje y montaje siguiendo una secuencia de trabajo.", "Reconocimiento de condiciones de ajuste, inspección y funcionamiento.", "Aplicación de criterios de seguridad y orden en el procedimiento."], "reflection": "Esta evidencia es la más directa para mantenimiento mecánico, porque muestra intervención física sobre un conjunto real y aplicación de procedimientos técnicos."}};
-var competenceData = {"operacion": {"title": "Operación de Sistemas Mecatrónicos", "intro": "Esta competencia se relaciona con la implementación, operación, monitoreo y puesta en servicio de sistemas mecatrónicos. En esta página se presentan las evidencias seleccionadas sin repetir bloques: primero se muestra qué subcompetencias se abordan y luego las evidencias que las respaldan.", "subcompetences": {"1.1": "Implementar software y hardware específico para el correcto desempeño de procesos.", "1.2": "Verificar la capacidad operacional de sistemas mecatrónicos mediante monitoreo.", "1.3": "Instalar y poner en servicio sistemas mecatrónicos considerando calidad, seguridad y medio ambiente."}, "evidence_keys": ["turi", "aromatizador", "micro-lab-3", "micro-lab-4", "electroindustrial", "neumatica"], "mapping": {"turi": ["1.1"], "aromatizador": ["1.1", "1.3"], "micro-lab-3": ["1.1", "1.2"], "micro-lab-4": ["1.1", "1.2"], "electroindustrial": ["1.2", "1.3"], "neumatica": ["1.2", "1.3"]}, "reflection": "En esta competencia prioricé evidencias donde se observa puesta en marcha, operación real, lectura de variables, accionamiento de dispositivos y verificación del comportamiento del sistema."}, "mantenimiento": {"title": "Mantenimiento de Sistemas Mecatrónicos", "intro": "Esta competencia se enfoca en tareas de inspección, intervención, revisión, montaje, desmontaje, verificación y aplicación de procedimientos técnicos. Por eso se seleccionan evidencias directamente vinculadas al mantenimiento mecánico, eléctrico y neumático.", "subcompetences": {"2.1": "Ejecutar planes de mantenimiento preventivos y correctivos diseñados por especialistas.", "2.2": "Aplicar procedimientos e instrucciones relacionadas con mantenimiento basado en confiabilidad."}, "evidence_keys": ["montaje-mecanico", "electroindustrial", "neumatica"], "mapping": {"montaje-mecanico": ["2.1", "2.2"], "electroindustrial": ["2.1", "2.2"], "neumatica": ["2.1", "2.2"]}, "reflection": "Para mantenimiento se evitó incluir evidencias forzadas. La selección se concentra en actividades donde existe intervención, revisión, conexión, diagnóstico o verificación de sistemas físicos."}, "diseno": {"title": "Diseño de Sistemas Mecatrónicos", "intro": "Esta competencia reúne evidencias donde se diseñaron, fabricaron, integraron o documentaron sistemas mecatrónicos. También se incluyen laboratorios que generaron insumos técnicos para el diseño o rediseño de soluciones.", "subcompetences": {"3.1": "Fabricar equipos, sistemas y procesos mecatrónicos de acuerdo con diseño.", "3.2": "Incorporar tecnologías ya evaluadas a sistemas y procesos mecatrónicos.", "3.3": "Generar insumos de procesos existentes para el diseño o rediseño de un sistema."}, "evidence_keys": ["turi", "aromatizador", "micro-lab-1", "micro-lab-2", "micro-lab-3", "micro-lab-4", "ed-lab-4", "ed-lab-3", "ea-lab-5", "mezclador-audio"], "mapping": {"turi": ["3.1", "3.3"], "aromatizador": ["3.1"], "micro-lab-1": ["3.1", "3.2"], "micro-lab-2": ["3.1", "3.2"], "micro-lab-3": ["3.1", "3.2"], "micro-lab-4": ["3.1", "3.2"], "ed-lab-4": ["3.1", "3.2", "3.3"], "ed-lab-3": ["3.3"], "ea-lab-5": ["3.3"], "mezclador-audio": ["3.2", "3.3"]}, "reflection": "Diseño es la competencia con más evidencias porque muchos trabajos integran análisis, simulación, montaje, programación, selección de componentes y validación."}, "innovacion": {"title": "Innovación e Investigación en Sistemas Mecatrónicos", "intro": "Esta competencia se vincula con el reconocimiento de tecnologías, la fabricación de prototipos y la integración de nuevas soluciones mediante pruebas y ensayos. Se seleccionan evidencias con mayor carga de prototipado e integración tecnológica.", "subcompetences": {"4.1": "Reconocer paradigmas tecnológicos tradicionales e innovadores.", "4.2": "Fabricar prototipos para sistemas y procesos mecatrónicos.", "4.3": "Colaborar en la integración de nuevas tecnologías realizando pruebas y ensayos."}, "evidence_keys": ["turi", "aromatizador", "micro-lab-1", "micro-lab-4", "ed-lab-4", "mezclador-audio"], "mapping": {"turi": ["4.1", "4.2", "4.3"], "aromatizador": ["4.2"], "micro-lab-1": ["4.1", "4.2"], "micro-lab-4": ["4.1", "4.2", "4.3"], "ed-lab-4": ["4.1", "4.2", "4.3"], "mezclador-audio": ["4.1", "4.2", "4.3"]}, "reflection": "En innovación se priorizan evidencias con prototipos, integración de tecnologías, pruebas experimentales y soluciones que combinan distintas áreas técnicas."}};
-var currentCompetence = "operacion";
-
-function showView(viewName) {
-  document.querySelectorAll(".view").forEach(function(view) {
-    view.classList.remove("active");
-  });
-  var next = document.getElementById("view-" + viewName);
-  if (next) {
-    next.classList.add("active");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-}
-
-function goBack() {
-  showView(currentCompetence);
-}
-
-function extractDriveId(text) {
-  if (!text) return "";
-  var value = text.trim();
-  if (!value) return "";
-  var patterns = [/\/file\/d\/([^\/]+)/, /id=([^&]+)/, /^([a-zA-Z0-9_-]{20,})$/];
-  for (var i = 0; i < patterns.length; i++) {
-    var match = value.match(patterns[i]);
-    if (match && match[1]) return match[1];
-  }
-  return "";
-}
-
-function mediaBase(ev) {
-  return "../evidencias-media/" + ev.folder;
-}
-
-function renderMedia(evKey) {
-  var ev = evidenceData[evKey];
-  var media = document.getElementById("detailMedia");
-  media.replaceChildren();
-
-  var base = mediaBase(ev);
-
-  for (var i = 1; i <= ev.images; i++) {
-    var box = document.createElement("div");
-    box.className = "media-box";
-    var imgPath = base + "/img/imagen-" + i + ".jpg";
-    var img = document.createElement("img");
-    img.src = imgPath + "?reload=" + evKey + "-" + i + "-" + Date.now();
-    img.alt = "Imagen " + i + " de " + ev.title;
-    img.setAttribute("data-path", imgPath);
-    img.onerror = function() {
-      var path = this.getAttribute("data-path");
-      this.parentElement.className = "media-missing";
-      this.parentElement.innerHTML = "Subí la imagen en:<br><strong>" + path + "</strong>";
-    };
-    box.appendChild(img);
-    media.appendChild(box);
-  }
-
-  if (ev.video === true) {
-    var videoBox = document.createElement("div");
-    videoBox.className = "video-box";
-    var videoPath = base + "/videos/demo.mp4";
-    var video = document.createElement("video");
-    video.controls = true;
-    video.preload = "metadata";
-    var source = document.createElement("source");
-    source.src = videoPath + "?reload=" + evKey + "-" + Date.now();
-    source.type = "video/mp4";
-    video.appendChild(source);
-    videoBox.appendChild(video);
-    media.appendChild(videoBox);
-  }
-}
-
-function renderDocument(evKey) {
-  var ev = evidenceData[evKey];
-  var target = document.getElementById("detailDocument");
-  target.innerHTML = "";
-  var base = mediaBase(ev);
-  var driveTxt = base + "/drive-link.txt";
-  fetch(driveTxt + "?reload=" + Date.now(), { cache: "no-store" })
-    .then(function(response) {
-      if (!response.ok) return "";
-      return response.text();
-    })
-    .then(function(text) {
-      var driveId = extractDriveId(text);
-      if (driveId) {
-        var previewUrl = "https://drive.google.com/file/d/" + driveId + "/preview";
-        var viewUrl = "https://drive.google.com/file/d/" + driveId + "/view";
-        target.innerHTML =
-          '<iframe class="pdf-viewer" src="' + previewUrl + '"></iframe>' +
-          '<br><a class="btn" href="' + viewUrl + '" target="_blank" rel="noopener noreferrer">Abrir documento en Drive</a>';
-      } else {
-        target.innerHTML = '<p class="note">Agregá el enlace del documento en <strong>' + driveTxt + '</strong>.</p>';
-      }
-    })
-    .catch(function() {
-      target.innerHTML = '<p class="note">Agregá el enlace del documento en <strong>' + driveTxt + '</strong>.</p>';
-    });
-}
-
-function showEvidence(evKey, compKey) {
-  var ev = evidenceData[evKey];
-  var comp = competenceData[compKey];
-  if (!ev || !comp) return;
-
-  currentCompetence = compKey;
-  document.getElementById("detailHero").textContent = ev.title;
-  document.getElementById("detailKicker").textContent = "Evidencia — " + comp.title;
-  document.getElementById("detailKickerSmall").textContent = ev.kicker;
-  document.getElementById("detailTitle").textContent = ev.title;
-  document.getElementById("detailDescription").textContent = ev.description;
-  document.getElementById("detailReflection").textContent = ev.reflection;
-
-  var included = document.getElementById("detailIncluded");
-  included.replaceChildren();
-  ev.included.forEach(function(item) {
-    var li = document.createElement("li");
-    li.textContent = item;
-    included.appendChild(li);
-  });
-
-  var subList = document.getElementById("detailSubcompetences");
-  subList.replaceChildren();
-  var codes = comp.mapping[evKey] || [];
-  codes.forEach(function(code) {
-    var li = document.createElement("li");
-    li.textContent = code + " — " + comp.subcompetences[code];
-    subList.appendChild(li);
-  });
-
-  renderMedia(evKey);
-  renderDocument(evKey);
-  showView("evidencia");
-}
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  showView("operacion");
-});
-</script>
-</body>
-</html>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0f1f3d;--navy2:#1a3060;--blue:#1e6fa8;--cyan:#4db8e8;--white:#fff;--soft:#f4f7fb;--border:#dce5ef;--border2:#cfdbe8;--text:#1e2a38;--muted:#4a5a6e;--font:'Inter',Arial,sans-serif}
+body{font-family:var(--font);background:var(--white);color:var(--text);font-size:15px;line-height:1.75;margin:0}.view{display:none}.view.active{display:block}
+.hero{background:var(--navy);background-image:radial-gradient(ellipse at 70% 50%,rgba(30,111,168,.18) 0%,transparent 60%);padding:4.5rem 2rem 4rem;text-align:center;border-bottom:3px solid var(--blue)}
+.hero h1{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:600;color:#fff;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.7rem}.hero-line{width:44px;height:2px;background:var(--cyan);margin:0 auto .9rem}.hero p{color:rgba(255,255,255,.62);font-size:.95rem;letter-spacing:.04em;font-weight:300}
+.container{max-width:1100px;margin:0 auto;padding:3.7rem 2rem}.area-intro{max-width:860px;margin:0 auto 2.5rem;text-align:center}.area-intro h2,.section-heading{font-size:1.05rem;font-weight:650;text-transform:uppercase;letter-spacing:.1em;padding-bottom:.75rem;border-bottom:2px solid var(--border);margin-bottom:1.4rem}.area-intro p{color:var(--muted);line-height:1.9}
+.subcompetence-list{display:grid;gap:.9rem;margin:2rem 0 2.6rem}.subcompetence-item{border:1px solid var(--border);background:#fff;padding:1rem 1.1rem;border-radius:8px}.subcompetence-code{display:inline-block;background:var(--navy2);color:#fff;font-size:.78rem;font-weight:650;padding:.18rem .52rem;border-radius:999px;margin-bottom:.45rem}
+.evidence-grid,.index-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.5rem}.evidence-card,.index-card{border:1px solid var(--border);border-radius:10px;padding:1.15rem;background:#fff;box-shadow:0 6px 20px rgba(15,31,61,.045);text-decoration:none;color:var(--text)}
+.evidence-kicker{color:var(--blue);text-transform:uppercase;letter-spacing:.08em;font-size:.74rem;font-weight:700;margin-bottom:.4rem}.evidence-card h3,.index-card h3{font-size:1rem;margin-bottom:.5rem;color:var(--text)}.evidence-card p,.index-card p{color:var(--muted);font-size:.9rem;margin-bottom:.9rem}
+.tag-row{display:flex;gap:.35rem;flex-wrap:wrap;margin:.7rem 0 1rem}.tag{display:inline-flex;align-items:center;border:1px solid var(--border2);background:var(--soft);border-radius:999px;padding:.18rem .5rem;font-size:.75rem;color:var(--muted);font-weight:600}
+.btn,.back-btn{display:inline-flex;align-items:center;justify-content:center;padding:.72rem 1.05rem;background:var(--navy2);color:#fff;border:none;font-family:var(--font);font-size:.88rem;font-weight:600;text-decoration:none;border-radius:5px;letter-spacing:.015em;cursor:pointer;transition:background .2s,transform .2s}.btn:hover,.back-btn:hover{background:#254880;transform:translateY(-1px)}
+.back-wrap{text-align:center;margin-top:2.7rem}.final-reflection{margin-top:2.6rem;padding:1.4rem;background:var(--soft);border-left:4px solid var(--blue);color:var(--muted);border-radius:0 8px 8px 0}
+.detail-layout{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:1.3rem;align-items:start}.detail-card{border:1px solid var(--border);border-radius:10px;background:#fff;padding:1.25rem;box-shadow:0 6px 20px rgba(15,31,61,.045)}
+.detail-card h2{font-size:1.25rem;margin-bottom:.7rem}.detail-card h3{font-size:.95rem;text-transform:uppercase;letter-spacing:.08em;margin:1.35rem 0 .65rem;color:var(--text)}.detail-card p,.detail-card li{color:var(--muted);font-size:.94rem}.detail-card ul{padding-left:1.2rem}
+.media-column{display:grid;gap:.9rem}.media-box{border:1px solid var(--border);background:#fff;border-radius:10px;overflow:hidden}.media-box img{width:100%;height:auto;display:block;object-fit:contain;background:#fff}.media-missing{min-height:135px;padding:1rem;background:var(--soft);color:var(--muted);border:1px dashed var(--border2);border-radius:10px}
+.activities-media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem}.activity-media-card{border:1px solid var(--border);background:#fff;border-radius:10px;overflow:hidden}.activity-media-card img{width:100%;height:auto;display:block;object-fit:contain;background:#fff}.activity-media-body{padding:.9rem}.activity-media-body h4{font-size:.9rem;margin-bottom:.35rem;color:var(--text)}.activity-media-body p{font-size:.82rem;color:var(--muted);line-height:1.55}
+.video-box{border:1px solid var(--border);border-radius:10px;padding:.8rem;background:#fff}.video-box video{width:100%;display:block;background:#000}.video-title{font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text);font-weight:700;margin-bottom:.6rem}
+.pdf-viewer{width:100%;height:620px;border:1px solid var(--border2);background:#fff;margin-top:.8rem;border-radius:8px}.note{font-size:.82rem;color:var(--muted)}
+@media(max-width:860px){.container{padding:3.1rem 1.1rem}.evidence-grid,.detail-layout,.index-grid,.activities-media-grid{grid-template-columns:1fr}.hero{padding:3.8rem 1.2rem 3.3rem}.pdf-viewer{height:480px}}
+</style></head><body><section id="view-operacion" class="view"><header class="hero"><h1>Operación de Sistemas Mecatrónicos</h1><div class="hero-line"></div><p>Portafolio de Competencias — Lucas Elizalde</p></header><main class="container"><section class="area-intro"><h2>Área de dominio</h2><p>Esta competencia se relaciona con la implementación, operación, monitoreo y puesta en servicio de sistemas mecatrónicos.</p></section><section><h2 class="section-heading">Subcompetencias abordadas</h2><div class="subcompetence-list"><div class="subcompetence-item"><span class="subcompetence-code">1.1</span><p>Implementar software y hardware específico para el correcto desempeño de procesos.</p></div><div class="subcompetence-item"><span class="subcompetence-code">1.2</span><p>Verificar la capacidad operacional de sistemas mecatrónicos mediante monitoreo.</p></div><div class="subcompetence-item"><span class="subcompetence-code">1.3</span><p>Instalar y poner en servicio sistemas mecatrónicos considerando calidad, seguridad y medio ambiente.</p></div></div></section><section><h2 class="section-heading">Evidencias seleccionadas</h2><div class="evidence-grid"><article class="evidence-card"><div class="evidence-kicker">Proyecto integrador</div><h3>Proyecto Integrador II: Robot humanoide Turi</h3><p>Proyecto de integración mecatrónica orientado al desarrollo, puesta en marcha y validación de un robot humanoide.</p><div class="tag-row"><span class="tag">1.1</span></div><button class="btn" type="button" onclick="showEvidence('turi','operacion')">Ver evidencia</button></article>
+<article class="evidence-card"><div class="evidence-kicker">Proyecto integrador</div><h3>Proyecto Integrador I: Aromatizador automático</h3><p>Prototipo automatizado para dosificación de aroma, integrando lógica de control, montaje físico y validación.</p><div class="tag-row"><span class="tag">1.1</span><span class="tag">1.3</span></div><button class="btn" type="button" onclick="showEvidence('aromatizador','operacion')">Ver evidencia</button></article>
+<article class="evidence-card"><div class="evidence-kicker">Tecnologías de Microprocesamiento</div><h3>Microprocesamiento - Laboratorio 3</h3><p>Laboratorio con ATmega328P orientado a control, monitoreo, sensado y validación física.</p><div class="tag-row"><span class="tag">1.1</span><span class="tag">1.2</span></div><button class="btn" type="button" onclick="showEvidence('micro-lab-3','operacion')">Ver evidencia</button></article>
+<article class="evidence-card"><div class="evidence-kicker">Tecnologías de Microprocesamiento</div><h3>Microprocesamiento - Laboratorio 4</h3><p>Laboratorio de integración embebida con SPI, I2C, UART, MPU6050 y robot de mini fútbol.</p><div class="tag-row"><span class="tag">1.1</span><span class="tag">1.2</span></div><button class="btn" type="button" onclick="showEvidence('micro-lab-4','operacion')">Ver evidencia</button></article>
+<article class="evidence-card"><div class="evidence-kicker">Sistemas eléctricos industriales</div><h3>Aplicaciones Electroindustriales</h3><p>Evidencia vinculada a tablero industrial, motor trifásico, contactores, relés y secuencias.</p><div class="tag-row"><span class="tag">1.2</span><span class="tag">1.3</span></div><button class="btn" type="button" onclick="showEvidence('electroindustrial','operacion')">Ver evidencia</button></article>
+<article class="evidence-card"><div class="evidence-kicker">Sistemas de accionamiento</div><h3>Neumática y Electroneumática</h3><p>Evidencia de diseño, montaje y verificación de circuitos neumáticos y electroneumáticos.</p><div class="tag-row"><span class="tag">1.2</span><span class="tag">1.3</span></div><button class="btn" type="button" onclick="showEvidence('neumatica','operacion')">Ver evidencia</button></article></div></section><section class="final-reflection"><p>Se priorizan evidencias donde hay puesta en marcha, lectura de variables, accionamiento y verificación del comportamiento.</p></section></main></section>
+<section id="view-mantenimiento" class="view"><header class="hero"><h1>Mantenimiento de Sistemas Mecatrónicos</h1><div class="hero-line"></div><p>Portafolio de Competencias — Lucas Elizalde</p></header><main class="container"><section class="area-intro"><h2>Área de dominio</h2><p>Esta competencia se enfoca en inspección, intervención, montaje, desmontaje, verificación y aplicación de procedimientos técnicos.</p></section><section><h2 class="section-heading">Subcompetencias abordadas</h2><div class="subcompetence-list"><div class="subcompetence-item"><span class="subcompetence-code">2.1</span><p>Ejecutar planes de mantenimiento preventivos y correctivos diseñados por especialistas.</p></div><div class="subcompetence-item"><span class="subcompetence-code">2.2</span><p>Aplicar procedimientos e instrucciones relacionadas con mantenimiento basado en confiabilidad.</p></div></div></section><section><h2 class="section-heading">Evidencias seleccionadas</h2><div class="evidence-grid"><article class="evidence-card"><div class="evidence-kicker">Mantenimiento mecánico</div><h3>Montaje y desmontaje mecánico</h3><p>Evidencia centrada en montaje y desmontaje del eje de transferencia y caja de cambios.</p><div class="tag-row"><span class="tag">2.1</span><span class="tag">2.2</span></div><button class="btn" type="button" onclick="showEvidence('montaje-mecanico','mantenimiento')">Ver evidencia</button></article>
+<article class="evidence-card"><div class="evidence-kicker">Sistemas eléctricos industriales</div><h3>Aplicaciones Electroindustriales</h3><p>Evidencia vinculada a tablero industrial, motor trifásico, contactores, relés y secuencias.</p><div class="tag-row"><span class="tag">2.1</span><span class="tag">2.2</span></div><button class="btn" type="button" onclick="showEvidence('electroindustrial','mantenimiento')">Ver evidencia</button></article>
+<article class="evidence-card"><div class="evidence-kicker">Sistemas de accionamiento</div><h3>Neumática y Electroneumática</h3><p>Evidencia de diseño, montaje y verificación de circuitos neumáticos y electroneumáticos.</p><div class="tag-row"><span class="tag">2.1</span><span class="tag">2.2</span></div><button class="btn" type="button" onclick="showEvidence('neumatica','mantenimiento')">Ver evidencia</button></article></div></section><section class="final-reflection"><p>La selección se concentra en actividades con intervención, revisión, conexión, diagnóstico o verificación de sistemas físicos.</p></section></main></section>
+<section id="view-diseno" class="view"><header class="hero"><h1>Diseño de Sistemas Mecatrónicos</h1><div class="hero-line"></div><p>Portafolio de Competencias — Lucas Elizalde</p></header><main class="container"><section class="area-intro"><h2>Área de dominio</h2><p>Esta competencia reúne evidencias donde se diseñaron, fabricaron, integraron o documentaron sistemas mecatrónicos.</p></section><section><h2 class="section-heading">Subcompetencias abordadas</h2><div class="subcompetence-list"><div class="subcompetence-item"><span class="subcompetence-code">3.1</span><p>Fabricar equipos, sistemas y procesos mecatrónicos de acuerdo con diseño.</p></div><div class="subcompetence-item"><span class="subcompetence-code">3.2</span><p>Incorporar tecnologías ya evaluadas a sistemas y procesos mecatrónicos.</p></div><div class="subcompetence-item"><span class="subcompetence-code">3.3</span><p>Generar insumos de procesos existentes para el diseño o rediseño de un sistema.</p></div></div></section><section><h2 class="section-heading">Evidencias seleccionadas</h2><div class="evidence-grid"><article class="evidence-card"><div class="evidence-kicker">Proyecto integrador</div><h3>Proyecto Integrador II: Robot humanoide Turi</h3><p>Proyecto de integración mecatrónica orientado al desarrollo, puesta en marcha y validación de un robot humanoide.</p><div class="tag-row"><span class="tag">3.1</span><span class="tag">3.3</span></div><button class="btn" type="button" onclick="showEvidence('turi','diseno')">Ver evidencia</button></article>
+<article class="evidence-card"><div class="evidence-kicker">Proyecto integrador</div><h3>Proyecto Integrador I: Aromatizador automático</h3><p>Prototipo automatizado para dosificación de aroma, integrando lógica de control, montaje físico y validación.</p><div class="tag-row"><span class="tag">3.1</span></div><button class="btn" type="button" onclick="showEvidence('aromatizador','diseno')">Ver evidencia</button></article>
+<article class="evidence-card"><div class="evidence-kicker">Tecnologías de Microprocesamiento</div><h3>Microprocesamiento - Laboratorio 1</h3><p>Laboratorio con ATmega328P que integró automatización, comunicación, visualización, DAC y control de movimiento.</p><div class="tag-row"><span class="tag">3.1</span><span class="tag">3.2</span></div><button class="btn" type="button" onclick="showEvidence('micro-lab-1','diseno')">Ver evidencia</button></article>
+<article class="evidence-card"><div class="evidence-kicker">Tecnologías de Microprocesamiento</div><h3>Microprocesamiento - Laboratorio 2</h3><p>Laboratorio con ATmega328P centrado en sistemas embebidos con interacción, visualización y almacenamiento.</p><div class="tag-row"><span class="tag">3.1</span><span class="tag">3.2</span></div><button class="btn" type="button" onclick="showEvidence('micro-lab-2','diseno')">Ver evidencia</button></article>
+<article class="evidence-card"><div class="evidence-kicker">Tecnologías de Microprocesamiento</div><h3>Microprocesamiento - Laboratorio 3</h3><p>Laboratorio con ATmega328P orientado a control, monitoreo, sensado y validación física.</p><div class="tag-row"><span class="tag">3.1</span><span class="tag">3.2</span></div><button class="btn" type="button" onclick="showEvidence('micro-lab-3','diseno')">Ver evidencia</button></article>
+<article class="evidence-card"><div class="evidence-kicker">Tecnologías de Microprocesamiento</div><h3>Microprocesamiento - Laboratorio 4</h3><p>Laboratorio de integración embebida con SPI, I2C, UART, MPU6050 y robot de mini fútbol.</p><div class="tag-row"><span class="tag">3.1</span><span class="tag">3.2</span></div><button class="btn" type="button" onclick="showEvidence('micro-lab-4','diseno')">Ver evidencia</button></article>
+<article class="evidence-card"><div class="evidence-kicker">Electrónica Digital</div><h3>Electrónica Digital - Laboratorio 4</h3><p>Laboratorio de automatismos digitales sin microcontroladores, usando lógica combinacional y secuencial.</p><div class="tag-row"><span class="tag">3.1</span><span class="tag">3.2</span><span class="tag">3.3</span></div><button class="btn" type="button" onclick="showEvidence('ed-lab-4','diseno')">Ver evidencia</button></article>
+<article class="evidence-card"><div class="evidence-kicker">Electrónica Digital</div><h3>Electrónica Digital - Laboratorio 3</h3><p>Laboratorio de sistemas digitales con lógica combinacional, secuencial, almacenamiento y simulación.</p><div class="tag-row"><span class="tag">3.3</span></div><button class="btn" type="button" onclick="showEvidence('ed-lab-3','diseno')">Ver evidencia</button></article>
+<article class="evidence-card"><div class="evidence-kicker">Electrónica Analógica</div><h3>Electrónica Analógica - Laboratorio 5</h3><p>Laboratorio de filtros pasivos y amplificadores operacionales con LM324.</p><div class="tag-row"><span class="tag">3.3</span></div><button class="btn" type="button" onclick="showEvidence('ea-lab-5','diseno')">Ver evidencia</button></article>
+<article class="evidence-card"><div class="evidence-kicker">Proyecto interdisciplinario</div><h3>Mezclador de Audio Digital</h3><p>Proyecto de procesamiento digital de audio con programación, filtrado, mezcla y visualización.</p><div class="tag-row"><span class="tag">3.2</span><span class="tag">3.3</span></div><button class="btn" type="button" onclick="showEvidence('mezclador-audio','diseno')">Ver evidencia</button></article></div></section><section class="final-reflection"><p>Diseño es la competencia con más evidencias porque integra análisis, simulación, montaje, programación y validación.</p></section></main></section>
+<section id="view-innovacion" class="view"><header class="hero"><h1>Innovación e Investigación en Sistemas Mecatrónicos</h1><div class="hero-line"></div><p>Portafolio de Competencias — Lucas Elizalde</p></header><main class="container"><section class="area-intro"><h2>Área de dominio</h2><p>Esta competencia se vincula con prototipado, integración tecnológica, pruebas y ensayos.</p></section><section><h2 class="section-heading">Subcompetencias abordadas</h2><div class="subcompetence-list"><div class="subcompetence-item"><span class="subcompetence-code">4.1</span><p>Reconocer paradigmas tecnológicos tradicionales e innovadores.</p></div><div class="subcompetence-item"><span class="subcompetence-code">4.2</span><p>Fabricar prototipos para sistemas y procesos mecatrónicos.</p></div><div class="subcompetence-item"><span class="subcompetence-code">4.3</span><p>Colaborar en la integración de nuevas tecnologías realizando pruebas y ensayos.</p></div></div></section><section><h2 class="section-heading">Evidencias seleccionadas</h2><div class="evidence-grid"><article class="evidence-card"><div class="evidence-kicker">Proyecto integrador</div><h3>Proyecto Integrador II: Robot humanoide Turi</h3><p>Proyecto de integración mecatrónica orientado al desarrollo, puesta en marcha y validación de un robot humanoide.</p><div class="tag-row"><span class="tag">4.1</span><span class="tag">4.2</span><span class="tag">4.3</span></div><button class="btn" type="button" onclick="showEvidence('turi','innovacion')">Ver evidencia</button></article>
+<article class="evidence-card"><div class="evidence-kicker">Proyecto integrador</div><h3>Proyecto Integrador I: Aromatizador automático</h3><p>Prototipo automatizado para dosificación de aroma, integrando lógica de control, montaje físico y validación.</p><div class="tag-row"><span class="tag">4.2</span></div><button class="btn" type="button" onclick="showEvidence('aromatizador','innovacion')">Ver evidencia</button></article>
+<article class="evidence-card"><div class="evidence-kicker">Tecnologías de Microprocesamiento</div><h3>Microprocesamiento - Laboratorio 1</h3><p>Laboratorio con ATmega328P que integró automatización, comunicación, visualización, DAC y control de movimiento.</p><div class="tag-row"><span class="tag">4.1</span><span class="tag">4.2</span></div><button class="btn" type="button" onclick="showEvidence('micro-lab-1','innovacion')">Ver evidencia</button></article>
+<article class="evidence-card"><div class="evidence-kicker">Tecnologías de Microprocesamiento</div><h3>Microprocesamiento - Laboratorio 4</h3><p>Laboratorio de integración embebida con SPI, I2C, UART, MPU6050 y robot de mini fútbol.</p><div class="tag-row"><span class="tag">4.1</span><span class="tag">4.2</span><span class="tag">4.3</span></div><button class="btn" type="button" onclick="showEvidence('micro-lab-4','innovacion')">Ver evidencia</button></article>
+<article class="evidence-card"><div class="evidence-kicker">Electrónica Digital</div><h3>Electrónica Digital - Laboratorio 4</h3><p>Laboratorio de automatismos digitales sin microcontroladores, usando lógica combinacional y secuencial.</p><div class="tag-row"><span class="tag">4.1</span><span class="tag">4.2</span><span class="tag">4.3</span></div><button class="btn" type="button" onclick="showEvidence('ed-lab-4','innovacion')">Ver evidencia</button></article>
+<article class="evidence-card"><div class="evidence-kicker">Proyecto interdisciplinario</div><h3>Mezclador de Audio Digital</h3><p>Proyecto de procesamiento digital de audio con programación, filtrado, mezcla y visualización.</p><div class="tag-row"><span class="tag">4.1</span><span class="tag">4.2</span><span class="tag">4.3</span></div><button class="btn" type="button" onclick="showEvidence('mezclador-audio','innovacion')">Ver evidencia</button></article></div></section><section class="final-reflection"><p>Se priorizan evidencias con prototipos, integración de tecnologías, pruebas experimentales y soluciones combinadas.</p></section></main></section><section id="view-evidencia" class="view"><header class="hero"><h1 id="detailHero">Evidencia</h1><div class="hero-line"></div><p id="detailKicker">Portafolio de Competencias — Lucas Elizalde</p></header><main class="container"><div class="detail-layout"><article class="detail-card"><div class="evidence-kicker" id="detailKickerSmall"></div><h2 id="detailTitle"></h2><p id="detailDescription"></p><h3>Actividades incluidas</h3><ul id="detailIncluded"></ul><h3>Subcompetencias asociadas en esta página</h3><ul id="detailSubcompetences"></ul><h3>Reflexión breve</h3><p id="detailReflection"></p><h3>Documento respaldatorio</h3><div id="detailDocument"></div></article><aside class="media-column" id="detailMedia"></aside></div><div class="back-wrap"><button class="back-btn" type="button" onclick="goBack()">← Volver a la competencia</button></div></main></section><script>
+var evidenceData={"turi": {"title": "Proyecto Integrador II: Robot humanoide Turi", "kicker": "Proyecto integrador", "folder": "01-robot-turi", "image_mode": "gallery", "images": 1, "video": true, "description": "Proyecto de integración mecatrónica orientado al desarrollo, puesta en marcha y validación de un robot humanoide.", "included": ["Integración de subsistemas", "pruebas de funcionamiento", "documentación del diseño y resultados."], "reflection": "Esta evidencia muestra integración de hardware, software, control y validación."}, "aromatizador": {"title": "Proyecto Integrador I: Aromatizador automático", "kicker": "Proyecto integrador", "folder": "02-aromatizador-automatico", "image_mode": "gallery", "images": 3, "video": false, "description": "Prototipo automatizado para dosificación de aroma, integrando lógica de control, montaje físico y validación.", "included": ["Diseño e implementación", "integración de actuadores", "puesta en funcionamiento."], "reflection": "Evidencia la transformación de una necesidad práctica en un sistema funcional."}, "micro-lab-1": {"title": "Microprocesamiento - Laboratorio 1", "kicker": "Tecnologías de Microprocesamiento", "folder": "micro-lab-1", "image_mode": "activities", "images": 4, "video": false, "description": "Laboratorio con ATmega328P que integró automatización, comunicación, visualización, DAC y control de movimiento.", "included": ["Cinta transportadora con punzonadora", "matriz LED 8×8 UART", "DAC R-2R", "plotter con PLC."], "reflection": "Combina programación de bajo nivel, comunicación, control de actuadores y generación de señales.", "activities": [{"title": "Cinta transportadora con punzonadora", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}, {"title": "Matriz LED 8×8 con UART", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}, {"title": "DAC R-2R", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}, {"title": "Plotter integrado a PLC", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}]}, "micro-lab-2": {"title": "Microprocesamiento - Laboratorio 2", "kicker": "Tecnologías de Microprocesamiento", "folder": "micro-lab-2", "image_mode": "activities", "images": 4, "video": false, "description": "Laboratorio con ATmega328P centrado en sistemas embebidos con interacción, visualización y almacenamiento.", "included": ["Plotter", "selector de color", "piano electrónico", "cerradura con teclado, LCD y EEPROM."], "reflection": "Muestra diseño de soluciones embebidas con sensores, actuadores e interfaces.", "activities": [{"title": "Control de plotter", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}, {"title": "Selector de color", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}, {"title": "Piano electrónico", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}, {"title": "Cerradura con teclado, LCD y EEPROM", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}]}, "micro-lab-3": {"title": "Microprocesamiento - Laboratorio 3", "kicker": "Tecnologías de Microprocesamiento", "folder": "micro-lab-3", "image_mode": "activities", "images": 5, "video": false, "description": "Laboratorio con ATmega328P orientado a control, monitoreo, sensado y validación física.", "included": ["Plotter físico", "control térmico LM35", "motor DC", "matriz RGB con joystick", "cerradura RFID."], "reflection": "Evidencia operación, monitoreo y diseño mediante lectura de variables y control de actuadores.", "activities": [{"title": "Control de plotter físico", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}, {"title": "Control térmico con LM35", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}, {"title": "Control de motor DC", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}, {"title": "Matriz RGB con joystick", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}, {"title": "Cerradura RFID", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}]}, "micro-lab-4": {"title": "Microprocesamiento - Laboratorio 4", "kicker": "Tecnologías de Microprocesamiento", "folder": "micro-lab-4", "image_mode": "activities", "images": 5, "video": false, "description": "Laboratorio de integración embebida con SPI, I2C, UART, MPU6050 y robot de mini fútbol.", "included": ["SPI maestro–esclavo", "I2C maestro–esclavo", "matriz RGB UART", "control con MPU6050", "robot mini fútbol."], "reflection": "Reúne comunicación digital, sensores, actuadores, visualización y control robótico.", "activities": [{"title": "Comunicación SPI maestro–esclavo", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}, {"title": "Comunicación I2C maestro–esclavo", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}, {"title": "Matriz RGB mediante UART", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}, {"title": "Control con MPU6050", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}, {"title": "Robot de mini fútbol", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}]}, "ed-lab-3": {"title": "Electrónica Digital - Laboratorio 3", "kicker": "Electrónica Digital", "folder": "ed-lab-3", "image_mode": "activities", "images": 4, "video": false, "description": "Laboratorio de sistemas digitales con lógica combinacional, secuencial, almacenamiento y simulación.", "included": ["Contadores", "sistema de peaje", "sumador-restador", "registros de desplazamiento."], "reflection": "Aporta al diseño mediante estados, Karnaugh, simulación y validación digital.", "activities": [{"title": "Contadores digitales", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}, {"title": "Sistema de peaje", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}, {"title": "Sumador-restador de 8 bits", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}, {"title": "Registros de desplazamiento", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}]}, "ed-lab-4": {"title": "Electrónica Digital - Laboratorio 4", "kicker": "Electrónica Digital", "folder": "ed-lab-4", "image_mode": "activities", "images": 4, "video": false, "description": "Laboratorio de automatismos digitales sin microcontroladores, usando lógica combinacional y secuencial.", "included": ["Motor paso a paso", "seguidor de línea", "secuencia KITT", "candado digital."], "reflection": "Demuestra diseño digital aplicado a automatización y validación experimental.", "activities": [{"title": "Control de motor paso a paso", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}, {"title": "Seguidor de línea", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}, {"title": "Secuencia KITT", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}, {"title": "Candado digital", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}]}, "ea-lab-5": {"title": "Electrónica Analógica - Laboratorio 5", "kicker": "Electrónica Analógica", "folder": "ea-lab-5", "image_mode": "activities", "images": 2, "video": false, "description": "Laboratorio de filtros pasivos y amplificadores operacionales con LM324.", "included": ["Filtros pasivos", "amplificadores operacionales."], "reflection": "Genera insumos técnicos con cálculo, simulación, medición y comparación.", "activities": [{"title": "Filtros pasivos", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}, {"title": "Amplificadores operacionales", "description": "Actividad interna del laboratorio documentada con imagen y respaldada en el informe."}]}, "mezclador-audio": {"title": "Mezclador de Audio Digital", "kicker": "Proyecto interdisciplinario", "folder": "26-mezclador-audio-digital", "image_mode": "gallery", "images": 2, "video": true, "description": "Proyecto de procesamiento digital de audio con programación, filtrado, mezcla y visualización.", "included": ["Mezcla de señales", "filtros", "análisis temporal y frecuencial", "implementación en Python."], "reflection": "Integra matemática, programación y procesamiento de señales."}, "electroindustrial": {"title": "Aplicaciones Electroindustriales", "kicker": "Sistemas eléctricos industriales", "folder": "aplicaciones-electroindustriales", "image_mode": "gallery", "images": 2, "video": true, "description": "Evidencia vinculada a tablero industrial, motor trifásico, contactores, relés y secuencias.", "included": ["Motor trifásico", "arranque estrella-triángulo", "arranque/parada", "accionamientos eléctricos."], "reflection": "Fuerte para operación y mantenimiento por conexión, puesta en servicio y verificación."}, "neumatica": {"title": "Neumática y Electroneumática", "kicker": "Sistemas de accionamiento", "folder": "neumatica-electroneumatica", "image_mode": "gallery", "images": 2, "video": false, "description": "Evidencia de diseño, montaje y verificación de circuitos neumáticos y electroneumáticos.", "included": ["Circuitos con cilindros", "válvulas", "secuencias", "apertura de silo."], "reflection": "Demuestra operación y mantenimiento desde el montaje y revisión de funcionamiento."}, "montaje-mecanico": {"title": "Montaje y desmontaje mecánico", "kicker": "Mantenimiento mecánico", "folder": "montaje-desmontaje-mecanico", "image_mode": "gallery", "images": 2, "video": false, "description": "Evidencia centrada en montaje y desmontaje del eje de transferencia y caja de cambios.", "included": ["Identificación de componentes", "desmontaje", "montaje", "criterios de seguridad."], "reflection": "Es la evidencia más directa para mantenimiento mecánico."}};
+var competenceData={"operacion": {"title": "Operación de Sistemas Mecatrónicos", "intro": "Esta competencia se relaciona con la implementación, operación, monitoreo y puesta en servicio de sistemas mecatrónicos.", "subs": {"1.1": "Implementar software y hardware específico para el correcto desempeño de procesos.", "1.2": "Verificar la capacidad operacional de sistemas mecatrónicos mediante monitoreo.", "1.3": "Instalar y poner en servicio sistemas mecatrónicos considerando calidad, seguridad y medio ambiente."}, "keys": ["turi", "aromatizador", "micro-lab-3", "micro-lab-4", "electroindustrial", "neumatica"], "map": {"turi": ["1.1"], "aromatizador": ["1.1", "1.3"], "micro-lab-3": ["1.1", "1.2"], "micro-lab-4": ["1.1", "1.2"], "electroindustrial": ["1.2", "1.3"], "neumatica": ["1.2", "1.3"]}, "reflection": "Se priorizan evidencias donde hay puesta en marcha, lectura de variables, accionamiento y verificación del comportamiento."}, "mantenimiento": {"title": "Mantenimiento de Sistemas Mecatrónicos", "intro": "Esta competencia se enfoca en inspección, intervención, montaje, desmontaje, verificación y aplicación de procedimientos técnicos.", "subs": {"2.1": "Ejecutar planes de mantenimiento preventivos y correctivos diseñados por especialistas.", "2.2": "Aplicar procedimientos e instrucciones relacionadas con mantenimiento basado en confiabilidad."}, "keys": ["montaje-mecanico", "electroindustrial", "neumatica"], "map": {"montaje-mecanico": ["2.1", "2.2"], "electroindustrial": ["2.1", "2.2"], "neumatica": ["2.1", "2.2"]}, "reflection": "La selección se concentra en actividades con intervención, revisión, conexión, diagnóstico o verificación de sistemas físicos."}, "diseno": {"title": "Diseño de Sistemas Mecatrónicos", "intro": "Esta competencia reúne evidencias donde se diseñaron, fabricaron, integraron o documentaron sistemas mecatrónicos.", "subs": {"3.1": "Fabricar equipos, sistemas y procesos mecatrónicos de acuerdo con diseño.", "3.2": "Incorporar tecnologías ya evaluadas a sistemas y procesos mecatrónicos.", "3.3": "Generar insumos de procesos existentes para el diseño o rediseño de un sistema."}, "keys": ["turi", "aromatizador", "micro-lab-1", "micro-lab-2", "micro-lab-3", "micro-lab-4", "ed-lab-4", "ed-lab-3", "ea-lab-5", "mezclador-audio"], "map": {"turi": ["3.1", "3.3"], "aromatizador": ["3.1"], "micro-lab-1": ["3.1", "3.2"], "micro-lab-2": ["3.1", "3.2"], "micro-lab-3": ["3.1", "3.2"], "micro-lab-4": ["3.1", "3.2"], "ed-lab-4": ["3.1", "3.2", "3.3"], "ed-lab-3": ["3.3"], "ea-lab-5": ["3.3"], "mezclador-audio": ["3.2", "3.3"]}, "reflection": "Diseño es la competencia con más evidencias porque integra análisis, simulación, montaje, programación y validación."}, "innovacion": {"title": "Innovación e Investigación en Sistemas Mecatrónicos", "intro": "Esta competencia se vincula con prototipado, integración tecnológica, pruebas y ensayos.", "subs": {"4.1": "Reconocer paradigmas tecnológicos tradicionales e innovadores.", "4.2": "Fabricar prototipos para sistemas y procesos mecatrónicos.", "4.3": "Colaborar en la integración de nuevas tecnologías realizando pruebas y ensayos."}, "keys": ["turi", "aromatizador", "micro-lab-1", "micro-lab-4", "ed-lab-4", "mezclador-audio"], "map": {"turi": ["4.1", "4.2", "4.3"], "aromatizador": ["4.2"], "micro-lab-1": ["4.1", "4.2"], "micro-lab-4": ["4.1", "4.2", "4.3"], "ed-lab-4": ["4.1", "4.2", "4.3"], "mezclador-audio": ["4.1", "4.2", "4.3"]}, "reflection": "Se priorizan evidencias con prototipos, integración de tecnologías, pruebas experimentales y soluciones combinadas."}};
+var currentCompetence="operacion";
+function showView(v){document.querySelectorAll(".view").forEach(x=>x.classList.remove("active"));var n=document.getElementById("view-"+v);if(n){n.classList.add("active");window.scrollTo({top:0,behavior:"smooth"});}}
+function goBack(){showView(currentCompetence);}
+function extractDriveId(t){if(!t)return "";var v=t.trim();if(!v)return "";var p=[/\/file\/d\/([^\/]+)/,/id=([^&]+)/,/^([a-zA-Z0-9_-]{20,})$/];for(var i=0;i<p.length;i++){var m=v.match(p[i]);if(m&&m[1])return m[1];}return "";}
+function base(ev){return "../evidencias-media/"+ev.folder;}
+function miss(box,path){box.className="media-missing";box.innerHTML="Subí el archivo en:<br><strong>"+path+"</strong>";}
+function renderGallery(k,ev,media,b){for(var i=1;i<=ev.images;i++){var box=document.createElement("div");box.className="media-box";var p=b+"/img/imagen-"+i+".jpg";var img=document.createElement("img");img.src=p+"?reload="+k+"-"+i+"-"+Date.now();img.alt="Imagen "+i+" de "+ev.title;img.setAttribute("data-path",p);img.onerror=function(){miss(this.parentElement,this.getAttribute("data-path"));};box.appendChild(img);media.appendChild(box);}}
+function renderActivities(k,ev,media,b){var grid=document.createElement("div");grid.className="activities-media-grid";ev.activities.forEach(function(a,idx){var card=document.createElement("article");card.className="activity-media-card";var p=b+"/img/actividad-"+(idx+1)+".jpg";var img=document.createElement("img");img.src=p+"?reload="+k+"-"+idx+"-"+Date.now();img.alt=a.title;img.setAttribute("data-path",p);img.onerror=function(){var holder=document.createElement("div");holder.className="media-missing";holder.innerHTML="Subí la imagen en:<br><strong>"+this.getAttribute("data-path")+"</strong>";this.replaceWith(holder);};var body=document.createElement("div");body.className="activity-media-body";body.innerHTML="<h4>"+a.title+"</h4><p>"+a.description+"</p>";card.appendChild(img);card.appendChild(body);grid.appendChild(card);});media.appendChild(grid);}
+function renderVideo(k,ev,media,b){if(ev.video!==true)return;var box=document.createElement("div");box.className="video-box";var title=document.createElement("div");title.className="video-title";title.textContent="Video demostrativo";box.appendChild(title);var p=b+"/videos/demo.mp4";var v=document.createElement("video");v.controls=true;v.preload="metadata";var s=document.createElement("source");s.src=p+"?reload="+k+"-"+Date.now();s.type="video/mp4";v.appendChild(s);box.appendChild(v);media.appendChild(box);}
+function renderMedia(k){var ev=evidenceData[k];var media=document.getElementById("detailMedia");media.replaceChildren();var b=base(ev);if(ev.image_mode==="activities")renderActivities(k,ev,media,b);else renderGallery(k,ev,media,b);renderVideo(k,ev,media,b);}
+function renderDocument(k){var ev=evidenceData[k];var target=document.getElementById("detailDocument");target.innerHTML="";var b=base(ev);var txt=b+"/drive-link.txt";fetch(txt+"?reload="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.text():"").then(t=>{var id=extractDriveId(t);if(id)target.innerHTML='<iframe class="pdf-viewer" src="https://drive.google.com/file/d/'+id+'/preview"></iframe>';else target.innerHTML='<p class="note">Agregá el enlace del documento en <strong>'+txt+'</strong>.</p>';}).catch(()=>target.innerHTML='<p class="note">Agregá el enlace del documento en <strong>'+txt+'</strong>.</p>');}
+function showEvidence(k,c){var ev=evidenceData[k],comp=competenceData[c];if(!ev||!comp)return;currentCompetence=c;detailHero.textContent=ev.title;detailKicker.textContent="Evidencia — "+comp.title;detailKickerSmall.textContent=ev.kicker;detailTitle.textContent=ev.title;detailDescription.textContent=ev.description;detailReflection.textContent=ev.reflection;detailIncluded.replaceChildren();ev.included.forEach(x=>{var li=document.createElement("li");li.textContent=x;detailIncluded.appendChild(li);});detailSubcompetences.replaceChildren();(comp.map[k]||[]).forEach(code=>{var li=document.createElement("li");li.textContent=code+" — "+comp.subs[code];detailSubcompetences.appendChild(li);});renderMedia(k);renderDocument(k);showView("evidencia");}
+</script><script>document.addEventListener("DOMContentLoaded",function(){showView("operacion");});</script></body></html>
