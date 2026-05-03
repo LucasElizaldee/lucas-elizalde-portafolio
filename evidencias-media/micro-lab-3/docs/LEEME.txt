@@ -1,4 +1,4 @@
-Microprocesamiento - Laboratorio 3
+Microprocesamiento - Laboratorio 1
 
 Si querés subir un PDF local, usá este nombre:
 - informe.pdf
