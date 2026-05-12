@@ -1,0 +1,6 @@
+Subí tu foto en esta carpeta con el nombre exacto:
+
+foto-perfil.jpg
+
+La ruta esperada por el HTML es:
+sobre-mi/img/foto-perfil.jpg
